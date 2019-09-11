@@ -2,6 +2,9 @@
 
 namespace DinoDiner.Menu.Entrees
 {
+    /// <summary>
+    /// Prehistoric PB&J (A peanut butter & jelly sandwich)
+    /// </summary>
     public class PrehistoricPBJ
     {
         private bool peanutButter = true;
@@ -27,11 +30,17 @@ namespace DinoDiner.Menu.Entrees
             this.Calories = 483;
         }
 
+        /// <summary>
+        /// Sets peanut butter boolean to false so it doesn't get added to the ingredients
+        /// </summary>
         public void HoldPeanutButter()
         {
             this.peanutButter = false;
         }
 
+        /// <summary>
+        /// Sets jelly boolean to false so it doesn't get added to the ingredients
+        /// </summary>
         public void HoldJelly()
         {
             this.jelly = false;

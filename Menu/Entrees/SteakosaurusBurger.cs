@@ -4,6 +4,9 @@ using System.Text;
 
 namespace DinoDiner.Menu.Entrees
 {
+    /// <summary>
+    /// Steakosaurus Burger (A 1/2 pound steakburger)
+    /// </summary>
     public class SteakosaurusBurger
     {
         private bool wholeWheatBun = true;
@@ -34,21 +37,33 @@ namespace DinoDiner.Menu.Entrees
             this.Calories = 621;
         }
 
+        /// <summary>
+        /// Sets bun boolean to false so it doesn't get added to the ingredients
+        /// </summary>
         public void HoldBun()
         {
             this.wholeWheatBun = false;
         }
 
+        /// <summary>
+        /// Sets puckle boolean to false so it doesn't get added to the ingredients
+        /// </summary>
         public void HoldPickle()
         {
             this.pickle = false;
         }
 
+        /// <summary>
+        /// Sets ketchup boolean to false so it doesn't get added to the ingredients
+        /// </summary>
         public void HoldKetchup()
         {
             this.ketchup = false;
         }
 
+        /// <summary>
+        /// Sets mustard boolean to false so it doesn't get added to the ingredients
+        /// </summary>
         public void HoldMustard()
         {
             this.mustard = false;

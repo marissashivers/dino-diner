@@ -4,6 +4,9 @@ using System.Text;
 
 namespace DinoDiner.Menu.Entrees
 {
+    /// <summary>
+    /// T-Rex King Burger (A triple 1/2 steakburger with all the fixings)
+    /// </summary>
     public class TRexKingBurger
     {
         private bool wholeWheatBun = true;
@@ -31,6 +34,7 @@ namespace DinoDiner.Menu.Entrees
                 if (tomato) Ingredients.Add("Tomato");
                 if (onions) Ingredients.Add("Onion");
                 if (pickle) Ingredients.Add("Pickle");
+                if (ketchup) Ingredients.Add("Ketchup");
                 if (mustard) Ingredients.Add("Mustard");
                 if (mayo) Ingredients.Add("Mayo");
                 return Ingredients;
@@ -43,41 +47,65 @@ namespace DinoDiner.Menu.Entrees
             this.Calories = 728;
         }
 
+        /// <summary>
+        /// Sets bun boolean to false so it doesn't get added to the ingredients
+        /// </summary>
         public void HoldBun()
         {
             wholeWheatBun = false;
         }
 
+        /// <summary>
+        /// Sets lettuce boolean to false so it doesn't get added to the ingredients
+        /// </summary>
         public void HoldLettuce()
         {
             lettuce = false;
         }
 
+        /// <summary>
+        /// Sets tomato boolean to false so it doesn't get added to the ingredients
+        /// </summary>
         public void HoldTomato()
         {
             tomato = false;
         }
 
+        /// <summary>
+        /// Sets onion boolean to false so it doesn't get added to the ingredients
+        /// </summary>
         public void HoldOnion()
         {
             onions = false;
         }
 
+        /// <summary>
+        /// Sets pickle boolean to false so it doesn't get added to the ingredients
+        /// </summary>
         public void HoldPickle()
         {
             pickle = false;
         }
 
+        /// <summary>
+        /// Sets ketchup boolean to false so it doesn't get added to the ingredients
+        /// </summary>
         public void HoldKetchup()
         {
             ketchup = false;
         }
 
+        /// <summary>
+        /// Sets mustard boolean to false so it doesn't get added to the ingredients
+        /// </summary>
         public void HoldMustard()
         {
             mustard = false;
         }
 
+        /// <summary>
+        /// Sets mayo boolean to false so it doesn't get added to the ingredients
+        /// </summary>
         public void HoldMayo()
         {
             mayo = false;

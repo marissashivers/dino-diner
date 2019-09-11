@@ -4,6 +4,9 @@ using System.Text;
 
 namespace DinoDiner.Menu.Entrees
 {
+    /// <summary>
+    /// Pterodactyl Wings (Chicken wings glazed with a signature hot sauce)
+    /// </summary>
     public class PterodactylWings
     {
         public double Price { get; set; }
@@ -24,7 +27,6 @@ namespace DinoDiner.Menu.Entrees
             this.Price = 7.21;
             this.Calories = 318;
         }
-
 
     }
 }

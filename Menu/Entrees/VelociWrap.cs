@@ -4,6 +4,9 @@ using System.Text;
 
 namespace DinoDiner.Menu.Entrees
 {
+    /// <summary>
+    /// Veloci-Wrap (A chicken ceasar wrap)
+    /// </summary>
     public class VelociWrap
     {
         private bool ceasarDressing = true;
@@ -33,16 +36,25 @@ namespace DinoDiner.Menu.Entrees
             this.Calories = 356;
         }
 
+        /// <summary>
+        /// Sets lettuce boolean to false so it doesn't get added to the ingredients
+        /// </summary>
         public void HoldLettuce()
         {
             this.romaineLettuce = false;
         }
 
+        /// <summary>
+        /// Sets dressing boolean to false so it doesn't get added to the ingredients
+        /// </summary>
         public void HoldDressing()
         {
             this.ceasarDressing = false;
         }
 
+        /// <summary>
+        /// Sets cheese boolean to false so it doesn't get added to the ingredients
+        /// </summary>
         public void HoldCheese()
         {
             this.parmesanCheese = false;
