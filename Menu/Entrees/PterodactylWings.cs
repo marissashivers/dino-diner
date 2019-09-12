@@ -14,11 +14,13 @@ namespace DinoDiner.Menu.Entrees
 
         public List<String> Ingredients
         {
+            
             get
             {
-                Ingredients.Add("Chicken");
-                Ingredients.Add("Wing Sauce");
-                return Ingredients;
+                List<String> ingredients = new List<String>();
+                ingredients.Add("Chicken");
+                ingredients.Add("Wing Sauce");
+                return ingredients;
             }
         }
 

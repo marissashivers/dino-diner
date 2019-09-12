@@ -14,17 +14,18 @@ namespace DinoDiner.Menu.Entrees
         public double Price { get; set; }
         public uint Calories { get; set; }
 
+
         public List<String> Ingredients
         {
             get
             {
-                List<String> Ingredients = new List<string>();
+                List<String> ingredients = new List<String>();
                 for (int i = 0; i < numNuggets; i++)
                 {
-                    Ingredients.Add("Chicken Nugget");
+                    ingredients.Add("Chicken Nugget");
+                    
                 }
-                Ingredients.Add("Wing Sauce");
-                return Ingredients;
+                return ingredients;
             }
         }
 
