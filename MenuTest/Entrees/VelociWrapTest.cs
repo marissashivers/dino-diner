@@ -2,7 +2,7 @@
 using Xunit;
 using DinoDiner.Menu.Entrees;
 
-namespace DinoDiner.MenuTest.Entrees
+namespace MenuTest.Entrees
 {
     public class VelociWrapUnitTest
     {
@@ -32,7 +32,6 @@ namespace DinoDiner.MenuTest.Entrees
             Assert.Contains<string>("Parmesan Cheese", ingredients);
             Assert.Equal<int>(5, ingredients.Count);
         }
-
 
         [Fact]
         public void HoldDressingShouldRemoveDressing()
