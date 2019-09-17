@@ -35,8 +35,8 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public SteakosaurusBurger()
         {
-            this.Price = 5.15;
-            this.Calories = 621;
+            base.Price = 5.15;
+            base.Calories = 621;
         }
 
         /// <summary>

@@ -29,8 +29,8 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public PrehistoricPBJ()
         {
-            this.Price = 6.52;
-            this.Calories = 483;
+            base.Price = 6.52;
+            base.Calories = 483;
         }
 
         /// <summary>

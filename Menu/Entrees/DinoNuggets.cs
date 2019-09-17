@@ -33,10 +33,10 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public DinoNuggets()
         {
-            this.Price = 4.25;
+            base.Price = 4.25;
             for (int i = 0; i < numNuggets; i++)
             {
-                this.Calories += (uint)59;
+                base.Calories += (uint)59;
             }
         }
 
@@ -46,8 +46,8 @@ namespace DinoDiner.Menu.Entrees
         public void AddNugget()
         {
             numNuggets++;
-            this.Price += 0.25;
-            this.Calories += 59;
+            base.Price += 0.25;
+            base.Calories += 59;
         }
     }
 }

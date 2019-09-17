@@ -46,8 +46,8 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public TRexKingBurger()
         {
-            this.Price = 8.45;
-            this.Calories = 728;
+            base.Price = 8.45;
+            base.Calories = 728;
         }
 
         /// <summary>

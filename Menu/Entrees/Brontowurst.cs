@@ -33,8 +33,8 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public Brontowurst()
         {
-            this.Price = 5.36;
-            this.Calories = 498;
+            base.Price = 5.36;
+            base.Calories = 498;
         }
 
         /// <summary>
