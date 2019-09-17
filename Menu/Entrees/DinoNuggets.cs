@@ -7,15 +7,14 @@ namespace DinoDiner.Menu.Entrees
     /// <summary>
     /// DinoNuggets (Six crispy fried breaded chicken nuggets)
     /// </summary>
-    public class DinoNuggets
+    public class DinoNuggets : Entree
     {
         private int numNuggets = 6;
 
-        public double Price { get; set; }
-        public uint Calories { get; set; }
-
-
-        public List<string> Ingredients
+        /// <summary>
+        /// Gets current list of ingredients
+        /// </summary>
+        public override List<string> Ingredients
         {
             get
             {
@@ -29,6 +28,9 @@ namespace DinoDiner.Menu.Entrees
             }
         }
 
+        /// <summary>
+        /// Constructor for Dino Nuggets
+        /// </summary>
         public DinoNuggets()
         {
             this.Price = 4.25;

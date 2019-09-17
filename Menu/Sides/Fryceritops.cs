@@ -10,7 +10,7 @@ namespace DinoDiner.Menu.Sides
     public class Fryceritops : Side // inherits the side abstract class
     {
         // private backing variable
-        private Size size;
+        private Size PrivateSize;
 
         /// <summary>
         /// Gets and sets size, and sets price/calories according to size
@@ -19,12 +19,12 @@ namespace DinoDiner.Menu.Sides
         {          
             get
             {
-                return Size;
+                return PrivateSize;
             }
             set
             {
-                size = value;
-                switch(size)
+                PrivateSize = value;
+                switch(PrivateSize)
                 {
                     case Size.Small:
                         Price = 0.99;
@@ -42,16 +42,24 @@ namespace DinoDiner.Menu.Sides
             }
         }
 
-        public List<String> Ingredients
+        /// <summary>
+        /// Gets the current list of ingredients
+        /// </summary>
+        public override List<String> Ingredients
         {
             get
             {
-                List<string> Ingredients = new List<String>();
-
-                return Ingredients;
+                List<string> ingredients = new List<string>();
+                ingredients.Add("Potato");
+                ingredients.Add("Salt");
+                ingredients.Add("Vegetable Oil");
+                return ingredients;
             }
         }
 
+        /// <summary>
+        /// Constructor for Fryceritops
+        /// </summary>
         public Fryceritops()
         {
             base.Calories = 222; // don't need "base", but can include it

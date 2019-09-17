@@ -7,18 +7,17 @@ namespace DinoDiner.Menu.Entrees
     /// <summary>
     /// Steakosaurus Burger (A 1/2 pound steakburger)
     /// </summary>
-    public class SteakosaurusBurger
+    public class SteakosaurusBurger : Entree
     {
         private bool wholeWheatBun = true;
-        private bool steakburgerPattie = true;
         private bool pickle = true;
         private bool ketchup = true;
         private bool mustard = true;
 
-        public double Price { get; set; }
-        public uint Calories { get; set; }
-
-        public List<string> Ingredients
+        /// <summary>
+        /// Gets current list of ingredients
+        /// </summary>
+        public override List<string> Ingredients
         {
             get
             {
@@ -31,6 +30,9 @@ namespace DinoDiner.Menu.Entrees
             }
         }
 
+        /// <summary>
+        /// Constructor for Steakosaurus Burger
+        /// </summary>
         public SteakosaurusBurger()
         {
             this.Price = 5.15;

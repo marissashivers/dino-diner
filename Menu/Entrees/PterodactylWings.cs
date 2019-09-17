@@ -7,12 +7,12 @@ namespace DinoDiner.Menu.Entrees
     /// <summary>
     /// Pterodactyl Wings (Chicken wings glazed with a signature hot sauce)
     /// </summary>
-    public class PterodactylWings
+    public class PterodactylWings : Entree
     {
-        public double Price { get; set; }
-        public uint Calories { get; set; }
-
-        public List<string> Ingredients
+        /// <summary>
+        /// Gets current list of ingredients
+        /// </summary>
+        public override List<string> Ingredients
         {
             
             get
@@ -24,6 +24,9 @@ namespace DinoDiner.Menu.Entrees
             }
         }
 
+        /// <summary>
+        /// Constructor for Pterodactyl Wings
+        /// </summary>
         public PterodactylWings()
         {
             this.Price = 7.21;

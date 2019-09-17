@@ -3,17 +3,17 @@
 namespace DinoDiner.Menu.Entrees
 {
     /// <summary>
-    /// Prehistoric PB&J (A peanut butter & jelly sandwich)
+    /// Prehistoric PB and J (A peanut butter and jelly sandwich)
     /// </summary>
-    public class PrehistoricPBJ
+    public class PrehistoricPBJ : Entree
     {
         private bool peanutButter = true;
         private bool jelly = true;
 
-        public double Price { get; set; }
-        public uint Calories { get; set; }
-
-        public List<string> Ingredients
+        /// <summary>
+        /// Gets current list of ingredients
+        /// </summary>
+        public override List<string> Ingredients
         {
             get
             {
@@ -24,6 +24,9 @@ namespace DinoDiner.Menu.Entrees
             }
         }
 
+        /// <summary>
+        /// Constructor for Prehistoric PB and J
+        /// </summary>
         public PrehistoricPBJ()
         {
             this.Price = 6.52;

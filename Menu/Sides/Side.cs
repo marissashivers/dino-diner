@@ -4,11 +4,22 @@ using System.Text;
 
 namespace DinoDiner.Menu.Sides
 {
-
+    /// <summary>
+    /// Size enumeration variable for Size.Small, Size.Medium, and Size.Large
+    /// </summary>
     public enum Size
     {
+        /// <summary>
+        /// Small size
+        /// </summary>
         Small,
+        /// <summary>
+        /// Medium size
+        /// </summary>
         Medium, 
+        /// <summary>
+        /// Large size
+        /// </summary>
         Large
     }
 
@@ -30,7 +41,7 @@ namespace DinoDiner.Menu.Sides
         /// <summary>
         /// Gets the ingredients list
         /// </summary>
-        public List<string> Ingredients { get; }
+        public abstract List<string> Ingredients { get; }
 
         /// <summary>
         /// Gets or sets the size
