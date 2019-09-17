@@ -21,23 +21,23 @@ namespace DinoDiner.Menu.Entrees
         public double Price { get; set; }
         public uint Calories { get; set; }
 
-        public List<String> Ingredients
+        public List<string> Ingredients
         {
             get
             {
-                List<String> Ingredients = new List<String>();
-                Ingredients.Add("Steakburger Pattie");
-                Ingredients.Add("Steakburger Pattie");
-                Ingredients.Add("Steakburger Pattie");
-                if (wholeWheatBun) Ingredients.Add("Whole Wheat Bun");
-                if (lettuce) Ingredients.Add("Lettuce");
-                if (tomato) Ingredients.Add("Tomato");
-                if (onions) Ingredients.Add("Onion");
-                if (pickle) Ingredients.Add("Pickle");
-                if (ketchup) Ingredients.Add("Ketchup");
-                if (mustard) Ingredients.Add("Mustard");
-                if (mayo) Ingredients.Add("Mayo");
-                return Ingredients;
+                List<string> ingredients = new List<string>();
+                ingredients.Add("Steakburger Pattie");
+                ingredients.Add("Steakburger Pattie");
+                ingredients.Add("Steakburger Pattie");
+                if (wholeWheatBun) ingredients.Add("Whole Wheat Bun");
+                if (lettuce) ingredients.Add("Lettuce");
+                if (tomato) ingredients.Add("Tomato");
+                if (onions) ingredients.Add("Onion");
+                if (pickle) ingredients.Add("Pickle");
+                if (ketchup) ingredients.Add("Ketchup");
+                if (mustard) ingredients.Add("Mustard");
+                if (mayo) ingredients.Add("Mayo");
+                return ingredients;
             }
         }
 

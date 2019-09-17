@@ -13,14 +13,23 @@ namespace DinoDiner.Menu.Entrees
         private bool romaineLettuce = true;
         private bool parmesanCheese = true;
 
+        /// <summary>
+        /// Gets and sets the price
+        /// </summary>
         public double Price { get; set; }
+        /// <summary>
+        /// Gets and sets the calories
+        /// </summary>
         public uint Calories { get; set; }
 
-        public List<String> Ingredients
+        /// <summary>
+        /// Gets the list of ingredients
+        /// </summary>
+        public List<string> Ingredients
         {
             get
             {
-                List<String> ingredients = new List<string>();
+                List<string> ingredients = new List<string>();
                 ingredients.Add("Flour Tortilla");
                 ingredients.Add("Chicken Breast");
                 if (ceasarDressing) ingredients.Add("Ceasar Dressing");
@@ -30,6 +39,9 @@ namespace DinoDiner.Menu.Entrees
             }
         }
 
+        /// <summary>
+        /// Constructor for VelociWrap that sets price and calories
+        /// </summary>
         public VelociWrap()
         {
             this.Price = 6.86;

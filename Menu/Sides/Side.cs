@@ -12,6 +12,9 @@ namespace DinoDiner.Menu.Sides
         Large
     }
 
+    /// <summary>
+    /// Abstract base class for a "side".
+    /// </summary>
     public abstract class Side
     {
         /// <summary>
@@ -32,7 +35,7 @@ namespace DinoDiner.Menu.Sides
         /// <summary>
         /// Gets or sets the size
         /// </summary>
-        public Size Size { get; set; }
+        public abstract Size Size { get; set; }
 
     }
 }

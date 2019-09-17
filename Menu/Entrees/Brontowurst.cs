@@ -17,15 +17,15 @@ namespace DinoDiner.Menu.Entrees
         public double Price { get; set; }
         public uint Calories { get; set; }
 
-        public List<String> Ingredients
+        public List<string> Ingredients
         {
             get
             {
-                List<string> Ingredients = new List<String>() { "Brautwurst" };
-                if (wholeWheatBun) Ingredients.Add("Whole Wheat Bun");
-                if (peppers) Ingredients.Add("Peppers");
-                if (onions) Ingredients.Add("Onion");
-                return Ingredients;
+                List<string> ingredients = new List<string>() { "Brautwurst" };
+                if (wholeWheatBun) ingredients.Add("Whole Wheat Bun");
+                if (peppers) ingredients.Add("Peppers");
+                if (onions) ingredients.Add("Onion");
+                return ingredients;
             }
         }
 
