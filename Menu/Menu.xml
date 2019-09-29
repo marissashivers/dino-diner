@@ -4,6 +4,242 @@
         <name>Menu</name>
     </assembly>
     <members>
+        <member name="T:DinoDiner.Menu.Drinks.Size">
+            <summary>
+            Size enumeration variable for Size.Small, Size.Medium, and Size.Large
+            </summary>
+        </member>
+        <member name="F:DinoDiner.Menu.Drinks.Size.Small">
+            <summary>
+            Size.Small
+            </summary>
+        </member>
+        <member name="F:DinoDiner.Menu.Drinks.Size.Medium">
+            <summary>
+            Size.Medium
+            </summary>
+        </member>
+        <member name="F:DinoDiner.Menu.Drinks.Size.Large">
+            <summary>
+            Size.Large
+            </summary>
+        </member>
+        <member name="T:DinoDiner.Menu.Drinks.Drink">
+            <summary>
+            Abstract class for a drink.
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Drinks.Drink.Ice">
+            <summary>
+            Ice boolean
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Drinks.Drink.Price">
+            <summary>
+            Gets and sets the price
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Drinks.Drink.Calories">
+            <summary>
+            Gets and sets the calories
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Drinks.Drink.Ingredients">
+            <summary>
+            Gets the ingredients list
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Drinks.Drink.Size">
+            <summary>
+            Size enum
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Drinks.Drink.HoldIce">
+            <summary>
+            Holds the ice
+            </summary>
+        </member>
+        <member name="T:DinoDiner.Menu.Drinks.JurrasicJava">
+            <summary>
+            JurrassicJava = Coffee
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Drinks.JurrasicJava.RoomForCream">
+            <summary>
+            Room for cream bool property
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Drinks.JurrasicJava.Decaf">
+            <summary>
+            Decaf bool property
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Drinks.JurrasicJava.Size">
+            <summary>
+            Size property
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Drinks.JurrasicJava.Ingredients">
+            <summary>
+            Gets the list of ingredients
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Drinks.JurrasicJava.#ctor">
+            <summary>
+            Constructor for JurrassicJava
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Drinks.JurrasicJava.LeaveRoomForCream">
+            <summary>
+            Leaves room for cream.
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Drinks.JurrasicJava.AddIce">
+            <summary>
+            Adds ice.
+            </summary>
+        </member>
+        <member name="T:DinoDiner.Menu.Drinks.Sodasaurus">
+            <summary>
+            OLD-FASHION SODA
+            A drink that contains carbonated water, a sweetener, and a natural or artificial flavoring.
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Drinks.Sodasaurus.Size">
+            <summary>
+            Gets and sets the size and adjusts calories and price according to size
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Drinks.Sodasaurus.Flavor">
+            <summary>
+            Flavor of the Sodasaurus beverage.
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Drinks.Sodasaurus.Ingredients">
+            <summary>
+            Gets the ingredients list
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Drinks.Sodasaurus.#ctor">
+            <summary>
+            Constructor for Sodasaurus
+            </summary>
+        </member>
+        <member name="T:DinoDiner.Menu.Drinks.SodasaurusFlavor">
+            <summary>
+            Sodasaurus enum
+            </summary>
+        </member>
+        <member name="F:DinoDiner.Menu.Drinks.SodasaurusFlavor.Cola">
+            <summary>
+            sweetened, carbonated soft drink flavored with vanilla, cinnamon, citrus oils and other flavorings
+            </summary>
+        </member>
+        <member name="F:DinoDiner.Menu.Drinks.SodasaurusFlavor.Orange">
+            <summary>
+            a sweet-tart taste that is rich, flavorful and often hints of berry
+            </summary>
+        </member>
+        <member name="F:DinoDiner.Menu.Drinks.SodasaurusFlavor.Vanilla">
+            <summary>
+            vanilla
+            </summary>
+        </member>
+        <member name="F:DinoDiner.Menu.Drinks.SodasaurusFlavor.Chocolate">
+            <summary>
+            chocolate
+            </summary>
+        </member>
+        <member name="F:DinoDiner.Menu.Drinks.SodasaurusFlavor.RootBeer">
+            <summary>
+            root beer
+            </summary>
+        </member>
+        <member name="F:DinoDiner.Menu.Drinks.SodasaurusFlavor.Cherry">
+            <summary>
+            Cherry pit with a sweet creamy fruity background
+            </summary>
+        </member>
+        <member name="F:DinoDiner.Menu.Drinks.SodasaurusFlavor.Lime">
+            <summary>
+            a tart, acidic taste with just a slight hint of sweetness
+            </summary>
+        </member>
+        <member name="T:DinoDiner.Menu.Drinks.Tyrannotea">
+            <summary>
+            Iced tea
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Drinks.Tyrannotea.Lemon">
+            <summary>
+            Bool for lemon property
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Drinks.Tyrannotea.Sweet">
+            <summary>
+            Bool for sweet property
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Drinks.Tyrannotea.Size">
+            <summary>
+            Gets and sets the size, and adjusts price/calories based on size
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Drinks.Tyrannotea.#ctor">
+            <summary>
+            Constructor for Tyrannotea
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Drinks.Tyrannotea.Ingredients">
+            <summary>
+            Gets the list of ingredients
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Drinks.Tyrannotea.AddLemon">
+            <summary>
+            Adds the lemon
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Drinks.Tyrannotea.AddSweetener">
+            <summary>
+            Makes the tea sweet (adds cane sugar) and doubles calories
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Drinks.Tyrannotea.RemoveSweetener">
+            <summary>
+            Removes sweetener and halves calories
+            </summary>
+        </member>
+        <member name="T:DinoDiner.Menu.Drinks.Water">
+            <summary>
+            Hydration is important
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Drinks.Water.Lemon">
+            <summary>
+            Lemon bool for lemon property
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Drinks.Water.Size">
+            <summary>
+            Gets and sets size (same for all)
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Drinks.Water.Ingredients">
+            <summary>
+            List of ingredients
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Drinks.Water.#ctor">
+            <summary>
+            Cosntructor for water
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Drinks.Water.AddLemon">
+            <summary>
+            Adds a lemon
+            </summary>
+        </member>
         <member name="T:DinoDiner.Menu.Entrees.Brontowurst">
             <summary>
             Brontowurst (Brautwurst with peppers and onions in a bun)

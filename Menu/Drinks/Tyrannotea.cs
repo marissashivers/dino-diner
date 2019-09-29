@@ -5,14 +5,44 @@ using System.Text;
 namespace DinoDiner.Menu.Drinks
 {
     /// <summary>
-    /// 
+    /// Iced tea
     /// </summary>
     public class Tyrannotea : Drink
     {
-        private bool lemon = false;
-        private bool sweet = false;
+        private bool _lemon = false;
+        private bool _sweet = false;
 
-        private Size privateSize;
+        private Size _size;
+
+        /// <summary>
+        /// Bool for lemon property
+        /// </summary>
+        public bool Lemon
+        {
+            get
+            {
+                return _lemon;
+            }
+            set
+            {
+                _lemon = value;
+            }
+        }
+
+        /// <summary>
+        /// Bool for sweet property
+        /// </summary>
+        public bool Sweet
+        {
+            get
+            {
+                return _sweet;
+            }
+             set
+            {
+                _sweet = value;
+            }
+        }
 
         /// <summary>
         /// Gets and sets the size, and adjusts price/calories based on size
@@ -21,12 +51,12 @@ namespace DinoDiner.Menu.Drinks
         {
             get
             {
-                return privateSize;
+                return _size;
             }
             set
             {
-                privateSize = value;
-                switch(privateSize)
+                _size = value;
+                switch(_size)
                 {
                     case (Size.Small):
                         Price = 0.99;
@@ -45,6 +75,16 @@ namespace DinoDiner.Menu.Drinks
         }
 
         /// <summary>
+        /// Constructor for Tyrannotea
+        /// </summary>
+        public Tyrannotea()
+        {
+            base.Price = 0.99;
+            base.Calories = 8;
+            this.Size = Size.Small;
+        }
+
+        /// <summary>
         /// Gets the list of ingredients
         /// </summary>
         public override List<string> Ingredients
@@ -54,8 +94,8 @@ namespace DinoDiner.Menu.Drinks
                 List<string> ingredients = new List<string>();
                 ingredients.Add("Water");
                 ingredients.Add("Tea");
-                if (lemon) ingredients.Add("Lemon");
-                if (sweet) ingredients.Add("Cane Sugar");
+                if (_lemon) ingredients.Add("Lemon");
+                if (_sweet) ingredients.Add("Cane Sugar");
                 return ingredients;
             }
         }
@@ -65,7 +105,7 @@ namespace DinoDiner.Menu.Drinks
         /// </summary>
         public void AddLemon()
         {
-            lemon = true;
+            _lemon = true;
         }
 
         /// <summary>
@@ -73,8 +113,20 @@ namespace DinoDiner.Menu.Drinks
         /// </summary>
         public void AddSweetener()
         {
-            sweet = true;
+            _sweet = true;
             this.Calories = this.Calories * 2;
+        }
+
+        /// <summary>
+        /// Removes sweetener and halves calories
+        /// </summary>
+        public void RemoveSweetener()
+        {
+            if (_sweet)
+            {
+                _sweet = false;
+                this.Calories = this.Calories / 2;
+            }
         }
     }
 }

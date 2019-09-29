@@ -9,10 +9,40 @@ namespace DinoDiner.Menu.Drinks
     /// </summary>
     public class JurrasicJava : Drink
     {
-        private bool RoomForCream = false;
-        private bool Decaf = false;
+        private bool _roomForCream = false;
+        private bool _decaf = false;
 
-        private Size privateSize;
+        private Size _size;
+
+        /// <summary>
+        /// Room for cream bool property
+        /// </summary>
+        public bool RoomForCream
+        {
+            get
+            {
+                return _roomForCream;
+            }
+            set
+            {
+                _roomForCream = value;
+            }
+        }
+
+        /// <summary>
+        /// Decaf bool property
+        /// </summary>
+        public bool Decaf
+        {
+            get
+            {
+                return _decaf;
+            }
+            set
+            {
+                _decaf = value;
+            }
+        }
 
         /// <summary>
         /// Size property
@@ -21,12 +51,12 @@ namespace DinoDiner.Menu.Drinks
         {
             get
             {
-                return privateSize;
+                return _size;
             }
             set
             {
-                privateSize = value;
-                switch (privateSize)
+                _size = value;
+                switch (_size)
                 {
                     case (Size.Small):
                         Price = 0.59;
@@ -63,9 +93,11 @@ namespace DinoDiner.Menu.Drinks
         /// </summary>
         public JurrasicJava()
         {
-            ice = false;
+            this.Ice = false;
             base.Price = 0.59;
             base.Calories = 2;
+            this.Size = Size.Small;
+            this.RoomForCream = false;
         }
 
         /// <summary>
@@ -81,7 +113,7 @@ namespace DinoDiner.Menu.Drinks
         /// </summary>
         public void AddIce()
         {
-            ice = true;
+            base.Ice = true;
         }
     }
 }

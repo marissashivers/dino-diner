@@ -10,8 +10,8 @@ namespace DinoDiner.Menu.Drinks
     /// </summary>
     public class Sodasaurus : Drink
     {
-        private Size privateSize;
-        private SodasaurusFlavor privateFlavor;
+        private Size _size;
+        private SodasaurusFlavor _flavor;
 
         /// <summary>
         /// Gets and sets the size and adjusts calories and price according to size
@@ -20,12 +20,12 @@ namespace DinoDiner.Menu.Drinks
         {
             get
             {
-                return privateSize;
+                return _size;
             }
             set
             {
-                privateSize = value;
-                switch(privateSize)
+                _size = value;
+                switch(_size)
                 {
                     case Size.Small:
                         Price = 1.50;
@@ -50,11 +50,11 @@ namespace DinoDiner.Menu.Drinks
         {
             get
             {
-                return privateFlavor;
+                return _flavor;
             }
             set
             {
-                privateFlavor = value;
+                _flavor = value;
             }
         }
 

@@ -9,9 +9,24 @@ namespace DinoDiner.Menu.Drinks
     /// </summary>
     public class Water : Drink
     {
-        private bool lemon = false;
+        private bool _lemon = false;
 
-        private Size privateSize;
+        private Size _size;
+
+        /// <summary>
+        /// Lemon bool for lemon property
+        /// </summary>
+        public bool Lemon
+        {
+            get
+            {
+                return _lemon;
+            }
+            set
+            {
+                _lemon = value;
+            }
+        }
 
         /// <summary>
         /// Gets and sets size (same for all)
@@ -20,12 +35,12 @@ namespace DinoDiner.Menu.Drinks
         {
             get
             {
-                return privateSize;
+                return _size;
             }
             set
             {
-                privateSize = value;
-                switch (privateSize)
+                _size = value;
+                switch (_size)
                 {
                     case (Size.Small):
                     case (Size.Medium):
@@ -46,7 +61,7 @@ namespace DinoDiner.Menu.Drinks
             {
                 List<string> ingredients = new List<string>();
                 ingredients.Add("Water");
-                if (lemon) ingredients.Add("Lemon");
+                if (_lemon) ingredients.Add("Lemon");
                 return ingredients;
             }
         }
@@ -65,7 +80,7 @@ namespace DinoDiner.Menu.Drinks
         /// </summary>
         public void AddLemon()
         {
-           this.lemon = true;
+           this._lemon = true;
         }
     }
 }

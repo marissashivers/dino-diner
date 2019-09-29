@@ -28,10 +28,22 @@ namespace DinoDiner.Menu.Drinks
     /// </summary>
     public abstract class Drink
     {
+
+        private bool _ice = true;
         /// <summary>
         /// Ice boolean
         /// </summary>
-        public bool ice = true;
+        public bool Ice
+        {
+            get
+            {
+                return _ice;
+            }
+            set
+            {
+                _ice = value;
+            }
+        }
 
         /// <summary>
         /// Gets and sets the price
@@ -58,7 +70,9 @@ namespace DinoDiner.Menu.Drinks
         /// </summary>
         public void HoldIce()
         {
-            this.ice = false;
+            this.Ice = false;
         }
     }
+
+
 }
