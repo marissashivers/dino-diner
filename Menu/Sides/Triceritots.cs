@@ -65,5 +65,26 @@ namespace DinoDiner.Menu
             base.Price = 0.99;
             base.Calories = 352;
         }
+
+        /// <summary>
+        /// ToString for Triceritots
+        /// </summary>
+        /// <returns>Sttring with size</returns>
+        public override string ToString()
+        {
+            if (this.Size == Size.Small)
+            {
+                return "Small Triceritots";
+            }
+            if (this.Size == Size.Medium)
+            {
+                return "Medium Triceritots";
+            }
+            if (this.Size == Size.Large)
+            {
+                return "Large Triceritots";
+            }
+            return base.ToString();
+        }
     }
 }

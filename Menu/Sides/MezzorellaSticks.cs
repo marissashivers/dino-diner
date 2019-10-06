@@ -66,5 +66,26 @@ namespace DinoDiner.Menu
             base.Calories = 540;
             base.Price = 0.99;
         }
+
+        /// <summary>
+        /// ToString for Mezorella Sticks
+        /// </summary>
+        /// <returns>Sttring with size</returns>
+        public override string ToString()
+        {
+            if (this.Size == Size.Small)
+            {
+                return "Small Mezorella Sticks";
+            }
+            if (this.Size == Size.Medium)
+            {
+                return "Medium Mezorella Sticks";
+            }
+            if (this.Size == Size.Large)
+            {
+                return "Large Mezorella Sticks";
+            }
+            return base.ToString();
+        }
     }
 }

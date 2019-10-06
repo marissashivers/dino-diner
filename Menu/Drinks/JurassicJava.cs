@@ -115,5 +115,31 @@ namespace DinoDiner.Menu
         {
             base.Ice = true;
         }
+
+        /// <summary>
+        /// ToString for Jurassic Java
+        /// </summary>
+        /// <returns>Sttring with size</returns>
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            if (this.Size == Size.Small)
+            {
+                sb.Append("Small ");
+            }
+            if (this.Size == Size.Medium)
+            {
+                sb.Append("Medium ");
+            }
+            if (this.Size == Size.Large)
+            {
+
+                sb.Append("Large ");
+            }
+            if (this.Decaf) sb.Append("Decaf ");
+            sb.Append("Jurassic Java");
+            return sb.ToString();
+        }
     }
 }

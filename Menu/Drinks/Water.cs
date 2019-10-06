@@ -82,5 +82,26 @@ namespace DinoDiner.Menu
         {
            this._lemon = true;
         }
+
+        /// <summary>
+        /// ToString for water
+        /// </summary>
+        /// <returns>Sttring with size</returns>
+        public override string ToString()
+        {
+            if (this.Size == Size.Small)
+            {
+                return "Small Water";
+            }
+            if (this.Size == Size.Medium)
+            {
+                return "Medium Water";
+            }
+            if (this.Size == Size.Large)
+            {
+                return "Large Water";
+            }
+            return base.ToString();
+        }
     }
 }

@@ -65,5 +65,26 @@ namespace DinoDiner.Menu
             base.Calories = 222; // don't need "base", but can include it
             base.Price = 0.99;
         }
+
+        /// <summary>
+        /// ToString for Fryceritops
+        /// </summary>
+        /// <returns>Sttring with size</returns>
+        public override string ToString()
+        {
+            if (this.Size == Size.Small)
+            {
+                return "Small Fryceritops";
+            }
+            if (this.Size == Size.Medium)
+            {
+                return "Medium Fryceritops";
+            }
+            if (this.Size == Size.Large)
+            {
+                return "Large Fryceritops";
+            }
+            return base.ToString();
+        }
     }
 }
