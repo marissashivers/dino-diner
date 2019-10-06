@@ -7,6 +7,7 @@ namespace DinoDiner.Menu
     /// </summary>
     public class PrehistoricPBJ : Entree, IMenuItem
     {
+        // Privaite peanut butter and jelly to be used only in this class.
         private bool peanutButter = true;
         private bool jelly = true;
 

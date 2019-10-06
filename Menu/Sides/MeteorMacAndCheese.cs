@@ -9,7 +9,8 @@ namespace DinoDiner.Menu
     /// </summary>
     public class MeteorMacAndCheese : Side, IMenuItem
     {
-        private Size PrivateSize;
+        // Private backing variable
+        private Size _size;
 
         //MeteorMacAndCheese m = new MeteorMacAndCheese();
         //m.Size = Size.Small;
@@ -21,12 +22,12 @@ namespace DinoDiner.Menu
         {
             get
             {
-                return PrivateSize;
+                return _size;
             }
             set
             {
-                PrivateSize = value;
-                switch (PrivateSize)
+                _size = value;
+                switch (_size)
                 {
                     case Size.Small:
                         Price = 0.99;

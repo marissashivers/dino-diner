@@ -9,6 +9,7 @@ namespace DinoDiner.Menu
     /// </summary>
     public class SteakosaurusBurger : Entree, IMenuItem
     {
+        // Private ingredient booleans to be used only in this class
         private bool wholeWheatBun = true;
         private bool pickle = true;
         private bool ketchup = true;

@@ -9,6 +9,7 @@ namespace DinoDiner.Menu
     /// </summary>
     public class Brontowurst : Entree, IMenuItem
     {
+        // Private variables for bun, peppers, and onions to be used only in this class.
         private bool wholeWheatBun = true;
         private bool peppers = true;
         private bool onions = true;

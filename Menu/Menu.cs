@@ -4,6 +4,9 @@ using System.Text;
 
 namespace DinoDiner.Menu
 {
+    /// <summary>
+    /// Class that represents the menu =)
+    /// </summary>
     public class Menu
     {
         /// <summary>

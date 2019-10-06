@@ -9,6 +9,7 @@ namespace DinoDiner.Menu
     /// </summary>
     public class VelociWrap : Entree, IMenuItem
     {
+        // Private boolean ingredients to be used only in this class
         private bool ceasarDressing = true;
         private bool romaineLettuce = true;
         private bool parmesanCheese = true;

@@ -9,6 +9,7 @@ namespace DinoDiner.Menu
     /// </summary>
     public class DinoNuggets : Entree, IMenuItem
     {
+        // Private number of nuggets
         private int numNuggets = 6;
 
         /// <summary>

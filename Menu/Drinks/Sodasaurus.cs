@@ -10,7 +10,10 @@ namespace DinoDiner.Menu
     /// </summary>
     public class Sodasaurus : Drink, IMenuItem
     {
+        // Private backing variable for size
         private Size _size;
+
+        // Private backing variable for flavor
         private SodasaurusFlavor _flavor;
 
         /// <summary>

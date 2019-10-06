@@ -9,9 +9,13 @@ namespace DinoDiner.Menu
     /// </summary>
     public class JurassicJava : Drink, IMenuItem
     {
+        // Private room for cream variable
         private bool _roomForCream = false;
+
+        // Private decaf variable
         private bool _decaf = false;
 
+        // Private backing variable
         private Size _size;
 
         /// <summary>

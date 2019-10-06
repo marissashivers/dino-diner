@@ -9,8 +9,10 @@ namespace DinoDiner.Menu
     /// </summary>
     public class Water : Drink, IMenuItem
     {
+        // Private lemon variable
         private bool _lemon = false;
 
+        // Private backing variable for size
         private Size _size;
 
         /// <summary>

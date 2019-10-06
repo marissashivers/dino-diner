@@ -28,8 +28,9 @@ namespace DinoDiner.Menu
     /// </summary>
     public abstract class Drink : IMenuItem
     {
-
+        // Private backing variable
         private bool _ice = true;
+
         /// <summary>
         /// Ice boolean
         /// </summary>

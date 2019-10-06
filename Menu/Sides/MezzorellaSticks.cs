@@ -11,7 +11,7 @@ namespace DinoDiner.Menu
     {
 
         // private backing variable
-        private Size PrivateSize;
+        private Size _size;
 
         /// <summary>
         /// Gets and sets size, and sets price/calories according to size
@@ -20,12 +20,12 @@ namespace DinoDiner.Menu
         {
             get
             {
-                return PrivateSize;
+                return _size;
             }
             set
             {
-                PrivateSize = value;
-                switch (PrivateSize)
+                _size = value;
+                switch (_size)
                 {
                     case Size.Small:
                         Price = 0.99;

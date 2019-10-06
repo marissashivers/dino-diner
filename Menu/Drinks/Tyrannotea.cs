@@ -9,9 +9,13 @@ namespace DinoDiner.Menu
     /// </summary>
     public class Tyrannotea : Drink, IMenuItem
     {
+        // Private lemon variable
         private bool _lemon = false;
+
+        // Private sweet variable
         private bool _sweet = false;
 
+        // Private size backing variable
         private Size _size;
 
         /// <summary>
