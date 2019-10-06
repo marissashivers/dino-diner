@@ -62,5 +62,14 @@ namespace DinoDiner.Menu
         {
             this.parmesanCheese = false;
         }
+
+        /// <summary>
+        /// ToString for Velociwrap
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return "Veloci-Wrap";
+        }
     }
 }

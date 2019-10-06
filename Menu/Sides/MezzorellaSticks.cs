@@ -68,22 +68,22 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
-        /// ToString for Mezorella Sticks
+        /// ToString for Mezzorella Sticks
         /// </summary>
         /// <returns>Sttring with size</returns>
         public override string ToString()
         {
             if (this.Size == Size.Small)
             {
-                return "Small Mezorella Sticks";
+                return "Small Mezzorella Sticks";
             }
             if (this.Size == Size.Medium)
             {
-                return "Medium Mezorella Sticks";
+                return "Medium Mezzorella Sticks";
             }
             if (this.Size == Size.Large)
             {
-                return "Large Mezorella Sticks";
+                return "Large Mezzorella Sticks";
             }
             return base.ToString();
         }

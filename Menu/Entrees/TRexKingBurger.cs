@@ -113,5 +113,14 @@ namespace DinoDiner.Menu
         {
             mayo = false;
         }
+
+        /// <summary>
+        /// ToString for T-Rex King Burger
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return "T-Rex King Burger";
+        }
     }
 }

@@ -67,5 +67,26 @@ namespace DinoDiner.Menu
             base.Price = 0.99;
             base.Calories = 420;
         }
+
+        /// <summary>
+        /// ToString for Meteor Mac and Cheese
+        /// </summary>
+        /// <returns>Sttring with size</returns>
+        public override string ToString()
+        {
+            if (this.Size == Size.Small)
+            {
+                return "Small Meteor Mac and Cheese";
+            }
+            if (this.Size == Size.Medium)
+            {
+                return "Medium Meteor Mac and Cheese";
+            }
+            if (this.Size == Size.Large)
+            {
+                return "Large Meteor Mac and Cheese";
+            }
+            return base.ToString();
+        }
     }
 }
