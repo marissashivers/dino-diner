@@ -7,7 +7,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// JurrassicJava = Coffee
     /// </summary>
-    public class JurrasicJava : Drink, IMenuItem
+    public class JurassicJava : Drink, IMenuItem
     {
         private bool _roomForCream = false;
         private bool _decaf = false;
@@ -91,7 +91,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Constructor for JurrassicJava
         /// </summary>
-        public JurrasicJava()
+        public JurassicJava()
         {
             this.Ice = false;
             base.Price = 0.59;
