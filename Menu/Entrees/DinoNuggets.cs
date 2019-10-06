@@ -7,7 +7,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// DinoNuggets (Six crispy fried breaded chicken nuggets)
     /// </summary>
-    public class DinoNuggets : Entree
+    public class DinoNuggets : Entree, IMenuItem
     {
         private int numNuggets = 6;
 

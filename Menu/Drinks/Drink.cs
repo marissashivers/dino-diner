@@ -26,7 +26,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Abstract class for a drink.
     /// </summary>
-    public abstract class Drink
+    public abstract class Drink : IMenuItem
     {
 
         private bool _ice = true;

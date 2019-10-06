@@ -7,7 +7,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// JurrassicJava = Coffee
     /// </summary>
-    public class JurrasicJava : Drink
+    public class JurrasicJava : Drink, IMenuItem
     {
         private bool _roomForCream = false;
         private bool _decaf = false;

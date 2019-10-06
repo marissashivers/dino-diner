@@ -7,7 +7,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Hydration is important
     /// </summary>
-    public class Water : Drink
+    public class Water : Drink, IMenuItem
     {
         private bool _lemon = false;
 

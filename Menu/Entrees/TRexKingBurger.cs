@@ -7,7 +7,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// T-Rex King Burger (A triple 1/2 steakburger with all the fixings)
     /// </summary>
-    public class TRexKingBurger : Entree
+    public class TRexKingBurger : Entree, IMenuItem
     {
         private bool wholeWheatBun = true;
         private bool lettuce = true;

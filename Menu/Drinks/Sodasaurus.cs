@@ -8,7 +8,7 @@ namespace DinoDiner.Menu
     /// OLD-FASHION SODA
     /// A drink that contains carbonated water, a sweetener, and a natural or artificial flavoring.
     /// </summary>
-    public class Sodasaurus : Drink
+    public class Sodasaurus : Drink, IMenuItem
     {
         private Size _size;
         private SodasaurusFlavor _flavor;

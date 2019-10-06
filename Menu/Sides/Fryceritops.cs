@@ -7,7 +7,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Fryceritops class - French Fries
     /// </summary>
-    public class Fryceritops : Side // inherits the side abstract class
+    public class Fryceritops : Side, IMenuItem // inherits the side abstract class
     {
         // private backing variable
         private Size PrivateSize;

@@ -7,7 +7,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Veloci-Wrap (A chicken ceasar wrap)
     /// </summary>
-    public class VelociWrap : Entree
+    public class VelociWrap : Entree, IMenuItem
     {
         private bool ceasarDressing = true;
         private bool romaineLettuce = true;

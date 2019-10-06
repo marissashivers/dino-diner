@@ -7,7 +7,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Steakosaurus Burger (A 1/2 pound steakburger)
     /// </summary>
-    public class SteakosaurusBurger : Entree
+    public class SteakosaurusBurger : Entree, IMenuItem
     {
         private bool wholeWheatBun = true;
         private bool pickle = true;

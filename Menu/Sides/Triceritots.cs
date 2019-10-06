@@ -7,7 +7,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Tater Tots
     /// </summary>
-    public class Triceritots: Side
+    public class Triceritots: Side, IMenuItem
     {
         // private backing variable
         private Size PrivateSize;

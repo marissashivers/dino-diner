@@ -7,7 +7,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Pterodactyl Wings (Chicken wings glazed with a signature hot sauce)
     /// </summary>
-    public class PterodactylWings : Entree
+    public class PterodactylWings : Entree, IMenuItem
     {
         /// <summary>
         /// Gets current list of ingredients

@@ -7,7 +7,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Fried Breaded Mozzarella Sticks
     /// </summary>
-    public class MezzorellaSticks : Side
+    public class MezzorellaSticks : Side, IMenuItem
     {
 
         // private backing variable

@@ -7,7 +7,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Iced tea
     /// </summary>
-    public class Tyrannotea : Drink
+    public class Tyrannotea : Drink, IMenuItem
     {
         private bool _lemon = false;
         private bool _sweet = false;

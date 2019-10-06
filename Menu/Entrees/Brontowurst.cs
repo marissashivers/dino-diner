@@ -7,7 +7,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Brontowurst (Brautwurst with peppers and onions in a bun)
     /// </summary>
-    public class Brontowurst : Entree
+    public class Brontowurst : Entree, IMenuItem
     {
         private bool wholeWheatBun = true;
         private bool peppers = true;

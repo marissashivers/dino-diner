@@ -7,7 +7,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Macaroni and Cheese with Sausages
     /// </summary>
-    public class MeteorMacAndCheese : Side
+    public class MeteorMacAndCheese : Side, IMenuItem
     {
         private Size PrivateSize;
 
