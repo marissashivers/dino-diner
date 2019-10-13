@@ -8,7 +8,139 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="EntreeSelection">
 
+    <Page.Resources>
+        <!-- Universal style for buttons on this page-->
+        <Style x:Key="basicbutton" TargetType="Button">
+            <Setter Property="Background" Value="GhostWhite" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="Margin" Value="2,2,2,2" />
+            <Setter Property="VerticalContentAlignment" Value="Top" />
+        </Style>
+    </Page.Resources>
+
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
         
+        <!-- Labels -->
+        <Label
+            Grid.Column="0" Grid.Row="0"
+            Grid.ColumnSpan="3"
+            Content="Select Entree:"
+            FontSize="20"
+            HorizontalAlignment="Center"
+            Background="White">
+        </Label>
+        
+        <!-- BRONTOWURST -->
+        <Button 
+            Grid.Column="0" Grid.Row="1"
+            Style="{StaticResource basicbutton}">
+            <StackPanel>
+                <TextBlock TextWrapping="Wrap">
+                    Brontowurst
+                </TextBlock>
+                <Image Source="Assets/DinoDiner-01.png" Height="75" VerticalAlignment="Bottom" />
+            </StackPanel>
+
+        </Button>
+        
+        <!-- PTERODACTYL WINGS -->
+        <Button 
+            Grid.Column="0" Grid.Row="2"
+            Style="{StaticResource basicbutton}">
+            <StackPanel>
+                <TextBlock TextWrapping="Wrap">
+                    Pterodactyl Wings
+                </TextBlock>
+                <Image Source="Assets/DinoDiner-04.png" Height="75" VerticalAlignment="Bottom" />
+            </StackPanel>
+
+        </Button>
+        
+        <!-- VELOCI-WRAP -->
+        <Button
+            Grid.Column="0" Grid.Row="3"
+            Style="{StaticResource basicbutton}">
+            <StackPanel>
+                <TextBlock TextWrapping="Wrap">
+                    Veloci-Wrap
+                </TextBlock>
+                <Image Source="Assets/DinoDiner-07.png" Height="75" VerticalAlignment="Bottom" />
+            </StackPanel>
+            
+        </Button>
+        
+        <!-- DINO-NUGGETS -->
+        <Button
+            Grid.Column="1" Grid.Row="1"
+            Style="{StaticResource basicbutton}">
+            <StackPanel>
+                <TextBlock TextWrapping="Wrap">
+                    Dino-Nuggets
+                </TextBlock>
+                <Image Source="Assets/DinoDiner-11.png" Height="75" VerticalAlignment="Bottom" />
+            </StackPanel>
+        </Button>
+        
+        <!-- STEAKOSAURUS BURGER -->
+        <Button
+            Grid.Column="1" Grid.Row="2"
+            Style="{StaticResource basicbutton}">
+            <StackPanel>
+                <TextBlock TextWrapping="Wrap">
+                    Steakosaurus Burger
+                </TextBlock>
+                <Image Source="Assets/DinoDiner-05.png" Height="75" VerticalAlignment="Bottom" />
+            </StackPanel>
+        </Button>
+        
+        <!-- PREHISTORIC PB&J-->
+        <Button
+            Grid.Column="1" Grid.Row="3"
+            Style="{StaticResource basicbutton}">
+            <StackPanel>
+                <TextBlock TextWrapping="Wrap">
+                    Prehistoric PB&amp;J
+                </TextBlock>
+                <Image Source="Assets/DinoDiner-03.png" Height="75" VerticalAlignment="Bottom" />
+            </StackPanel>
+        </Button>
+        
+        <!-- T-REX KING BURGER -->
+        <Button
+            Grid.Column="2" Grid.Row="1"
+            Style="{StaticResource basicbutton}">
+            <StackPanel>
+                <TextBlock TextWrapping="Wrap">
+                    T-Rex King Burger
+                </TextBlock>
+                <Image Source="Assets/DinoDiner-06.png" Height="75" VerticalAlignment="Bottom" />
+            </StackPanel>
+        </Button>
+        
+        <!-- Add to order -->
+        <Button
+            Grid.Column="2" Grid.Row="3"
+            Style="{StaticResource basicbutton}"
+            Background="beige"
+            VerticalContentAlignment="Top"
+            FontStyle="Italic">
+            <StackPanel>
+                <TextBlock TextWrapping="Wrap">
+                    ADD TO ORDER
+                </TextBlock>
+                <Image Source="Assets/_shoppingcart.png" Height="75" VerticalAlignment="Bottom" />
+            </StackPanel>
+        </Button>
     </Grid>
 </Page>

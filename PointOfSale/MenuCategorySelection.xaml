@@ -8,18 +8,79 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="MenuCategorySelection">
 
+    <Page.Resources>
+        <Style x:Key="basicButton" TargetType="Button">
+            <Setter Property="FontSize" Value="35" />
+            <Setter Property="VerticalContentAlignment" Value="Top" />
+            <Setter Property="Margin" Value="2,2,2,2" />
+            <Setter Property="Background" Value="White" />
+            <Setter Property="FontFamily" Value="Courier" />
+        </Style>
+    </Page.Resources>
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*" />
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <Button Grid.Row="0" Grid.Column="0">Combos</Button>
-        <Button Grid.Row="0" Grid.Column="1">Entrees</Button>
-        <Button Grid.Row="1" Grid.Column="0">Sides</Button>
-        <Button Grid.Row="1" Grid.Column="1">Drinks</Button>
+
+        <Label
+            Grid.Column="0" Grid.Row="0"
+            Grid.ColumnSpan="2"
+            Content="WELCOME TO DINO DINER"
+            FontFamily="Consolas"
+            FontStyle="Oblique"
+            Background="Goldenrod"
+            HorizontalContentAlignment="Center"
+            FontSize="20">
+        </Label>
+
+        <!-- COMBOS BUTTON -->
+        <Button Grid.Row="1" Grid.Column="0"
+                x:Name="combosButton"
+                Style="{StaticResource basicButton}"
+                Click="Button_Click_Combos">
+            <StackPanel>
+                <TextBlock TextAlignment="Center" Text="Combos"/>
+                <Image Source="Assets/_combo.png" Height="150"
+                       VerticalAlignment="Bottom"/>
+            </StackPanel>
+        </Button>
+        <!-- ENTREES BUTTON -->
+        <Button Grid.Row="1" Grid.Column="1"
+                x:Name="entreesButton"
+                Style="{StaticResource basicButton}"
+                Click="Button_Click_Entrees">
+            <StackPanel>
+                <TextBlock TextAlignment="Center">Entrees</TextBlock>
+                <Image Source="Assets/_entree.jpg" Height="150" VerticalAlignment="Bottom" />
+            </StackPanel>
+        </Button>
+        <!-- SIDES BUTTON -->
+        <Button Grid.Row="2" Grid.Column="0"
+                x:Name="sidesButton"
+                Style="{StaticResource basicButton}"
+                Click="Button_Click_Sides">
+            <StackPanel>
+                <TextBlock TextAlignment="Center">Sides</TextBlock>
+                <Image Source="Assets/_sides.png" Height="135" />
+            </StackPanel>
+        </Button>
+        <!-- DRINKS BUTTON -->
+        <Button Grid.Row="2" Grid.Column="1"
+                x:Name="drinksButton"
+                Style="{StaticResource basicButton}">
+            <StackPanel>
+                <TextBlock TextAlignment="Center">Drinks</TextBlock>
+                <Image Source="Assets/_drinks.jpg" Height="140" VerticalAlignment="Bottom" />
+            </StackPanel>
+        </Button>
+        
+        
     </Grid>
 </Page>

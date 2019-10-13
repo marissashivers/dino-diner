@@ -7,25 +7,142 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ComboSelection">
+    
+    <Page.Resources>
+        <!-- Universal style for buttons on this page-->
+        <Style x:Key="basicbutton" TargetType="Button">
+            <Setter Property="Background" Value="NavajoWhite" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="Margin" Value="2,2,2,2" />
+            <Setter Property="VerticalContentAlignment" Value="Top" />
+        </Style>
+    </Page.Resources>
+    
 
-    <WrapPanel>
-        <WrapPanel.Resources>
-            <Style TargetType="Button">
-                <Setter Property="Width" Value="150" />
-                <Setter Property="Height" Value="150" />
-            </Style>
-        </WrapPanel.Resources>
-        <Button>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <!-- Labels -->
+        <Label
+            Grid.Column="0" Grid.Row="0"
+            Grid.ColumnSpan="3"
+            Content="Select Combo..."
+            FontSize="20"
+            HorizontalAlignment="Center"
+            Background="White">
+        </Label>
+
+        <!-- BRONTOWURST -->
+        <Button 
+            Grid.Column="0" Grid.Row="1"
+            Style="{StaticResource basicbutton}">
             <StackPanel>
-                <Image Source="Assets\\DinoDiner-01.png"></Image>
-                <TextBlock>Brontwurst Combo</TextBlock>
+                <TextBlock TextWrapping="Wrap">
+                    Brontowurst Combo
+                </TextBlock>
+                <Image Source="Assets/DinoDiner-01.png" Height="75" VerticalAlignment="Bottom" />
+            </StackPanel>
+
+        </Button>
+
+        <!-- PTERODACTYL WINGS -->
+        <Button 
+            Grid.Column="0" Grid.Row="2"
+            Style="{StaticResource basicbutton}">
+            <StackPanel>
+                <TextBlock TextWrapping="Wrap">
+                    Pterodactyl Wings Cobmo
+                </TextBlock>
+                <Image Source="Assets/DinoDiner-04.png" Height="75" VerticalAlignment="Bottom" />
+            </StackPanel>
+
+        </Button>
+
+        <!-- VELOCI-WRAP -->
+        <Button
+            Grid.Column="0" Grid.Row="3"
+            Style="{StaticResource basicbutton}">
+            <StackPanel>
+                <TextBlock TextWrapping="Wrap">
+                    Veloci-Wrap Combo
+                </TextBlock>
+                <Image Source="Assets/DinoDiner-07.png" Height="75" VerticalAlignment="Bottom" />
+            </StackPanel>
+
+        </Button>
+
+        <!-- DINO-NUGGETS -->
+        <Button
+            Grid.Column="1" Grid.Row="1"
+            Style="{StaticResource basicbutton}">
+            <StackPanel>
+                <TextBlock TextWrapping="Wrap">
+                    Dino-Nuggets Combo
+                </TextBlock>
+                <Image Source="Assets/DinoDiner-11.png" Height="75" VerticalAlignment="Bottom" />
             </StackPanel>
         </Button>
-        <Button>Dino-Nuggets Combo</Button>
-        <Button>Steakosaurus Burger Combo</Button>
-        <Button>T-Rex King Burger Combo</Button>
-        <Button>Prehistoric PB&amp;J Combo</Button>
-        <Button>Pterodactyl Wings Combo</Button>
-        <Button>Veloci-Wrap Combo</Button>
-    </WrapPanel>
+
+        <!-- STEAKOSAURUS BURGER -->
+        <Button
+            Grid.Column="1" Grid.Row="2"
+            Style="{StaticResource basicbutton}">
+            <StackPanel>
+                <TextBlock TextWrapping="Wrap">
+                    Steakosaurus Burger Combo
+                </TextBlock>
+                <Image Source="Assets/DinoDiner-05.png" Height="75" VerticalAlignment="Bottom" />
+            </StackPanel>
+        </Button>
+
+        <!-- PREHISTORIC PB&J-->
+        <Button
+            Grid.Column="1" Grid.Row="3"
+            Style="{StaticResource basicbutton}">
+            <StackPanel>
+                <TextBlock TextWrapping="Wrap">
+                    Prehistoric PB&amp;J Combo
+                </TextBlock>
+                <Image Source="Assets/DinoDiner-03.png" Height="75" VerticalAlignment="Bottom" />
+            </StackPanel>
+        </Button>
+
+        <!-- T-REX KING BURGER -->
+        <Button
+            Grid.Column="2" Grid.Row="1"
+            Style="{StaticResource basicbutton}">
+            <StackPanel>
+                <TextBlock TextWrapping="Wrap">
+                    T-Rex King Burger Combo
+                </TextBlock>
+                <Image Source="Assets/DinoDiner-06.png" Height="75" VerticalAlignment="Bottom" />
+            </StackPanel>
+        </Button>
+
+        <!-- Add to order -->
+        <Button
+            Grid.Column="2" Grid.Row="3"
+            Style="{StaticResource basicbutton}"
+            Background="beige"
+            VerticalContentAlignment="Top"
+            FontStyle="Italic">
+            <StackPanel>
+                <TextBlock TextWrapping="Wrap">
+                    ADD TO ORDER
+                </TextBlock>
+                <Image Source="Assets/_shoppingcart.png" Height="75" VerticalAlignment="Bottom" />
+            </StackPanel>
+        </Button>
+
+    </Grid>
 </Page>
