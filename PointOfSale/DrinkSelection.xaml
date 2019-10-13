@@ -61,7 +61,8 @@
         <!-- ***************DRINKS*****************-->
         <Button
             Grid.Row="1" Grid.Column="0"
-            Style="{StaticResource basicbutton}">
+            Style="{StaticResource basicbutton}"
+            Click="Click_Soda">
             <StackPanel>
                 <TextBlock>Sodasaurus</TextBlock>
                 <Image Source="Assets/DinoDiner-14.png" Width="75"></Image>

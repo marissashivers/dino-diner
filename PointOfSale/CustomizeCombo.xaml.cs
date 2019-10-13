@@ -25,11 +25,21 @@ namespace PointOfSale
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Clicking drink selection will navigate you to the DrinkSelection page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void Click_DrinkSelection(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Uri("/DrinkSelection.xaml", UriKind.Relative));
         }
 
+        /// <summary>
+        /// Clicking side selection will nagivate you to the SideSelection page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void Click_SideSelection(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Uri("/SideSelection.xaml", UriKind.Relative));

@@ -25,6 +25,11 @@ namespace PointOfSale
             InitializeComponent();
         }
 
+        /// <summary>
+        /// When clicking any combo, you are directed to the CustomizeCombo page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void Click_CustomizeCombo(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Uri("/CustomizeCombo.xaml", UriKind.Relative));

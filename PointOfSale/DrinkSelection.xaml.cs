@@ -24,5 +24,15 @@ namespace PointOfSale
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        /// Clicking on soda will take you to the flavor selection page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void Click_Soda(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/FlavorSelection.xaml", UriKind.Relative));
+        }
     }
 }
