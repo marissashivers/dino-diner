@@ -24,5 +24,10 @@ namespace PointOfSale
         {
             InitializeComponent();
         }
+
+        public void Click_CustomizeCombo(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/CustomizeCombo.xaml", UriKind.Relative));
+        }
     }
 }

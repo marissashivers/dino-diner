@@ -112,7 +112,7 @@
             Grid.Row="1" Grid.Column="1"
             Style="{StaticResource basicbutton}">
             <StackPanel>
-                <TextBlock TextAlignment="Center">Small</TextBlock>
+                <RadioButton GroupName="Size" Content="Small" IsChecked="True"/>
                 <Image Source="Assets/xsmall.png" Width="100"/>
             </StackPanel>
         </Button>
@@ -121,7 +121,7 @@
             Grid.Row="2" Grid.Column="1"
             Style="{StaticResource basicbutton}">
             <StackPanel>
-                <TextBlock TextAlignment="Center">Medium</TextBlock>
+                <RadioButton GroupName="Size" Content="Medium"/>
                 <Image Source="Assets/xmedium.png" Width="100"/>
             </StackPanel>
         </Button>
@@ -130,7 +130,7 @@
             Grid.Row="3" Grid.Column="1"
             Style="{StaticResource basicbutton}">
             <StackPanel>
-                <TextBlock TextAlignment="Center">Large</TextBlock>
+                <RadioButton GroupName="Size" Content="Large" />
                 <Image Source="Assets/xlarge.png" Width="100"/>
             </StackPanel>
         </Button>

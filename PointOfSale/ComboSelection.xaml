@@ -45,7 +45,8 @@
         <!-- BRONTOWURST -->
         <Button 
             Grid.Column="0" Grid.Row="1"
-            Style="{StaticResource basicbutton}">
+            Style="{StaticResource basicbutton}"
+            Click="Click_CustomizeCombo">
             <StackPanel>
                 <TextBlock TextWrapping="Wrap">
                     Brontowurst Combo
@@ -58,7 +59,8 @@
         <!-- PTERODACTYL WINGS -->
         <Button 
             Grid.Column="0" Grid.Row="2"
-            Style="{StaticResource basicbutton}">
+            Style="{StaticResource basicbutton}"
+            Click="Click_CustomizeCombo">
             <StackPanel>
                 <TextBlock TextWrapping="Wrap">
                     Pterodactyl Wings Cobmo
@@ -71,7 +73,8 @@
         <!-- VELOCI-WRAP -->
         <Button
             Grid.Column="0" Grid.Row="3"
-            Style="{StaticResource basicbutton}">
+            Style="{StaticResource basicbutton}"
+            Click="Click_CustomizeCombo">
             <StackPanel>
                 <TextBlock TextWrapping="Wrap">
                     Veloci-Wrap Combo
@@ -84,7 +87,8 @@
         <!-- DINO-NUGGETS -->
         <Button
             Grid.Column="1" Grid.Row="1"
-            Style="{StaticResource basicbutton}">
+            Style="{StaticResource basicbutton}"
+            Click="Click_CustomizeCombo">
             <StackPanel>
                 <TextBlock TextWrapping="Wrap">
                     Dino-Nuggets Combo
@@ -96,7 +100,8 @@
         <!-- STEAKOSAURUS BURGER -->
         <Button
             Grid.Column="1" Grid.Row="2"
-            Style="{StaticResource basicbutton}">
+            Style="{StaticResource basicbutton}"
+            Click="Click_CustomizeCombo">
             <StackPanel>
                 <TextBlock TextWrapping="Wrap">
                     Steakosaurus Burger Combo
@@ -108,7 +113,8 @@
         <!-- PREHISTORIC PB&J-->
         <Button
             Grid.Column="1" Grid.Row="3"
-            Style="{StaticResource basicbutton}">
+            Style="{StaticResource basicbutton}"
+            Click="Click_CustomizeCombo">
             <StackPanel>
                 <TextBlock TextWrapping="Wrap">
                     Prehistoric PB&amp;J Combo
@@ -120,7 +126,8 @@
         <!-- T-REX KING BURGER -->
         <Button
             Grid.Column="2" Grid.Row="1"
-            Style="{StaticResource basicbutton}">
+            Style="{StaticResource basicbutton}"
+            Click="Click_CustomizeCombo">
             <StackPanel>
                 <TextBlock TextWrapping="Wrap">
                     T-Rex King Burger Combo

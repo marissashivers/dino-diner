@@ -74,7 +74,8 @@
         <!-- DRINKS BUTTON -->
         <Button Grid.Row="2" Grid.Column="1"
                 x:Name="drinksButton"
-                Style="{StaticResource basicButton}">
+                Style="{StaticResource basicButton}"
+                Click="Button_Click_Drinks">
             <StackPanel>
                 <TextBlock TextAlignment="Center">Drinks</TextBlock>
                 <Image Source="Assets/_drinks.jpg" Height="140" VerticalAlignment="Bottom" />
