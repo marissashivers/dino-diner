@@ -131,5 +131,9 @@ namespace MenuTest.Drinks
             Assert.Contains("Water", java.Ingredients);
             Assert.Contains("Coffee", java.Ingredients);
         }
+
+        // *********************************************
+        // IOrderItem Interface Tests...
+        // *********************************************
     }
 }
