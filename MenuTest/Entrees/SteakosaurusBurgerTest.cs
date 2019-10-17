@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using Xunit;
-using DinoDiner.Menu.Entrees;
+using DinoDiner.Menu;
 
 namespace MenuTest.Entrees
 {
@@ -63,6 +63,43 @@ namespace MenuTest.Entrees
             SteakosaurusBurger sb = new SteakosaurusBurger();
             sb.HoldMustard();
             Assert.DoesNotContain<string>("Mustard", sb.Ingredients);
+        }
+
+        // *********************************************
+        // IOrderItem Interface Tests...
+        // *********************************************
+        [Fact]
+        public void ShouldHaveCorrectDescription()
+        {
+            SteakosaurusBurger sb = new SteakosaurusBurger();
+            Assert.Equal("Steakosaurus Burger", sb.Description);
+        }
+
+        [Fact]
+        public void ShouldHaveCorrectDefaultSpecial()
+        {
+            SteakosaurusBurger sb = new SteakosaurusBurger();
+            Assert.Empty(sb.Special);
+        }
+
+        [Fact]
+        public void HoldBunAndPickleShouldProvideCorrectSpecial()
+        {
+            SteakosaurusBurger sb = new SteakosaurusBurger();
+            sb.HoldBun();
+            sb.HoldPickle();
+            Assert.Contains("Hold Bun", sb.Special);
+            Assert.Contains("Hold Pickle", sb.Special);
+        }
+
+        [Fact]
+        public void HoldKetchupAndMustardShouldProvideCorrectSpecial()
+        {
+            SteakosaurusBurger sb = new SteakosaurusBurger();
+            sb.HoldKetchup();
+            sb.HoldMustard();
+            Assert.Contains("Hold Ketchup", sb.Special);
+            Assert.Contains("Hold Pickle", sb.Special);
         }
     }
 

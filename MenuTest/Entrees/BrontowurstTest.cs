@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using Xunit;
-using DinoDiner.Menu.Entrees;
+using DinoDiner.Menu;
 
 namespace MenuTest.Entrees
 {
@@ -55,6 +55,42 @@ namespace MenuTest.Entrees
             bw.HoldOnion();
             Assert.DoesNotContain<string>("Onion", bw.Ingredients);
         }
+
+        // *********************************************
+        // IOrderItem Interface Tests...
+        // *********************************************
+        [Fact]
+        public void HasCorrectDescription()
+        {
+            Brontowurst bw = new Brontowurst();
+            Assert.Equal("Brontowurst", bw.Description);
+        }
+
+        [Fact]
+        public void HasCorrectDefaultSpecial()
+        {
+            Brontowurst bw = new Brontowurst();
+            Assert.Empty(bw.Special);
+        }
+
+        [Fact]
+        public void HoldBunShouldProvideCorrectSpecial()
+        {
+            Brontowurst bw = new Brontowurst();
+            bw.HoldBun();
+            Assert.Contains("Hold Bun", bw.Special);
+        }
+
+        [Fact]
+        public void HoldPeppersAndOnionsShouldProvideCorrectSpecial()
+        {
+            Brontowurst bw = new Brontowurst();
+            bw.HoldPeppers();
+            bw.HoldOnion();
+            Assert.Contains("Hold Peppers", bw.Special);
+            Assert.Contains("Hold Onions", bw.Special);
+        }
+        
     }
 
 }

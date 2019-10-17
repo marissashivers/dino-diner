@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using Xunit;
-using DinoDiner.Menu.Entrees;
+using DinoDiner.Menu;
 
 namespace MenuTest.Entrees
 {
@@ -105,6 +105,63 @@ namespace MenuTest.Entrees
             TRexKingBurger trex = new TRexKingBurger();
             trex.HoldMayo();
             Assert.DoesNotContain<string>("Mayo", trex.Ingredients);
+        }
+
+        // *********************************************
+        // IOrderItem Interface Tests...
+        // *********************************************
+        [Fact]
+        public void HasCorrectDescription()
+        {
+            TRexKingBurger trex = new TRexKingBurger();
+            Assert.Equal("T-Rex King Burger", trex.Description);
+        }
+
+        [Fact]
+        public void HasCorrectDefaultSpecial()
+        {
+            TRexKingBurger trex = new TRexKingBurger();
+            Assert.Empty(trex.Special);
+        }
+
+        [Fact]
+        public void HoldBunAndLettuceProvidesCorrectSpecial()
+        {
+            TRexKingBurger trex = new TRexKingBurger();
+            trex.HoldBun();
+            trex.HoldLettuce();
+            Assert.Contains("Hold Bun", trex.Special);
+            Assert.Contains("Hold Lettuce", trex.Special);
+        }
+
+        [Fact]
+        public void HoldTomatoAndOnionsProvidesCorrectSpecial()
+        {
+            TRexKingBurger trex = new TRexKingBurger();
+            trex.HoldTomato();
+            trex.HoldOnion();
+            Assert.Contains("Hold Tomato", trex.Special);
+            Assert.Contains("Hold Onion", trex.Special);
+        }
+
+        [Fact]
+        public void HoldPickleAndKetchupProvidesCorrectSpecial()
+        {
+            TRexKingBurger trex = new TRexKingBurger();
+            trex.HoldPickle();
+            trex.HoldKetchup();
+            Assert.Contains("Hold Pickle", trex.Special);
+            Assert.Contains("Hold Ketchup", trex.Special);
+        }
+
+        [Fact]
+        public void HoldMustardAndMayoProvidesCorrectSpecial()
+        {
+            TRexKingBurger trex = new TRexKingBurger();
+            trex.HoldMustard();
+            trex.HoldMayo();
+            Assert.Contains("Hold Mustard", trex.Special);
+            Assert.Contains("Hold Mayo", trex.Special);
         }
 
     }

@@ -46,12 +46,32 @@ namespace MenuTest.Entrees
             pbj.HoldJelly();
             Assert.DoesNotContain<string>("Jelly", pbj.Ingredients);
         }
-
+        // *********************************************
+        // IOrderItem Interface Tests...
+        // *********************************************
         [Fact]
         public void ShouldProvideCorrectDescription()
         {
             PrehistoricPBJ pbj = new PrehistoricPBJ();
             Assert.Equal("Prehistoric PB&J", pbj.Description);
+        }
+
+
+        [Fact]
+        public void ShouldHaveCorrectDefaultSpecial()
+        {
+            PrehistoricPBJ pbj = new PrehistoricPBJ();
+            Assert.Empty(pbj.Special);
+        }
+
+        [Fact]
+        public void HoldPeanutButterAndJellyProvidesCorrectSpecial()
+        {
+            PrehistoricPBJ pbj = new PrehistoricPBJ();
+            pbj.HoldPeanutButter();
+            pbj.HoldJelly();
+            Assert.Contains("Hold Peanut Butter", pbj.Special);
+            Assert.Contains("Hold Jelly", pbj.Special);
         }
     }
 

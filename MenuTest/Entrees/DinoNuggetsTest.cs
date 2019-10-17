@@ -86,6 +86,18 @@ namespace MenuTest.Entrees
             Assert.Equal<uint>(dn.Calories, 59 * 9);
         }
 
+
+        // *********************************************
+        // IOrderItem Interface Tests...
+        // *********************************************
+
+        [Fact]
+        public void HasCorrectDescription()
+        {
+            DinoNuggets dn = new DinoNuggets();
+            Assert.Equal("Dino-Nuggets", dn.Description);
+        }
+
         [Fact]
         public void ShouldHaveEmptySpecialByDefault()
         {
@@ -106,7 +118,7 @@ namespace MenuTest.Entrees
             {
                 dn.AddNugget();
             }
-            Assert.Collection<string>(dn, item => 
+            Assert.Collection<string>(dn.Special, item => 
             {
                 Assert.Equal($"{extraNuggets} Extra Nuggets", item); // title case
             });

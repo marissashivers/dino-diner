@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Xunit;
-using DinoDiner.Menu.Entrees;
+using DinoDiner.Menu;
 
 namespace MenuTest.Entrees
 {
@@ -55,6 +55,32 @@ namespace MenuTest.Entrees
             VelociWrap vw = new VelociWrap();
             vw.HoldCheese();
             Assert.DoesNotContain<string>("Parmesan Cheese", vw.Ingredients);
+        }
+
+
+        // *********************************************
+        // IOrderItem Interface Tests...
+        // *********************************************
+        [Fact]
+        public void HasCorrectDescription()
+        {
+            VelociWrap vw = new VelociWrap();
+            Assert.Equal("Veloci-Wrap", vw.Description);
+        }
+
+        [Fact]
+        public void HasCorrectDefaultSpecial()
+        {
+            VelociWrap vw = new VelociWrap();
+            Assert.Empty(vw.Special);
+        }
+
+        [Fact]
+        public void HoldDressingShouldProvideCorrectSpecial()
+        {
+            VelociWrap vw = new VelociWrap();
+            vw.HoldDressing();
+            Assert.Contains("Hold Dressing", vw.Special);
         }
     }
 }

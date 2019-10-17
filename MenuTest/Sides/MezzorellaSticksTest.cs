@@ -83,5 +83,23 @@ namespace MenuTest.Sides
             ms.Size = Size.Large;
             Assert.Equal<Size>(Size.Large, ms.Size);
         }
+
+
+        // *********************************************
+        // IOrderItem Interface Tests...
+        // *********************************************
+        [Fact]
+        public void HasCorrectDescription()
+        {
+            MezzorellaSticks ms = new MezzorellaSticks();
+            Assert.Equal("Mezzorella Sticks", ms.Description);
+        }
+
+        [Fact]
+        public void HasCorrectDefaultSpecial()
+        {
+            MezzorellaSticks ms = new MezzorellaSticks();
+            Assert.Empty(ms.Special);
+        }
     }
 }

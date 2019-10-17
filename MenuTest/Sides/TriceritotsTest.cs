@@ -83,5 +83,23 @@ namespace MenuTest.Sides
             tt.Size = Size.Large;
             Assert.Equal<Size>(Size.Large, tt.Size);
         }
+
+
+        // *********************************************
+        // IOrderItem Interface Tests...
+        // *********************************************
+        [Fact]
+        public void HasCorrectDescription()
+        {
+            Triceritots tt = new Triceritots();
+            Assert.Equal("Triceritots", tt.Description);
+        }
+
+        [Fact]
+        public void HasCorrectDefaultSpecial()
+        {
+            Triceritots tt = new Triceritots();
+            Assert.Empty(tt.Special);
+        }
     }
 }
