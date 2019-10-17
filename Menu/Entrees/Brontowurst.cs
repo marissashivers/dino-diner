@@ -10,7 +10,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Brontowurst (Brautwurst with peppers and onions in a bun)
     /// </summary>
-    public class Brontowurst : Entree, IMenuItem
+    public class Brontowurst : Entree, IMenuItem, IOrderItem
     {
         // Private variables for bun, peppers, and onions to be used only in this class.
         private bool wholeWheatBun = true;
@@ -29,6 +29,28 @@ namespace DinoDiner.Menu
                 if (peppers) ingredients.Add("Peppers");
                 if (onions) ingredients.Add("Onion");
                 return ingredients;
+            }
+        }
+
+        /// <summary>
+        /// same as ToString()
+        /// </summary>
+        public string Description
+        {
+            get
+            {
+                return "Brontwurst";
+            }
+        }
+
+        public string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!wholeWheatBun) special.Add("No bun");
+                if (!peppers) special.Add("No peppers");
+                if (!onions) special.Add("No onions");
             }
         }
 

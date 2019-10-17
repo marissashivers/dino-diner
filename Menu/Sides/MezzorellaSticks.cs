@@ -10,7 +10,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Fried Breaded Mozzarella Sticks
     /// </summary>
-    public class MezzorellaSticks : Side, IMenuItem
+    public class MezzorellaSticks : Side, IMenuItem, IOrderItem
     {
 
         // private backing variable
@@ -58,6 +58,41 @@ namespace DinoDiner.Menu
                 ingredients.Add("Breading");
                 ingredients.Add("Vegetable Oil");
                 return ingredients;
+            }
+        }
+
+        /// <summary>
+        /// same as ToString()
+        /// </summary>
+        public string Description
+        {
+            get
+            {
+                if (this.Size == Size.Small)
+                {
+                    return "Small Mezzorella Sticks";
+                }
+                if (this.Size == Size.Medium)
+                {
+                    return "Medium Mezzorella Sticks";
+                }
+                if (this.Size == Size.Large)
+                {
+                    return "Large Mezzorella Sticks";
+                }
+                return base.ToString();
+            }
+        }
+
+        /// <summary>
+        /// special preparation instructions
+        /// </summary>
+        public string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                return special.ToArray();
             }
         }
 

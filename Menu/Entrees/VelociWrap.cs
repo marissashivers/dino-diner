@@ -10,7 +10,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Veloci-Wrap (A chicken ceasar wrap)
     /// </summary>
-    public class VelociWrap : Entree, IMenuItem
+    public class VelociWrap : Entree, IMenuItem, IOrderItem
     {
         // Private boolean ingredients to be used only in this class
         private bool ceasarDressing = true;
@@ -31,6 +31,32 @@ namespace DinoDiner.Menu
                 if (romaineLettuce) ingredients.Add("Romaine Lettuce");
                 if (parmesanCheese) ingredients.Add("Parmesan Cheese");
                 return ingredients;
+            }
+        }
+
+        /// <summary>
+        /// same as ToString()
+        /// </summary>
+        public string Description
+        {
+            get
+            {
+                return "Veloci-Wrap";
+            }
+        }
+        
+        /// <summary>
+        /// Special preparation instructions
+        /// </summary>
+        public string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!ceasarDressing) special.Add("No dressing");
+                if (!romaineLettuce) special.Add("No lettuce");
+                if (!parmesanCheese) special.Add("No parmesan cheese");
+                return special.ToArray();
             }
         }
 

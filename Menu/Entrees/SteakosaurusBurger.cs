@@ -10,7 +10,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Steakosaurus Burger (A 1/2 pound steakburger)
     /// </summary>
-    public class SteakosaurusBurger : Entree, IMenuItem
+    public class SteakosaurusBurger : Entree, IMenuItem, IOrderItem
     {
         // Private ingredient booleans to be used only in this class
         private bool wholeWheatBun = true;
@@ -31,6 +31,33 @@ namespace DinoDiner.Menu
                 if (ketchup) ingredients.Add("Ketchup");
                 if (mustard) ingredients.Add("Mustard");
                 return ingredients;
+            }
+        }
+
+        /// <summary>
+        /// same as ToString
+        /// </summary>
+        public string Description
+        {
+            get
+            {
+                return "Steakosaurus Burger";
+            }
+        }
+
+        /// <summary>
+        /// special preparation instructions
+        /// </summary>
+        public string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!wholeWheatBun) special.Add("No bun");
+                if (!pickle) special.Add("No pickle");
+                if (!ketchup) special.Add("No ketchup");
+                if (!mustard) special.Add("No mustard");
+                return special.ToArray();
             }
         }
 

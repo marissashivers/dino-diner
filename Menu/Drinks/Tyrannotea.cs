@@ -10,7 +10,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Iced tea
     /// </summary>
-    public class Tyrannotea : Drink, IMenuItem
+    public class Tyrannotea : Drink, IMenuItem, IOrderItem
     {
         // Private lemon variable
         private bool _lemon = false;
@@ -79,6 +79,47 @@ namespace DinoDiner.Menu
                         break;
                 }
             } // end set
+        }
+
+        /// <summary>
+        /// same as ToString()
+        /// </summary>
+        public string Description
+        {
+            get
+            {
+                StringBuilder sb = new StringBuilder();
+                if (this.Size == Size.Small)
+                {
+                    sb.Append("Small ");
+                }
+                if (this.Size == Size.Medium)
+                {
+                    sb.Append("Medium ");
+                }
+                if (this.Size == Size.Large)
+                {
+                    sb.Append("Large ");
+                }
+                if (this.Sweet) sb.Append("Sweet ");
+                sb.Append("Tyrannotea");
+                return sb.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Special preparation instructions
+        /// </summary>
+        public string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (_lemon) special.Add("Add lemon");
+                if (_sweet) special.Add("Add sweetener");
+                if (!Ice) special.Add("No ice");
+                return special.ToArray();
+            }
         }
 
         /// <summary>

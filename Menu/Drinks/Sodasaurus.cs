@@ -11,7 +11,7 @@ namespace DinoDiner.Menu
     /// OLD-FASHION SODA
     /// A drink that contains carbonated water, a sweetener, and a natural or artificial flavoring.
     /// </summary>
-    public class Sodasaurus : Drink, IMenuItem
+    public class Sodasaurus : Drink, IMenuItem, IOrderItem
     {
         // Private backing variable for size
         private Size _size;
@@ -76,6 +76,43 @@ namespace DinoDiner.Menu
                 ingredients.Add("Natural Flavors");
                 ingredients.Add("Cane Sugar");
                 return ingredients;
+            }
+        }
+
+        /// <summary>
+        /// Same as ToString() implementation
+        /// </summary>
+        public string Description
+        {
+            get
+            {
+                StringBuilder sb = new StringBuilder();
+                if (this.Size == Size.Small)
+                {
+                    sb.Append("Small ");
+                }
+                if (this.Size == Size.Medium)
+                {
+                    sb.Append("Medium ");
+                }
+                if (this.Size == Size.Large)
+                {
+
+                    sb.Append("Large ");
+                }
+                sb.Append(this.Flavor + " ");
+                sb.Append("Sodasaurus");
+                return sb.ToString();
+            }
+        }
+
+        public string[] Special
+        {
+            get
+            {
+                List<string> special = new List<String>();
+                if (!Ice) special.Add("No ice");
+                return special.ToArray();
             }
         }
 

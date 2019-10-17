@@ -10,7 +10,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Hydration is important
     /// </summary>
-    public class Water : Drink, IMenuItem
+    public class Water : Drink, IMenuItem, IOrderItem
     {
         // Private lemon variable
         private bool _lemon = false;
@@ -68,6 +68,43 @@ namespace DinoDiner.Menu
                 ingredients.Add("Water");
                 if (_lemon) ingredients.Add("Lemon");
                 return ingredients;
+            }
+        }
+
+        /// <summary>
+        /// same as ToString()
+        /// </summary>
+        public string Description
+        {
+            get
+            {
+                if (this.Size == Size.Small)
+                {
+                    return "Small Water";
+                }
+                if (this.Size == Size.Medium)
+                {
+                    return "Medium Water";
+                }
+                if (this.Size == Size.Large)
+                {
+                    return "Large Water";
+                }
+                return base.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Special preparation instructions
+        /// </summary>
+        public string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (_lemon) special.Add("Add lemon");
+                if (!Ice) special.Add("No ice");
+                return special.ToArray();
             }
         }
 

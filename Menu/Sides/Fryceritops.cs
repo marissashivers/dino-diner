@@ -10,7 +10,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Fryceritops class - French Fries
     /// </summary>
-    public class Fryceritops : Side, IMenuItem // inherits the side abstract class
+    public class Fryceritops : Side, IMenuItem, IOrderItem
     {
         // private backing variable
         private Size _size;
@@ -57,6 +57,41 @@ namespace DinoDiner.Menu
                 ingredients.Add("Salt");
                 ingredients.Add("Vegetable Oil");
                 return ingredients;
+            }
+        }
+
+        /// <summary>
+        /// same as ToString()
+        /// </summary>
+        public string Description
+        {
+            get
+            {
+                if (this.Size == Size.Small)
+                {
+                    return "Small Friceritops";
+                }
+                if (this.Size == Size.Medium)
+                {
+                    return "Medium Friceritops";
+                }
+                if (this.Size == Size.Large)
+                {
+                    return "Large Friceritops";
+                }
+                return base.ToString();
+            }
+        }
+
+        /// <summary>
+        /// special preparation instructions
+        /// </summary>
+        public string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                return special.ToArray();
             }
         }
 

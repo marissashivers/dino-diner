@@ -10,7 +10,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// DinoNuggets (Six crispy fried breaded chicken nuggets)
     /// </summary>
-    public class DinoNuggets : Entree, IMenuItem
+    public class DinoNuggets : Entree, IMenuItem, IOrderItem
     {
         // Private number of nuggets
         private int numNuggets = 6;
@@ -29,6 +29,31 @@ namespace DinoDiner.Menu
                     
                 }
                 return ingredients;
+            }
+        }
+
+        /// <summary>
+        /// Same as ToString()
+        /// </summary>
+        public string Description
+        {
+            get
+            {
+                return "Dino-Nuggets";
+            }
+        }
+
+        /// <summary>
+        /// special preparation instructions
+        /// </summary>
+        public string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                int num = numNuggets - 6;
+                if (numNuggets != 0) special.Add("Add " + num + " nuggets");
+                return special.ToArray();
             }
         }
 

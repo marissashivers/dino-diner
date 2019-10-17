@@ -8,7 +8,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Prehistoric PB and J (A peanut butter and jelly sandwich)
     /// </summary>
-    public class PrehistoricPBJ : Entree, IMenuItem
+    public class PrehistoricPBJ : Entree, IMenuItem, IOrderItem
     {
         // Privaite peanut butter and jelly to be used only in this class.
         private bool peanutButter = true;
@@ -25,6 +25,31 @@ namespace DinoDiner.Menu
                 if (peanutButter) ingredients.Add("Peanut Butter");
                 if (jelly) ingredients.Add("Jelly");
                 return ingredients;
+            }
+        }
+
+        /// <summary>
+        /// same as ToString()
+        /// </summary>
+        public string Description
+        {
+            get
+            {
+                return "Prehistoric PB&J";
+            }
+        }
+
+        /// <summary>
+        /// special preparation instructions
+        /// </summary>
+        public string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!peanutButter) special.Add("No peanut butter");
+                if (!jelly) special.Add("No jelly");
+                return special.ToArray();
             }
         }
 

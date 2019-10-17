@@ -10,7 +10,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Pterodactyl Wings (Chicken wings glazed with a signature hot sauce)
     /// </summary>
-    public class PterodactylWings : Entree, IMenuItem
+    public class PterodactylWings : Entree, IMenuItem, IOrderItem
     {
         /// <summary>
         /// Gets current list of ingredients
@@ -24,6 +24,29 @@ namespace DinoDiner.Menu
                 ingredients.Add("Chicken");
                 ingredients.Add("Wing Sauce");
                 return ingredients;
+            }
+        }
+
+        /// <summary>
+        /// same as ToString();
+        /// </summary>
+        public string Description
+        {
+            get
+            {
+                return "Pterodactyl Wings";
+            }
+        }
+
+        /// <summary>
+        /// Special preparation instructions
+        /// </summary>
+        public string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                return special.ToArray();
             }
         }
 

@@ -10,7 +10,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// T-Rex King Burger (A triple 1/2 steakburger with all the fixings)
     /// </summary>
-    public class TRexKingBurger : Entree, IMenuItem
+    public class TRexKingBurger : Entree, IMenuItem, IOrderItem
     {
         // Private ingredient booleans to be used only in this class
         private bool wholeWheatBun = true;
@@ -42,6 +42,37 @@ namespace DinoDiner.Menu
                 if (mustard) ingredients.Add("Mustard");
                 if (mayo) ingredients.Add("Mayo");
                 return ingredients;
+            }
+        }
+
+        /// <summary>
+        /// same as ToString()
+        /// </summary>
+        public string Description
+        {
+            get
+            {
+                return "T-Rex King Burger";
+            }
+        }
+
+        /// <summary>
+        /// special preparation instructions
+        /// </summary>
+        public string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!wholeWheatBun) special.Add("No bun");
+                if (!lettuce) special.Add("No lettuce");
+                if (!tomato) special.Add("No toamto");
+                if (!onions) special.Add("No onions");
+                if (!pickle) special.Add("No pickle");
+                if (!ketchup) special.Add("No ketchup");
+                if (!mustard) special.Add("No mustard");
+                if (!mayo) special.Add("No mayo");
+                return special.ToArray();
             }
         }
 

@@ -10,7 +10,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Macaroni and Cheese with Sausages
     /// </summary>
-    public class MeteorMacAndCheese : Side, IMenuItem
+    public class MeteorMacAndCheese : Side, IMenuItem, IOrderItem
     {
         // Private backing variable
         private Size _size;
@@ -60,6 +60,41 @@ namespace DinoDiner.Menu
                 ingredients.Add("Cheese Product");
                 ingredients.Add("Pork Sausage");
                 return ingredients;
+            }
+        }
+
+        /// <summary>
+        /// same as ToString()
+        /// </summary>
+        public string Description
+        {
+            get
+            {
+                if (this.Size == Size.Small)
+                {
+                    return "Small Meteor Mac and Cheese";
+                }
+                if (this.Size == Size.Medium)
+                {
+                    return "Medium Meteor Mac and Cheese";
+                }
+                if (this.Size == Size.Large)
+                {
+                    return "Large Meteor Mac and Cheese";
+                }
+                return base.ToString();
+            }
+        }
+
+        /// <summary>
+        /// special preparation instructions
+        /// </summary>
+        public string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                return special.ToArray();
             }
         }
 
