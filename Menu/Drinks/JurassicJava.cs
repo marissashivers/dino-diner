@@ -96,44 +96,16 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
-        /// Description: Matches ToString() implementation
-        /// </summary>
-        public string Description
-        {
-            get
-            {
-                StringBuilder sb = new StringBuilder();
-
-                if (this.Size == Size.Small)
-                {
-                    sb.Append("Small ");
-                }
-                if (this.Size == Size.Medium)
-                {
-                    sb.Append("Medium ");
-                }
-                if (this.Size == Size.Large)
-                {
-
-                    sb.Append("Large ");
-                }
-                if (this.Decaf) sb.Append("Decaf ");
-                sb.Append("Jurassic Java");
-                return sb.ToString();
-            }
-        }
-
-        /// <summary>
         /// Special instructions for making Jurassic Java
         /// </summary>
-        public string[] Special
+        public override string[] Special
         {
             get
             {
                 List<string> special = new List<string>();
-                if (_roomForCream) special.Add("Leave room for cream");
+                if (_roomForCream) special.Add("Leave Room For Cream");
                 if (_decaf) special.Add("Decaf");
-                if (Ice) special.Add("Add ice");
+                if (Ice) special.Add("Add Ice");
                 return special.ToArray();
             }
         }
@@ -155,7 +127,7 @@ namespace DinoDiner.Menu
         /// </summary>
         public void LeaveRoomForCream()
         {
-            this.RoomForCream = true;
+            this._roomForCream = true;
         }
 
         /// <summary>

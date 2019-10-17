@@ -13,9 +13,9 @@ namespace DinoDiner.Menu
     public class Brontowurst : Entree, IMenuItem, IOrderItem
     {
         // Private variables for bun, peppers, and onions to be used only in this class.
-        private bool wholeWheatBun = true;
-        private bool peppers = true;
-        private bool onions = true;
+        private bool _wholeWheatBun = true;
+        private bool _peppers = true;
+        private bool _onions = true;
 
         /// <summary>
         /// Gets current list of ingredients
@@ -25,32 +25,25 @@ namespace DinoDiner.Menu
             get
             {
                 List<string> ingredients = new List<string>() { "Brautwurst" };
-                if (wholeWheatBun) ingredients.Add("Whole Wheat Bun");
-                if (peppers) ingredients.Add("Peppers");
-                if (onions) ingredients.Add("Onion");
+                if (_wholeWheatBun) ingredients.Add("Whole Wheat Bun");
+                if (_peppers) ingredients.Add("Peppers");
+                if (_onions) ingredients.Add("Onion");
                 return ingredients;
             }
         }
 
         /// <summary>
-        /// same as ToString()
+        /// Special preparation instructions
         /// </summary>
-        public string Description
-        {
-            get
-            {
-                return "Brontwurst";
-            }
-        }
-
-        public string[] Special
+        public override string[] Special
         {
             get
             {
                 List<string> special = new List<string>();
-                if (!wholeWheatBun) special.Add("No bun");
-                if (!peppers) special.Add("No peppers");
-                if (!onions) special.Add("No onions");
+                if (!_wholeWheatBun) special.Add("Hold Bun");
+                if (!_peppers) special.Add("Hold Peppers");
+                if (!_onions) special.Add("Hold Onions");
+                return special.ToArray();
             }
         }
 
@@ -68,7 +61,7 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldBun()
         {
-            this.wholeWheatBun = false;
+            this._wholeWheatBun = false;
         }
 
 
@@ -77,7 +70,7 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldPeppers()
         {
-            this.peppers = false;
+            this._peppers = false;
         }
 
         /// <summary>
@@ -85,7 +78,7 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldOnion()
         {
-            this.onions = false;
+            this._onions = false;
         }
 
         /// <summary>

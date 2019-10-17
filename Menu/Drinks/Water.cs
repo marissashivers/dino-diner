@@ -72,38 +72,15 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
-        /// same as ToString()
-        /// </summary>
-        public string Description
-        {
-            get
-            {
-                if (this.Size == Size.Small)
-                {
-                    return "Small Water";
-                }
-                if (this.Size == Size.Medium)
-                {
-                    return "Medium Water";
-                }
-                if (this.Size == Size.Large)
-                {
-                    return "Large Water";
-                }
-                return base.ToString();
-            }
-        }
-
-        /// <summary>
         /// Special preparation instructions
         /// </summary>
-        public string[] Special
+        public override string[] Special
         {
             get
             {
                 List<string> special = new List<string>();
-                if (_lemon) special.Add("Add lemon");
-                if (!Ice) special.Add("No ice");
+                if (_lemon) special.Add("Add Lemon");
+                if (!Ice) special.Add("No Ice");
                 return special.ToArray();
             }
         }

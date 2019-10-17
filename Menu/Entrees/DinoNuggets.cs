@@ -4,16 +4,24 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// DinoNuggets (Six crispy fried breaded chicken nuggets)
     /// </summary>
-    public class DinoNuggets : Entree, IMenuItem, IOrderItem
+    public class DinoNuggets : Entree, IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         // Private number of nuggets
-        private int numNuggets = 6;
+        private int _numNuggets = 6;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         /// <summary>
         /// Gets current list of ingredients
@@ -23,7 +31,7 @@ namespace DinoDiner.Menu
             get
             {
                 List<string> ingredients = new List<string>();
-                for (int i = 0; i < numNuggets; i++)
+                for (int i = 0; i < _numNuggets; i++)
                 {
                     ingredients.Add("Chicken Nugget");
                     
@@ -33,26 +41,17 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
-        /// Same as ToString()
-        /// </summary>
-        public string Description
-        {
-            get
-            {
-                return "Dino-Nuggets";
-            }
-        }
-
-        /// <summary>
         /// special preparation instructions
         /// </summary>
-        public string[] Special
+        public override string[] Special
         {
             get
             {
                 List<string> special = new List<string>();
-                int num = numNuggets - 6;
-                if (numNuggets != 0) special.Add("Add " + num + " nuggets");
+                if (_numNuggets > 6)
+                {
+                    special.Add($"{_numNuggets - 6} Extra Nuggets");
+                }
                 return special.ToArray();
             }
         }
@@ -63,7 +62,7 @@ namespace DinoDiner.Menu
         public DinoNuggets()
         {
             base.Price = 4.25;
-            for (int i = 0; i < numNuggets; i++)
+            for (int i = 0; i < _numNuggets; i++)
             {
                 base.Calories += (uint)59;
             }
@@ -74,9 +73,12 @@ namespace DinoDiner.Menu
         /// </summary>
         public void AddNugget()
         {
-            numNuggets++;
+            _numNuggets++;
             base.Price += 0.25;
             base.Calories += 59;
+            NotifyOfPropertyChanged("Price");
+            NotifyOfPropertyChanged("Calories"); // not in IOrderItem, but should still put
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>

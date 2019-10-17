@@ -13,10 +13,10 @@ namespace DinoDiner.Menu
     public class SteakosaurusBurger : Entree, IMenuItem, IOrderItem
     {
         // Private ingredient booleans to be used only in this class
-        private bool wholeWheatBun = true;
-        private bool pickle = true;
-        private bool ketchup = true;
-        private bool mustard = true;
+        private bool _wholeWheatBun = true;
+        private bool _pickle = true;
+        private bool _ketchup = true;
+        private bool _mustard = true;
 
         /// <summary>
         /// Gets current list of ingredients
@@ -26,37 +26,26 @@ namespace DinoDiner.Menu
             get
             {
                 List<string> ingredients = new List<string> { "Steakburger Pattie" };
-                if (wholeWheatBun) ingredients.Add("Whole Wheat Bun");
-                if (pickle) ingredients.Add("Pickle");
-                if (ketchup) ingredients.Add("Ketchup");
-                if (mustard) ingredients.Add("Mustard");
+                if (_wholeWheatBun) ingredients.Add("Whole Wheat Bun");
+                if (_pickle) ingredients.Add("Pickle");
+                if (_ketchup) ingredients.Add("Ketchup");
+                if (_mustard) ingredients.Add("Mustard");
                 return ingredients;
-            }
-        }
-
-        /// <summary>
-        /// same as ToString
-        /// </summary>
-        public string Description
-        {
-            get
-            {
-                return "Steakosaurus Burger";
             }
         }
 
         /// <summary>
         /// special preparation instructions
         /// </summary>
-        public string[] Special
+        public override string[] Special
         {
             get
             {
                 List<string> special = new List<string>();
-                if (!wholeWheatBun) special.Add("No bun");
-                if (!pickle) special.Add("No pickle");
-                if (!ketchup) special.Add("No ketchup");
-                if (!mustard) special.Add("No mustard");
+                if (!_wholeWheatBun) special.Add("Hold Bun");
+                if (!_pickle) special.Add("Hold Pickle");
+                if (!_ketchup) special.Add("Hold Ketchup");
+                if (!_mustard) special.Add("Hold Mustard");
                 return special.ToArray();
             }
         }
@@ -75,7 +64,7 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldBun()
         {
-            this.wholeWheatBun = false;
+            this._wholeWheatBun = false;
         }
 
         /// <summary>
@@ -83,7 +72,7 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldPickle()
         {
-            this.pickle = false;
+            this._pickle = false;
         }
 
         /// <summary>
@@ -91,7 +80,7 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldKetchup()
         {
-            this.ketchup = false;
+            this._ketchup = false;
         }
 
         /// <summary>
@@ -99,7 +88,7 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldMustard()
         {
-            this.mustard = false;
+            this._mustard = false;
         }
 
         /// <summary>

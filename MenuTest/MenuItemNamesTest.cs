@@ -53,13 +53,6 @@ namespace MenuTest
             Assert.Equal("Prehistoric PB&J", pbj.ToString());
         }
 
-        [Fact]
-        public void PrehistoricPBJDescriptionShouldGiveDescription()
-        {
-            PrehistoricPBJ pbj = new PrehistoricPBJ();
-            Assert.Equal("Prehistoric PB&J", pbj.Description);
-        }
-
         // **** Pterodactyl Wings ****
         [Fact]
         public void PterodactylWingsToStringShouldGiveName()

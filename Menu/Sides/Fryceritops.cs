@@ -61,32 +61,9 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
-        /// same as ToString()
-        /// </summary>
-        public string Description
-        {
-            get
-            {
-                if (this.Size == Size.Small)
-                {
-                    return "Small Friceritops";
-                }
-                if (this.Size == Size.Medium)
-                {
-                    return "Medium Friceritops";
-                }
-                if (this.Size == Size.Large)
-                {
-                    return "Large Friceritops";
-                }
-                return base.ToString();
-            }
-        }
-
-        /// <summary>
         /// special preparation instructions
         /// </summary>
-        public string[] Special
+        public override string[] Special
         {
             get
             {

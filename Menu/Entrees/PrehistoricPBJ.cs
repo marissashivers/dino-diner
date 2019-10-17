@@ -28,27 +28,17 @@ namespace DinoDiner.Menu
             }
         }
 
-        /// <summary>
-        /// same as ToString()
-        /// </summary>
-        public string Description
-        {
-            get
-            {
-                return "Prehistoric PB&J";
-            }
-        }
 
         /// <summary>
         /// special preparation instructions
         /// </summary>
-        public string[] Special
+        public override string[] Special
         {
             get
             {
                 List<string> special = new List<string>();
-                if (!peanutButter) special.Add("No peanut butter");
-                if (!jelly) special.Add("No jelly");
+                if (!peanutButter) special.Add("Hold Peanut Butter");
+                if (!jelly) special.Add("Hold Jelly");
                 return special.ToArray();
             }
         }

@@ -80,38 +80,14 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
-        /// Same as ToString() implementation
+        /// Special preparation instructions
         /// </summary>
-        public string Description
-        {
-            get
-            {
-                StringBuilder sb = new StringBuilder();
-                if (this.Size == Size.Small)
-                {
-                    sb.Append("Small ");
-                }
-                if (this.Size == Size.Medium)
-                {
-                    sb.Append("Medium ");
-                }
-                if (this.Size == Size.Large)
-                {
-
-                    sb.Append("Large ");
-                }
-                sb.Append(this.Flavor + " ");
-                sb.Append("Sodasaurus");
-                return sb.ToString();
-            }
-        }
-
-        public string[] Special
+        public override string[] Special
         {
             get
             {
                 List<string> special = new List<String>();
-                if (!Ice) special.Add("No ice");
+                if (!Ice) special.Add("Hold Ice");
                 return special.ToArray();
             }
         }

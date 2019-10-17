@@ -13,9 +13,9 @@ namespace DinoDiner.Menu
     public class VelociWrap : Entree, IMenuItem, IOrderItem
     {
         // Private boolean ingredients to be used only in this class
-        private bool ceasarDressing = true;
-        private bool romaineLettuce = true;
-        private bool parmesanCheese = true;
+        private bool _ceasarDressing = true;
+        private bool _romaineLettuce = true;
+        private bool _parmesanCheese = true;
 
         /// <summary>
         /// Gets the list of ingredients
@@ -27,35 +27,24 @@ namespace DinoDiner.Menu
                 List<string> ingredients = new List<string>();
                 ingredients.Add("Flour Tortilla");
                 ingredients.Add("Chicken Breast");
-                if (ceasarDressing) ingredients.Add("Ceasar Dressing");
-                if (romaineLettuce) ingredients.Add("Romaine Lettuce");
-                if (parmesanCheese) ingredients.Add("Parmesan Cheese");
+                if (_ceasarDressing) ingredients.Add("Ceasar Dressing");
+                if (_romaineLettuce) ingredients.Add("Romaine Lettuce");
+                if (_parmesanCheese) ingredients.Add("Parmesan Cheese");
                 return ingredients;
-            }
-        }
-
-        /// <summary>
-        /// same as ToString()
-        /// </summary>
-        public string Description
-        {
-            get
-            {
-                return "Veloci-Wrap";
             }
         }
         
         /// <summary>
         /// Special preparation instructions
         /// </summary>
-        public string[] Special
+        public override string[] Special
         {
             get
             {
                 List<string> special = new List<string>();
-                if (!ceasarDressing) special.Add("No dressing");
-                if (!romaineLettuce) special.Add("No lettuce");
-                if (!parmesanCheese) special.Add("No parmesan cheese");
+                if (!_ceasarDressing) special.Add("Hold Dressing");
+                if (!_romaineLettuce) special.Add("Hold Lettuce");
+                if (!_parmesanCheese) special.Add("Hold Cheese");
                 return special.ToArray();
             }
         }
@@ -74,7 +63,7 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldLettuce()
         {
-            this.romaineLettuce = false;
+            this._romaineLettuce = false;
         }
 
         /// <summary>
@@ -82,7 +71,7 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldDressing()
         {
-            this.ceasarDressing = false;
+            this._ceasarDressing = false;
         }
 
         /// <summary>
@@ -90,7 +79,7 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldCheese()
         {
-            this.parmesanCheese = false;
+            this._parmesanCheese = false;
         }
 
         /// <summary>

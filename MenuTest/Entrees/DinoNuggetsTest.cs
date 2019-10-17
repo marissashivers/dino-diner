@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Xunit;
-using DinoDiner.Menu.Entrees;
+using DinoDiner.Menu;
 
 namespace MenuTest.Entrees
 {
@@ -17,7 +17,7 @@ namespace MenuTest.Entrees
         public void ShouldHaveCorrectDefaultCalories()
         {
             DinoNuggets dn = new DinoNuggets();
-            Assert.Equal<uint>(59*6, dn.Calories);
+            Assert.Equal<uint>(59 * 6, dn.Calories);
         }
 
 
@@ -28,7 +28,7 @@ namespace MenuTest.Entrees
             List<string> ingredients = dn.Ingredients;
             // Should be six nuggets
             int nuggetCount = 0;
-            foreach(string ingredient in ingredients)
+            foreach (string ingredient in ingredients)
             {
                 if (ingredient.Equals("Chicken Nugget")) nuggetCount++;
             }
@@ -67,11 +67,11 @@ namespace MenuTest.Entrees
         {
             DinoNuggets dn = new DinoNuggets();
             dn.AddNugget();
-            Assert.Equal(dn.Price, 4.50, 2);
+            Assert.Equal(4.50, dn.Price, 2);
             dn.AddNugget();
-            Assert.Equal(dn.Price, 4.75, 2);
+            Assert.Equal(4.75, dn.Price, 2);
             dn.AddNugget();
-            Assert.Equal(dn.Price, 5.0, 2);
+            Assert.Equal(5.0, dn.Price, 2);
         }
 
         [Fact]
@@ -79,11 +79,51 @@ namespace MenuTest.Entrees
         {
             DinoNuggets dn = new DinoNuggets();
             dn.AddNugget();
-            Assert.Equal<uint>(dn.Calories, 59*7);
+            Assert.Equal<uint>(dn.Calories, 59 * 7);
             dn.AddNugget();
-            Assert.Equal<uint>(dn.Calories, 59*8);
+            Assert.Equal<uint>(dn.Calories, 59 * 8);
             dn.AddNugget();
-            Assert.Equal<uint>(dn.Calories, 59*9);
+            Assert.Equal<uint>(dn.Calories, 59 * 9);
+        }
+
+        [Fact]
+        public void ShouldHaveEmptySpecialByDefault()
+        {
+            DinoNuggets dn = new DinoNuggets();
+            Assert.Empty(dn.Special);
+        }
+
+        // Will be different
+        // Number of extra nuggets + "extra nuggets"
+        [Theory]
+        [InlineData(1)]
+        [InlineData(2)]
+        [InlineData(3)]
+        public void ShouldHaveCorrectSpecialForNuggets(int extraNuggets)
+        {
+            DinoNuggets dn = new DinoNuggets();
+            for (int i = 0; i < extraNuggets; i++)
+            {
+                dn.AddNugget();
+            }
+            Assert.Collection<string>(dn, item => 
+            {
+                Assert.Equal($"{extraNuggets} Extra Nuggets", item); // title case
+            });
+        }
+        
+        [Theory]
+        [InlineData("Special")]
+        [InlineData("Price")]
+        public void AddingNuggetsShouldNotifyOfPropertyChange(string propertyName)
+        {
+            DinoNuggets dn = new DinoNuggets();
+            // attach event listener to dn event handler
+            // call addnugget
+            Assert.PropertyChanged(dn, propertyName, () =>
+            {
+                dn.AddNugget();
+            });
         }
     }
 }

@@ -28,20 +28,9 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
-        /// same as ToString();
-        /// </summary>
-        public string Description
-        {
-            get
-            {
-                return "Pterodactyl Wings";
-            }
-        }
-
-        /// <summary>
         /// Special preparation instructions
         /// </summary>
-        public string[] Special
+        public override string[] Special
         {
             get
             {

@@ -64,32 +64,9 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
-        /// same as ToString()
-        /// </summary>
-        public string Description
-        {
-            get
-            {
-                if (this.Size == Size.Small)
-                {
-                    return "Small Meteor Mac and Cheese";
-                }
-                if (this.Size == Size.Medium)
-                {
-                    return "Medium Meteor Mac and Cheese";
-                }
-                if (this.Size == Size.Large)
-                {
-                    return "Large Meteor Mac and Cheese";
-                }
-                return base.ToString();
-            }
-        }
-
-        /// <summary>
         /// special preparation instructions
         /// </summary>
-        public string[] Special
+        public override string[] Special
         {
             get
             {

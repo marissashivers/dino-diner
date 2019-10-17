@@ -51,5 +51,18 @@ namespace DinoDiner.Menu
         /// </summary>
         public abstract Size Size { get; set; }
 
+        /// <summary>
+        /// Gets the description
+        /// </summary>
+        public string Description
+        {
+            get { return this.ToString(); }
+        }
+
+        /// <summary>
+        /// Special preparation instructions
+        /// </summary>
+        public abstract string[] Special { get; }
+
     }
 }

@@ -103,6 +103,11 @@ namespace DinoDiner.Menu
             get
             {
                 List<string> special = new List<string>();
+                special.AddRange(Entree.Special);
+                special.Add(Side.Description);
+                special.AddRange(Side.Special);
+                special.Add(Drink.Description);
+                special.Add(Drink.Special);
                 return special.ToArray();
             }
         }

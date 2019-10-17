@@ -29,7 +29,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Abstract class for a drink.
     /// </summary>
-    public abstract class Drink : IMenuItem
+    public abstract class Drink : IMenuItem, IOrderItem
     {
         // Private backing variable
         private bool _ice = true;
@@ -63,6 +63,22 @@ namespace DinoDiner.Menu
         /// Gets the ingredients list
         /// </summary>
         public abstract List<string> Ingredients { get; }
+
+        /// <summary>
+        /// Getter for description
+        /// </summary>
+        public string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Abstract method for Special with getter
+        /// </summary>
+        public abstract string[] Special { get; }
 
         /// <summary>
         /// Size enum
