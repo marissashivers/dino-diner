@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿/*  PrehistoricPBJ.cs
+*   Author: Marissa Shivers
+*/
+using System.Collections.Generic;
 
 namespace DinoDiner.Menu
 {

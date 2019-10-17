@@ -1,4 +1,7 @@
-﻿using System;
+﻿/*  IMenuItem.cs
+*   Author: Marissa Shivers
+*/
+using System;
 using System.Collections.Generic;
 using System.Text;
 

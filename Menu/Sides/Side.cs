@@ -1,4 +1,7 @@
-﻿using System;
+﻿/*  Side.cs
+*   Author: Marissa Shivers
+*/
+using System;
 using System.Collections.Generic;
 using System.Text;
 

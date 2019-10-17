@@ -1,4 +1,7 @@
-﻿using System;
+﻿/*  DinoNuggets.cs
+*   Author: Marissa Shivers
+*/
+using System;
 using System.Collections.Generic;
 using System.Text;
 
