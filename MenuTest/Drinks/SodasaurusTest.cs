@@ -141,6 +141,32 @@ namespace MenuTest.Drinks
             Assert.Contains<string>("Cane Sugar", soda.Ingredients);
             Assert.Equal<int>(3, soda.Ingredients.Count);
         }
+
+        // *********************************************
+        // IOrderItem Interface Tests...
+        // *********************************************
+
+        [Fact]
+        public void HasCorrectDescription()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            Assert.Equal("Sodasaurus", soda.Description);
+        }
+
+        [Fact]
+        public void HasCorrectDefaultSpecial()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            Assert.Empty(soda.Special);
+        }
+
+        [Fact]
+        public void HoldIceShouldProvideCorrectSpecial()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            soda.HoldIce();
+            Assert.Contains("Hold Ice", soda.Special);
+        }
     }
 
 }

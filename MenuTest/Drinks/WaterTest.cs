@@ -88,5 +88,39 @@ namespace MenuTest.Drinks
             Assert.Contains("Water", w.Ingredients);
             Assert.Contains("Lemon", w.Ingredients);
         }
+
+        // *********************************************
+        // IOrderItem Interface Tests...
+        // *********************************************
+
+        [Fact]
+        public void HasCorrectDescription()
+        {
+            Water w = new Water();
+            Assert.Equal("Water", w.Description);
+        }
+
+        [Fact]
+        public void HasCorrectDefaultSpecial()
+        {
+            Water w = new Water();
+            Assert.Empty(w.Special);
+        }
+
+        [Fact]
+        public void HoldIceShouldProvideCorrectSpecial()
+        {
+            Water w = new Water();
+            w.HoldIce();
+            Assert.Contains("Hold Ice", w.Special);
+        }
+
+        [Fact]
+        public void AddLemonShouldProvideCorrectSpecial()
+        {
+            Water w = new Water();
+            w.AddLemon();
+            Assert.Contains("Add Lemon", w.Special);
+        }
     }
 }

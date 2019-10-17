@@ -135,5 +135,37 @@ namespace MenuTest.Drinks
         // *********************************************
         // IOrderItem Interface Tests...
         // *********************************************
+
+        [Fact]
+        public void HasCorrectDescription()
+        {
+            JurassicJava java = new JurassicJava();
+            Assert.Equal("Jurassic Java", java.Description);
+        }
+
+        [Fact]
+        public void HasCorrectDefaultSpecial()
+        {
+            JurassicJava java = new JurassicJava();
+            Assert.Empty(java.Special);
+        }
+
+        [Fact]
+        public void AddIceShouldProvideCorrectSpecial()
+        {
+            JurassicJava java = new JurassicJava();
+            java.AddIce();
+            Assert.Contains("Add Ice", java.Special);
+        }
+
+        [Fact]
+        public void DecafAndLeaveRoomForCreamProvideCorrectSpecial()
+        {
+            JurassicJava java = new JurassicJava();
+            java.LeaveRoomForCream();
+            java.Decaf = true;
+            Assert.Contains("Leave Room For Cream", java.Special);
+            Assert.Contains("Decaf", java.Special);
+        }
     }
 }

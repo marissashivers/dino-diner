@@ -196,5 +196,41 @@ namespace MenuTest.Drinks
             Assert.Contains("Cane Sugar", tt.Ingredients);
         }
 
+        // *********************************************
+        // IOrderItem Interface Tests...
+        // *********************************************
+
+        [Fact]
+        public void HasCorrectDescription()
+        {
+            Tyrannotea tt = new Tyrannotea();
+            Assert.Equal("Tyrannotea", tt.Description);
+        }
+
+        [Fact]
+        public void HasCorrectDefaultSpecial()
+        {
+            Tyrannotea tt = new Tyrannotea();
+            Assert.Empty(tt.Special);
+        }
+
+        [Fact]
+        public void HoldIceShouldProvideCorrectSpecial()
+        {
+            Tyrannotea tt = new Tyrannotea();
+            tt.HoldIce();
+            Assert.Contains("Hold Ice", tt.Special);
+        }
+
+        [Fact]
+        public void AddLemonAndSweetenerShouldProvideCorrectSpecial()
+        {
+            Tyrannotea tt = new Tyrannotea();
+            tt.AddLemon();
+            tt.AddSweetener();
+            Assert.Contains("Add Lemon", tt.Special);
+            Assert.Contains("Add Sweetener", tt.Special);
+        }
+
     }
 }
