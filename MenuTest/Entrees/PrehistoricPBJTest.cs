@@ -92,6 +92,23 @@ namespace MenuTest.Entrees
             Assert.Contains("Hold Peanut Butter", pbj.Special);
             Assert.Contains("Hold Jelly", pbj.Special);
         }
+
+        // *********************************************
+        //      INotifyPropertyChanged interface tests
+        // *********************************************
+
+        [Theory]
+        [InlineData("Special")]
+        public void RemovePeanutButterShouldNotifyOfPropertyChange(string propertyName)
+        {
+            PrehistoricPBJ pbj = new PrehistoricPBJ();
+            // attach event listener to dn event handler
+            // call addnugget
+            Assert.PropertyChanged(pbj, propertyName, () =>
+            {
+                pbj.HoldPeanutButter();
+            });
+        }
     }
 
 }

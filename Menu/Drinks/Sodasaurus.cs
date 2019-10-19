@@ -65,6 +65,7 @@ namespace DinoDiner.Menu
                 NotifyOfPropertyChanged("Price");
                 NotifyOfPropertyChanged("Calories");
                 NotifyOfPropertyChanged("Size");
+                NotifyOfPropertyChanged("Description");
             } // end set
         }
 
@@ -80,6 +81,7 @@ namespace DinoDiner.Menu
             set
             {
                 _flavor = value;
+                NotifyOfPropertyChanged("Description");
             }
         }
 

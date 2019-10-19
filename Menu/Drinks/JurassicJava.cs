@@ -65,6 +65,7 @@ namespace DinoDiner.Menu
             set
             {
                 _decaf = value;
+                NotifyOfPropertyChanged("Description");
             }
         }
 
@@ -98,6 +99,7 @@ namespace DinoDiner.Menu
                 NotifyOfPropertyChanged("Price");
                 NotifyOfPropertyChanged("Size");
                 NotifyOfPropertyChanged("Calories");
+                NotifyOfPropertyChanged("Description");
             }
         } // end Size
 

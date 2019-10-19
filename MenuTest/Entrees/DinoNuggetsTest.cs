@@ -123,7 +123,11 @@ namespace MenuTest.Entrees
                 Assert.Equal($"{extraNuggets} Extra Nuggets", item); // title case
             });
         }
-        
+
+        // *********************************************
+        //      INotifyPropertyChanged interface tests
+        // *********************************************
+
         [Theory]
         [InlineData("Special")]
         [InlineData("Price")]

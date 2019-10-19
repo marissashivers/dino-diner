@@ -30,25 +30,10 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Abstract class for a drink.
     /// </summary>
-    public abstract class Drink : IMenuItem, IOrderItem, INotifyPropertyChanged
+    public abstract class Drink : IMenuItem, IOrderItem
     {
         // Private backing variable
         private bool _ice = true;
-
-        /// <summary>
-        /// Property changed event handler
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        /// <summary>
-        /// Notifies that a property changed
-        /// </summary>
-        /// <param name="propertyName">String property name</param>
-
-        protected void NotifyOfPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
 
         /// <summary>
         /// Ice boolean
