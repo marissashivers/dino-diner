@@ -3,6 +3,7 @@
 */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace DinoDiner.Menu
@@ -11,10 +12,25 @@ namespace DinoDiner.Menu
     /// OLD-FASHION SODA
     /// A drink that contains carbonated water, a sweetener, and a natural or artificial flavoring.
     /// </summary>
-    public class Sodasaurus : Drink, IMenuItem, IOrderItem
+    public class Sodasaurus : Drink, IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         // Private backing variable for size
         private Size _size;
+
+        /// <summary>
+        /// Property changed event handler
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Notifies that a property changed
+        /// </summary>
+        /// <param name="propertyName">String property name</param>
+
+        protected void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         // Private backing variable for flavor
         private SodasaurusFlavor _flavor;
@@ -46,6 +62,9 @@ namespace DinoDiner.Menu
                         Calories = 208;
                         break;
                 } // end switch
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Calories");
+                NotifyOfPropertyChanged("Size");
             } // end set
         }
 

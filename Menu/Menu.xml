@@ -44,6 +44,16 @@
             Gets the list of ingredients for the combo
             </summary>
         </member>
+        <member name="P:DinoDiner.Menu.CretaceousCombo.Description">
+            <summary>
+            same as ToString()
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.CretaceousCombo.Special">
+            <summary>
+            special preparation instructions
+            </summary>
+        </member>
         <member name="M:DinoDiner.Menu.CretaceousCombo.#ctor(DinoDiner.Menu.Entree)">
             <summary>
             Constructs a new combo with the specified entree
@@ -60,6 +70,17 @@
             <summary>
             Abstract class for a drink.
             </summary>
+        </member>
+        <member name="E:DinoDiner.Menu.Drink.PropertyChanged">
+            <summary>
+            Property changed event handler
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Drink.NotifyOfPropertyChanged(System.String)">
+            <summary>
+            Notifies that a property changed
+            </summary>
+            <param name="propertyName">String property name</param>
         </member>
         <member name="P:DinoDiner.Menu.Drink.Ice">
             <summary>
@@ -81,6 +102,16 @@
             Gets the ingredients list
             </summary>
         </member>
+        <member name="P:DinoDiner.Menu.Drink.Description">
+            <summary>
+            Getter for description
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Drink.Special">
+            <summary>
+            Abstract method for Special with getter
+            </summary>
+        </member>
         <member name="P:DinoDiner.Menu.Drink.Size">
             <summary>
             Size enum
@@ -95,6 +126,17 @@
             <summary>
             JurrassicJava = Coffee
             </summary>
+        </member>
+        <member name="E:DinoDiner.Menu.JurassicJava.PropertyChanged">
+            <summary>
+            Property changed event handler
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.JurassicJava.NotifyOfPropertyChanged(System.String)">
+            <summary>
+            Notifies that a property changed
+            </summary>
+            <param name="propertyName">String property name</param>
         </member>
         <member name="P:DinoDiner.Menu.JurassicJava.RoomForCream">
             <summary>
@@ -114,6 +156,11 @@
         <member name="P:DinoDiner.Menu.JurassicJava.Ingredients">
             <summary>
             Gets the list of ingredients
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.JurassicJava.Special">
+            <summary>
+            Special instructions for making Jurassic Java
             </summary>
         </member>
         <member name="M:DinoDiner.Menu.JurassicJava.#ctor">
@@ -143,6 +190,17 @@
             A drink that contains carbonated water, a sweetener, and a natural or artificial flavoring.
             </summary>
         </member>
+        <member name="E:DinoDiner.Menu.Sodasaurus.PropertyChanged">
+            <summary>
+            Property changed event handler
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Sodasaurus.NotifyOfPropertyChanged(System.String)">
+            <summary>
+            Notifies that a property changed
+            </summary>
+            <param name="propertyName">String property name</param>
+        </member>
         <member name="P:DinoDiner.Menu.Sodasaurus.Size">
             <summary>
             Gets and sets the size and adjusts calories and price according to size
@@ -156,6 +214,11 @@
         <member name="P:DinoDiner.Menu.Sodasaurus.Ingredients">
             <summary>
             Gets the ingredients list
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Sodasaurus.Special">
+            <summary>
+            Special preparation instructions
             </summary>
         </member>
         <member name="M:DinoDiner.Menu.Sodasaurus.#ctor">
@@ -214,6 +277,17 @@
             Iced tea
             </summary>
         </member>
+        <member name="E:DinoDiner.Menu.Tyrannotea.PropertyChanged">
+            <summary>
+            Property changed event handler
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Tyrannotea.NotifyOfPropertyChanged(System.String)">
+            <summary>
+            Notifies that a property changed
+            </summary>
+            <param name="propertyName">String property name</param>
+        </member>
         <member name="P:DinoDiner.Menu.Tyrannotea.Lemon">
             <summary>
             Bool for lemon property
@@ -227,6 +301,11 @@
         <member name="P:DinoDiner.Menu.Tyrannotea.Size">
             <summary>
             Gets and sets the size, and adjusts price/calories based on size
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Tyrannotea.Special">
+            <summary>
+            Special preparation instructions
             </summary>
         </member>
         <member name="M:DinoDiner.Menu.Tyrannotea.#ctor">
@@ -265,6 +344,17 @@
             Hydration is important
             </summary>
         </member>
+        <member name="E:DinoDiner.Menu.Water.PropertyChanged">
+            <summary>
+            Property changed event handler
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Water.NotifyOfPropertyChanged(System.String)">
+            <summary>
+            Notifies that a property changed
+            </summary>
+            <param name="propertyName">String property name</param>
+        </member>
         <member name="P:DinoDiner.Menu.Water.Lemon">
             <summary>
             Lemon bool for lemon property
@@ -278,6 +368,11 @@
         <member name="P:DinoDiner.Menu.Water.Ingredients">
             <summary>
             List of ingredients
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Water.Special">
+            <summary>
+            Special preparation instructions
             </summary>
         </member>
         <member name="M:DinoDiner.Menu.Water.#ctor">
@@ -301,9 +396,25 @@
             Brontowurst (Brautwurst with peppers and onions in a bun)
             </summary>
         </member>
+        <member name="E:DinoDiner.Menu.Brontowurst.PropertyChanged">
+            <summary>
+            Property changed event handler
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Brontowurst.NotifyOfPropertyChanged(System.String)">
+            <summary>
+            Notifies that a property changed
+            </summary>
+            <param name="propertyName">String property name</param>
+        </member>
         <member name="P:DinoDiner.Menu.Brontowurst.Ingredients">
             <summary>
             Gets current list of ingredients
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Brontowurst.Special">
+            <summary>
+            Special preparation instructions
             </summary>
         </member>
         <member name="M:DinoDiner.Menu.Brontowurst.#ctor">
@@ -337,9 +448,25 @@
             DinoNuggets (Six crispy fried breaded chicken nuggets)
             </summary>
         </member>
+        <member name="E:DinoDiner.Menu.DinoNuggets.PropertyChanged">
+            <summary>
+            Property changed event handler
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.DinoNuggets.NotifyOfPropertyChanged(System.String)">
+            <summary>
+            Notifies that a property changed
+            </summary>
+            <param name="propertyName">String property name</param>
+        </member>
         <member name="P:DinoDiner.Menu.DinoNuggets.Ingredients">
             <summary>
             Gets current list of ingredients
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.DinoNuggets.Special">
+            <summary>
+            special preparation instructions
             </summary>
         </member>
         <member name="M:DinoDiner.Menu.DinoNuggets.#ctor">
@@ -378,14 +505,40 @@
             Gets the ingredients list
             </summary>
         </member>
+        <member name="P:DinoDiner.Menu.Entree.Description">
+            <summary>
+            Gets the description
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Entree.Special">
+            <summary>
+            Special preparation instructions
+            </summary>
+        </member>
         <member name="T:DinoDiner.Menu.PrehistoricPBJ">
             <summary>
             Prehistoric PB and J (A peanut butter and jelly sandwich)
             </summary>
         </member>
+        <member name="E:DinoDiner.Menu.PrehistoricPBJ.PropertyChanged">
+            <summary>
+            Property changed event handler
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.PrehistoricPBJ.NotifyOfPropertyChanged(System.String)">
+            <summary>
+            Notifies that a property changed
+            </summary>
+            <param name="propertyName">String property name</param>
+        </member>
         <member name="P:DinoDiner.Menu.PrehistoricPBJ.Ingredients">
             <summary>
             Gets current list of ingredients
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.PrehistoricPBJ.Special">
+            <summary>
+            special preparation instructions
             </summary>
         </member>
         <member name="M:DinoDiner.Menu.PrehistoricPBJ.#ctor">
@@ -414,9 +567,25 @@
             Pterodactyl Wings (Chicken wings glazed with a signature hot sauce)
             </summary>
         </member>
+        <member name="E:DinoDiner.Menu.PterodactylWings.PropertyChanged">
+            <summary>
+            Property changed event handler
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.PterodactylWings.NotifyOfPropertyChanged(System.String)">
+            <summary>
+            Notifies that a property changed
+            </summary>
+            <param name="propertyName">String property name</param>
+        </member>
         <member name="P:DinoDiner.Menu.PterodactylWings.Ingredients">
             <summary>
             Gets current list of ingredients
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.PterodactylWings.Special">
+            <summary>
+            Special preparation instructions
             </summary>
         </member>
         <member name="M:DinoDiner.Menu.PterodactylWings.#ctor">
@@ -435,9 +604,25 @@
             Steakosaurus Burger (A 1/2 pound steakburger)
             </summary>
         </member>
+        <member name="E:DinoDiner.Menu.SteakosaurusBurger.PropertyChanged">
+            <summary>
+            Property changed event handler
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.SteakosaurusBurger.NotifyOfPropertyChanged(System.String)">
+            <summary>
+            Notifies that a property changed
+            </summary>
+            <param name="propertyName">String property name</param>
+        </member>
         <member name="P:DinoDiner.Menu.SteakosaurusBurger.Ingredients">
             <summary>
             Gets current list of ingredients
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.SteakosaurusBurger.Special">
+            <summary>
+            special preparation instructions
             </summary>
         </member>
         <member name="M:DinoDiner.Menu.SteakosaurusBurger.#ctor">
@@ -476,9 +661,25 @@
             T-Rex King Burger (A triple 1/2 steakburger with all the fixings)
             </summary>
         </member>
+        <member name="E:DinoDiner.Menu.TRexKingBurger.PropertyChanged">
+            <summary>
+            Property changed event handler
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.TRexKingBurger.NotifyOfPropertyChanged(System.String)">
+            <summary>
+            Notifies that a property changed
+            </summary>
+            <param name="propertyName">String property name</param>
+        </member>
         <member name="P:DinoDiner.Menu.TRexKingBurger.Ingredients">
             <summary>
             Gets current list of ingredients
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.TRexKingBurger.Special">
+            <summary>
+            special preparation instructions
             </summary>
         </member>
         <member name="M:DinoDiner.Menu.TRexKingBurger.#ctor">
@@ -537,9 +738,25 @@
             Veloci-Wrap (A chicken ceasar wrap)
             </summary>
         </member>
+        <member name="E:DinoDiner.Menu.VelociWrap.PropertyChanged">
+            <summary>
+            Property changed event handler
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.VelociWrap.NotifyOfPropertyChanged(System.String)">
+            <summary>
+            Notifies that a property changed
+            </summary>
+            <param name="propertyName">String property name</param>
+        </member>
         <member name="P:DinoDiner.Menu.VelociWrap.Ingredients">
             <summary>
             Gets the list of ingredients
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.VelociWrap.Special">
+            <summary>
+            Special preparation instructions
             </summary>
         </member>
         <member name="M:DinoDiner.Menu.VelociWrap.#ctor">
@@ -567,6 +784,52 @@
             ToString for Velociwrap
             </summary>
             <returns></returns>
+        </member>
+        <member name="T:DinoDiner.Menu.IMenuItem">
+            <summary>
+            Interface for a menu item. Includes getters for price, calories, and ingredient list
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.IMenuItem.Price">
+            <summary>
+            Getter for price
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.IMenuItem.Calories">
+            <summary>
+            Getter for calories
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.IMenuItem.Ingredients">
+            <summary>
+            Getter for ingredient list
+            </summary>
+        </member>
+        <member name="T:DinoDiner.Menu.IOrderItem">
+            <summary>
+            Interface for an order item, for the Point of Sale.
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.IOrderItem.Price">
+            <summary>
+            Getter for price property
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.IOrderItem.Description">
+            <summary>
+            Getter for description property, which is the same as the ToString() implementation
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.IOrderItem.Special">
+            <summary>
+            Contains any special instructions for the food preparation, such as "Hold Ketchup"
+            as specified by the Menu Item
+            </summary>
+        </member>
+        <member name="T:DinoDiner.Menu.Menu">
+            <summary>
+            Class that represents the menu =)
+            </summary>
         </member>
         <member name="P:DinoDiner.Menu.Menu.AvailableMenuItems">
             <summary>
@@ -605,6 +868,17 @@
             Fryceritops class - French Fries
             </summary>
         </member>
+        <member name="E:DinoDiner.Menu.Fryceritops.PropertyChanged">
+            <summary>
+            Property changed event handler
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Fryceritops.NotifyOfPropertyChanged(System.String)">
+            <summary>
+            Notifies that a property changed
+            </summary>
+            <param name="propertyName">String property name</param>
+        </member>
         <member name="P:DinoDiner.Menu.Fryceritops.Size">
             <summary>
             Gets and sets size, and sets price/calories according to size
@@ -613,6 +887,11 @@
         <member name="P:DinoDiner.Menu.Fryceritops.Ingredients">
             <summary>
             Gets the current list of ingredients
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Fryceritops.Special">
+            <summary>
+            special preparation instructions
             </summary>
         </member>
         <member name="M:DinoDiner.Menu.Fryceritops.#ctor">
@@ -631,6 +910,17 @@
             Macaroni and Cheese with Sausages
             </summary>
         </member>
+        <member name="E:DinoDiner.Menu.MeteorMacAndCheese.PropertyChanged">
+            <summary>
+            Property changed event handler
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.MeteorMacAndCheese.NotifyOfPropertyChanged(System.String)">
+            <summary>
+            Notifies that a property changed
+            </summary>
+            <param name="propertyName">String property name</param>
+        </member>
         <member name="P:DinoDiner.Menu.MeteorMacAndCheese.Size">
             <summary>
             Gets and sets size, and sets price/calories according to size
@@ -639,6 +929,11 @@
         <member name="P:DinoDiner.Menu.MeteorMacAndCheese.Ingredients">
             <summary>
             Gets the current list of ingredients
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.MeteorMacAndCheese.Special">
+            <summary>
+            special preparation instructions
             </summary>
         </member>
         <member name="M:DinoDiner.Menu.MeteorMacAndCheese.#ctor">
@@ -657,6 +952,17 @@
             Fried Breaded Mozzarella Sticks
             </summary>
         </member>
+        <member name="E:DinoDiner.Menu.MezzorellaSticks.PropertyChanged">
+            <summary>
+            Property changed event handler
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.MezzorellaSticks.NotifyOfPropertyChanged(System.String)">
+            <summary>
+            Notifies that a property changed
+            </summary>
+            <param name="propertyName">String property name</param>
+        </member>
         <member name="P:DinoDiner.Menu.MezzorellaSticks.Size">
             <summary>
             Gets and sets size, and sets price/calories according to size
@@ -665,6 +971,11 @@
         <member name="P:DinoDiner.Menu.MezzorellaSticks.Ingredients">
             <summary>
             Gets the current list of ingredients
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.MezzorellaSticks.Special">
+            <summary>
+            special preparation instructions
             </summary>
         </member>
         <member name="M:DinoDiner.Menu.MezzorellaSticks.#ctor">
@@ -723,10 +1034,31 @@
             Gets or sets the size
             </summary>
         </member>
+        <member name="P:DinoDiner.Menu.Side.Description">
+            <summary>
+            Gets the description
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Side.Special">
+            <summary>
+            Special preparation instructions
+            </summary>
+        </member>
         <member name="T:DinoDiner.Menu.Triceritots">
             <summary>
             Tater Tots
             </summary>
+        </member>
+        <member name="E:DinoDiner.Menu.Triceritots.PropertyChanged">
+            <summary>
+            Property changed event handler
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Triceritots.NotifyOfPropertyChanged(System.String)">
+            <summary>
+            Notifies that a property changed
+            </summary>
+            <param name="propertyName">String property name</param>
         </member>
         <member name="P:DinoDiner.Menu.Triceritots.Size">
             <summary>
@@ -736,6 +1068,11 @@
         <member name="P:DinoDiner.Menu.Triceritots.Ingredients">
             <summary>
             Gets the current list of ingredients
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Triceritots.Special">
+            <summary>
+            special preparation instructions
             </summary>
         </member>
         <member name="M:DinoDiner.Menu.Triceritots.#ctor">

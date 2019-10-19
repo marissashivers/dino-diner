@@ -3,6 +3,7 @@
 */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace DinoDiner.Menu
@@ -10,13 +11,28 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Steakosaurus Burger (A 1/2 pound steakburger)
     /// </summary>
-    public class SteakosaurusBurger : Entree, IMenuItem, IOrderItem
+    public class SteakosaurusBurger : Entree, IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         // Private ingredient booleans to be used only in this class
         private bool _wholeWheatBun = true;
         private bool _pickle = true;
         private bool _ketchup = true;
         private bool _mustard = true;
+
+        /// <summary>
+        /// Property changed event handler
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Notifies that a property changed
+        /// </summary>
+        /// <param name="propertyName">String property name</param>
+
+        protected void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         /// <summary>
         /// Gets current list of ingredients
@@ -65,6 +81,7 @@ namespace DinoDiner.Menu
         public void HoldBun()
         {
             this._wholeWheatBun = false;
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -73,6 +90,7 @@ namespace DinoDiner.Menu
         public void HoldPickle()
         {
             this._pickle = false;
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -81,6 +99,7 @@ namespace DinoDiner.Menu
         public void HoldKetchup()
         {
             this._ketchup = false;
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -89,6 +108,7 @@ namespace DinoDiner.Menu
         public void HoldMustard()
         {
             this._mustard = false;
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>

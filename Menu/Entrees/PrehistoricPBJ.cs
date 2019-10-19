@@ -2,17 +2,33 @@
 *   Author: Marissa Shivers
 */
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// Prehistoric PB and J (A peanut butter and jelly sandwich)
     /// </summary>
-    public class PrehistoricPBJ : Entree, IMenuItem, IOrderItem
+    public class PrehistoricPBJ : Entree, IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         // Privaite peanut butter and jelly to be used only in this class.
         private bool peanutButter = true;
         private bool jelly = true;
+
+        /// <summary>
+        /// Property changed event handler
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Notifies that a property changed
+        /// </summary>
+        /// <param name="propertyName">String property name</param>
+
+        protected void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         /// <summary>
         /// Gets current list of ingredients
@@ -58,6 +74,7 @@ namespace DinoDiner.Menu
         public void HoldPeanutButter()
         {
             this.peanutButter = false;
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -66,6 +83,7 @@ namespace DinoDiner.Menu
         public void HoldJelly()
         {
             this.jelly = false;
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>

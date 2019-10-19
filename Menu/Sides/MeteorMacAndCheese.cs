@@ -3,6 +3,7 @@
 */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace DinoDiner.Menu
@@ -10,10 +11,25 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Macaroni and Cheese with Sausages
     /// </summary>
-    public class MeteorMacAndCheese : Side, IMenuItem, IOrderItem
+    public class MeteorMacAndCheese : Side, IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         // Private backing variable
         private Size _size;
+
+        /// <summary>
+        /// Property changed event handler
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Notifies that a property changed
+        /// </summary>
+        /// <param name="propertyName">String property name</param>
+
+        protected void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         //MeteorMacAndCheese m = new MeteorMacAndCheese();
         //m.Size = Size.Small;
@@ -45,6 +61,9 @@ namespace DinoDiner.Menu
                         Calories = 520;
                         break;
                 }
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Size");
+                NotifyOfPropertyChanged("Calories");
             }
         }
 

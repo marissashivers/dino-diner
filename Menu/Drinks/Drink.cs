@@ -3,6 +3,7 @@
 */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace DinoDiner.Menu
@@ -29,10 +30,25 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Abstract class for a drink.
     /// </summary>
-    public abstract class Drink : IMenuItem, IOrderItem
+    public abstract class Drink : IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         // Private backing variable
         private bool _ice = true;
+
+        /// <summary>
+        /// Property changed event handler
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Notifies that a property changed
+        /// </summary>
+        /// <param name="propertyName">String property name</param>
+
+        protected void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         /// <summary>
         /// Ice boolean
@@ -91,6 +107,7 @@ namespace DinoDiner.Menu
         public void HoldIce()
         {
             this.Ice = false;
+            NotifyOfPropertyChanged("Special");
         }
     }
 

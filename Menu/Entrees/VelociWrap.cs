@@ -3,6 +3,7 @@
 */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace DinoDiner.Menu
@@ -10,12 +11,27 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Veloci-Wrap (A chicken ceasar wrap)
     /// </summary>
-    public class VelociWrap : Entree, IMenuItem, IOrderItem
+    public class VelociWrap : Entree, IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         // Private boolean ingredients to be used only in this class
         private bool _ceasarDressing = true;
         private bool _romaineLettuce = true;
         private bool _parmesanCheese = true;
+
+        /// <summary>
+        /// Property changed event handler
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Notifies that a property changed
+        /// </summary>
+        /// <param name="propertyName">String property name</param>
+
+        protected void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         /// <summary>
         /// Gets the list of ingredients
@@ -64,6 +80,7 @@ namespace DinoDiner.Menu
         public void HoldLettuce()
         {
             this._romaineLettuce = false;
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -72,6 +89,7 @@ namespace DinoDiner.Menu
         public void HoldDressing()
         {
             this._ceasarDressing = false;
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -80,6 +98,7 @@ namespace DinoDiner.Menu
         public void HoldCheese()
         {
             this._parmesanCheese = false;
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>

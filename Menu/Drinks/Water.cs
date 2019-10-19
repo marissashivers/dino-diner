@@ -3,6 +3,7 @@
 */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace DinoDiner.Menu
@@ -10,13 +11,28 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Hydration is important
     /// </summary>
-    public class Water : Drink, IMenuItem, IOrderItem
+    public class Water : Drink, IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         // Private lemon variable
         private bool _lemon = false;
 
         // Private backing variable for size
         private Size _size;
+
+        /// <summary>
+        /// Property changed event handler
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Notifies that a property changed
+        /// </summary>
+        /// <param name="propertyName">String property name</param>
+
+        protected void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         /// <summary>
         /// Lemon bool for lemon property
@@ -54,6 +70,9 @@ namespace DinoDiner.Menu
                         Calories = 0;
                         break;
                 }
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Size");
+                NotifyOfPropertyChanged("Calories");
             }
         }
 
@@ -100,6 +119,7 @@ namespace DinoDiner.Menu
         public void AddLemon()
         {
            this._lemon = true;
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>

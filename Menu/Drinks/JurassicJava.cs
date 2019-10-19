@@ -3,6 +3,7 @@
 */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace DinoDiner.Menu
@@ -10,7 +11,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// JurrassicJava = Coffee
     /// </summary>
-    public class JurassicJava : Drink, IMenuItem, IOrderItem
+    public class JurassicJava : Drink, IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         // Private room for cream variable
         private bool _roomForCream = false;
@@ -20,6 +21,21 @@ namespace DinoDiner.Menu
 
         // Private backing variable
         private Size _size;
+
+        /// <summary>
+        /// Property changed event handler
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Notifies that a property changed
+        /// </summary>
+        /// <param name="propertyName">String property name</param>
+
+        protected void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         /// <summary>
         /// Room for cream bool property
@@ -33,6 +49,7 @@ namespace DinoDiner.Menu
             set
             {
                 _roomForCream = value;
+                NotifyOfPropertyChanged("Special");
             }
         }
 
@@ -78,6 +95,9 @@ namespace DinoDiner.Menu
                         Calories = 8;
                         break;
                 }
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Size");
+                NotifyOfPropertyChanged("Calories");
             }
         } // end Size
 
@@ -127,6 +147,7 @@ namespace DinoDiner.Menu
         public void LeaveRoomForCream()
         {
             this._roomForCream = true;
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -135,6 +156,7 @@ namespace DinoDiner.Menu
         public void AddIce()
         {
             base.Ice = true;
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>

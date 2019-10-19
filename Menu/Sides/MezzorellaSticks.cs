@@ -3,6 +3,7 @@
 */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace DinoDiner.Menu
@@ -10,11 +11,26 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Fried Breaded Mozzarella Sticks
     /// </summary>
-    public class MezzorellaSticks : Side, IMenuItem, IOrderItem
+    public class MezzorellaSticks : Side, IMenuItem, IOrderItem, INotifyPropertyChanged
     {
 
         // private backing variable
         private Size _size;
+
+        /// <summary>
+        /// Property changed event handler
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Notifies that a property changed
+        /// </summary>
+        /// <param name="propertyName">String property name</param>
+
+        protected void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         /// <summary>
         /// Gets and sets size, and sets price/calories according to size
@@ -43,6 +59,9 @@ namespace DinoDiner.Menu
                         Calories = 720;
                         break;
                 }
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Size");
+                NotifyOfPropertyChanged("Calories");
             }
         }
 

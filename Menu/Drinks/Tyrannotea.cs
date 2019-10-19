@@ -3,6 +3,7 @@
 */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace DinoDiner.Menu
@@ -10,7 +11,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Iced tea
     /// </summary>
-    public class Tyrannotea : Drink, IMenuItem, IOrderItem
+    public class Tyrannotea : Drink, IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         // Private lemon variable
         private bool _lemon = false;
@@ -20,6 +21,21 @@ namespace DinoDiner.Menu
 
         // Private size backing variable
         private Size _size;
+
+        /// <summary>
+        /// Property changed event handler
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Notifies that a property changed
+        /// </summary>
+        /// <param name="propertyName">String property name</param>
+
+        protected void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         /// <summary>
         /// Bool for lemon property
@@ -78,6 +94,9 @@ namespace DinoDiner.Menu
                         Calories = 32;
                         break;
                 }
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Size");
+                NotifyOfPropertyChanged("Calories");
             } // end set
         }
 
@@ -127,6 +146,7 @@ namespace DinoDiner.Menu
         public void AddLemon()
         {
             _lemon = true;
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>

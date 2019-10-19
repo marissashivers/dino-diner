@@ -3,6 +3,7 @@
 */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace DinoDiner.Menu
@@ -10,7 +11,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// T-Rex King Burger (A triple 1/2 steakburger with all the fixings)
     /// </summary>
-    public class TRexKingBurger : Entree, IMenuItem, IOrderItem
+    public class TRexKingBurger : Entree, IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         // Private ingredient booleans to be used only in this class
         private bool _wholeWheatBun = true;
@@ -21,6 +22,21 @@ namespace DinoDiner.Menu
         private bool _ketchup = true;
         private bool _mustard = true;
         private bool _mayo = true;
+
+        /// <summary>
+        /// Property changed event handler
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Notifies that a property changed
+        /// </summary>
+        /// <param name="propertyName">String property name</param>
+
+        protected void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         /// <summary>
         /// Gets current list of ingredients
@@ -80,6 +96,7 @@ namespace DinoDiner.Menu
         public void HoldBun()
         {
             _wholeWheatBun = false;
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -88,6 +105,7 @@ namespace DinoDiner.Menu
         public void HoldLettuce()
         {
             _lettuce = false;
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -96,6 +114,7 @@ namespace DinoDiner.Menu
         public void HoldTomato()
         {
             _tomato = false;
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -104,6 +123,8 @@ namespace DinoDiner.Menu
         public void HoldOnion()
         {
             _onions = false;
+            NotifyOfPropertyChanged("Special");
+
         }
 
         /// <summary>
@@ -112,6 +133,7 @@ namespace DinoDiner.Menu
         public void HoldPickle()
         {
             _pickle = false;
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -120,6 +142,7 @@ namespace DinoDiner.Menu
         public void HoldKetchup()
         {
             _ketchup = false;
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -128,6 +151,7 @@ namespace DinoDiner.Menu
         public void HoldMustard()
         {
             _mustard = false;
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -136,6 +160,7 @@ namespace DinoDiner.Menu
         public void HoldMayo()
         {
             _mayo = false;
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
