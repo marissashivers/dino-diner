@@ -82,6 +82,42 @@ namespace MenuTest.Entrees
             Assert.Empty(sb.Special);
         }
 
+        // hold bun
+        [Fact]
+        public void HoldBunShouldProvideCorrectSpecial()
+        {
+            SteakosaurusBurger sb = new SteakosaurusBurger();
+            sb.HoldBun();
+            Assert.Contains("Hold Bun", sb.Special);
+        }
+
+        // hold pickle
+        [Fact]
+        public void HoldPickleShouldProvideCorrectSpecial()
+        {
+            SteakosaurusBurger sb = new SteakosaurusBurger();
+            sb.HoldPickle();
+            Assert.Contains("Hold Pickle", sb.Special);
+        }
+
+        // hold ketchup
+        [Fact]
+        public void HoldKetchupShouldProvideCorrectSpecial()
+        {
+            SteakosaurusBurger sb = new SteakosaurusBurger();
+            sb.HoldKetchup();
+            Assert.Contains("Hold Ketchup", sb.Special);
+        }
+
+        // hold mustard
+        [Fact]
+        public void HoldMustardShouldProvideCorrectSpecial()
+        {
+            SteakosaurusBurger sb = new SteakosaurusBurger();
+            sb.HoldMustard();
+            Assert.Contains("Hold Mustard", sb.Special);
+        }
+
         [Fact]
         public void HoldBunAndPickleShouldProvideCorrectSpecial()
         {
@@ -99,7 +135,7 @@ namespace MenuTest.Entrees
             sb.HoldKetchup();
             sb.HoldMustard();
             Assert.Contains("Hold Ketchup", sb.Special);
-            Assert.Contains("Hold Pickle", sb.Special);
+            Assert.Contains("Hold Mustard", sb.Special);
         }
     }
 

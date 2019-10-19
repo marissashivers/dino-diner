@@ -73,6 +73,7 @@ namespace MenuTest.Entrees
             Assert.Empty(bw.Special);
         }
 
+        // hold bun
         [Fact]
         public void HoldBunShouldProvideCorrectSpecial()
         {
@@ -81,6 +82,25 @@ namespace MenuTest.Entrees
             Assert.Contains("Hold Bun", bw.Special);
         }
 
+        // hold peppers
+        [Fact]
+        public void HoldPeppersShouldProvideCorrectSpecial()
+        {
+            Brontowurst bw = new Brontowurst();
+            bw.HoldPeppers();
+            Assert.Contains("Hold Peppers", bw.Special);
+        }
+
+        //hold onions
+        [Fact]
+        public void HoldOnionsShouldProvideCorrectSpecial()
+        {
+            Brontowurst bw = new Brontowurst();
+            bw.HoldOnion();
+            Assert.Contains("Hold Onions", bw.Special);
+        }
+
+        // hold pepers and onions
         [Fact]
         public void HoldPeppersAndOnionsShouldProvideCorrectSpecial()
         {

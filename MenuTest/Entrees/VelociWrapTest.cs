@@ -82,5 +82,31 @@ namespace MenuTest.Entrees
             vw.HoldDressing();
             Assert.Contains("Hold Dressing", vw.Special);
         }
+
+        [Fact]
+        public void HoldCheeseShouldProvideCorrectSpecial()
+        {
+            VelociWrap vw = new VelociWrap();
+            vw.HoldCheese();
+            Assert.Contains("Hold Cheese", vw.Special);
+        }
+
+        [Fact]
+        public void HoldLettuceShouldProvideCorrectSpecial()
+        {
+            VelociWrap vw = new VelociWrap();
+            vw.HoldLettuce();
+            Assert.Contains("Hold Lettuce", vw.Special);
+        }
+
+        [Fact]
+        public void HoldLettuceAndDressingShouldProvideCorrectSpecial()
+        {
+            VelociWrap vw = new VelociWrap();
+            vw.HoldLettuce();
+            vw.HoldDressing();
+            Assert.Contains("Hold Lettuce", vw.Special);
+            Assert.Contains("Hold Dressing", vw.Special);
+        }
     }
 }

@@ -223,13 +223,20 @@ namespace MenuTest.Drinks
         }
 
         [Fact]
-        public void AddLemonAndSweetenerShouldProvideCorrectSpecial()
+        public void AddLemonShouldProvideCorrectSpecial()
         {
             Tyrannotea tt = new Tyrannotea();
             tt.AddLemon();
-            tt.AddSweetener();
             Assert.Contains("Add Lemon", tt.Special);
-            Assert.Contains("Add Sweetener", tt.Special);
+        }
+
+        [Fact]
+        public void HoldIceAndAddLemonShouldProvideCorrectSpecial()
+        {
+            Tyrannotea tt = new Tyrannotea();
+            tt.AddLemon();
+            Assert.Contains("Hold Ice", tt.Special);
+            Assert.Contains("Add Lemon", tt.Special);
         }
 
     }

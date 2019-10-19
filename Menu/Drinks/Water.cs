@@ -80,7 +80,7 @@ namespace DinoDiner.Menu
             {
                 List<string> special = new List<string>();
                 if (_lemon) special.Add("Add Lemon");
-                if (!Ice) special.Add("No Ice");
+                if (!Ice) special.Add("Hold Ice");
                 return special.ToArray();
             }
         }

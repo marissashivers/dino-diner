@@ -124,6 +124,78 @@ namespace MenuTest.Entrees
             Assert.Empty(trex.Special);
         }
 
+        // hold bun
+        [Fact]
+        public void HoldBunProvidesCorrectSpecial()
+        {
+            TRexKingBurger trex = new TRexKingBurger();
+            trex.HoldBun();
+            Assert.Contains("Hold Bun", trex.Special);
+        }
+
+        //hold lettuce
+        [Fact]
+        public void HoldLettuceProvidesCorrectSpecial()
+        {
+            TRexKingBurger trex = new TRexKingBurger();
+            trex.HoldLettuce();
+            Assert.Contains("Hold Lettuce", trex.Special);
+        }
+
+        // hold tomato
+        [Fact]
+        public void HoldTomatoProvidesCorrectSpecial()
+        {
+            TRexKingBurger trex = new TRexKingBurger();
+            trex.HoldTomato();
+            Assert.Contains("Hold Tomato", trex.Special);
+        }
+
+        //hold onion
+        [Fact]
+        public void HoldOnionsProvidesCorrectSpecial()
+        {
+            TRexKingBurger trex = new TRexKingBurger();
+            trex.HoldOnion();
+            Assert.Contains("Hold Onion", trex.Special);
+        }
+
+        //hold pickle
+        [Fact]
+        public void HoldPickleProvidesCorrectSpecial()
+        {
+            TRexKingBurger trex = new TRexKingBurger();
+            trex.HoldPickle();
+            Assert.Contains("Hold Pickle", trex.Special);
+        }
+
+        //hold ketchup
+        [Fact]
+        public void HoldKetchupProvidesCorrectSpecial()
+        {
+            TRexKingBurger trex = new TRexKingBurger();
+            trex.HoldKetchup();
+            Assert.Contains("Hold Ketchup", trex.Special);
+        }
+
+        //hold mustard
+        [Fact]
+        public void HoldMustardProvidesCorrectSpecial()
+        {
+            TRexKingBurger trex = new TRexKingBurger();
+            trex.HoldMustard();
+            Assert.Contains("Hold Mustard", trex.Special);
+        }
+
+        //hold mayo
+        [Fact]
+        public void HoldMayoProvidesCorrectSpecial()
+        {
+            TRexKingBurger trex = new TRexKingBurger();
+            trex.HoldMayo();
+            Assert.Contains("Hold Mayo", trex.Special);
+        }
+
         [Fact]
         public void HoldBunAndLettuceProvidesCorrectSpecial()
         {

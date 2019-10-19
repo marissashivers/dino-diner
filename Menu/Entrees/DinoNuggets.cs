@@ -16,7 +16,15 @@ namespace DinoDiner.Menu
         // Private number of nuggets
         private int _numNuggets = 6;
 
+        /// <summary>
+        /// Property changed event handler
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Notifies that a property changed
+        /// </summary>
+        /// <param name="propertyName">String property name</param>
 
         protected void NotifyOfPropertyChanged(string propertyName)
         {

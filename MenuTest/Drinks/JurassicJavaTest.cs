@@ -150,6 +150,7 @@ namespace MenuTest.Drinks
             Assert.Empty(java.Special);
         }
 
+        // add ice
         [Fact]
         public void AddIceShouldProvideCorrectSpecial()
         {
@@ -158,14 +159,24 @@ namespace MenuTest.Drinks
             Assert.Contains("Add Ice", java.Special);
         }
 
+        // leave room for cream
         [Fact]
-        public void DecafAndLeaveRoomForCreamProvideCorrectSpecial()
+        public void LeaveRoomForCreamShouldProvideCorrectSpecial()
         {
-            JurassicJava java = new JurassicJava();
-            java.LeaveRoomForCream();
-            java.Decaf = true;
-            Assert.Contains("Leave Room For Cream", java.Special);
-            Assert.Contains("Decaf", java.Special);
+            JurassicJava jj = new JurassicJava();
+            jj.LeaveRoomForCream();
+            Assert.Contains("Leave Room For Cream", jj.Special);
+        }
+
+        // add ice and leave room for cream
+        [Fact]
+        public void AddIceAndLeaveRoomForCreamShouldProvideCorrectSpecial()
+        {
+            JurassicJava jj = new JurassicJava();
+            jj.AddIce();
+            jj.LeaveRoomForCream();
+            Assert.Contains("Add Ice", jj.Special);
+            Assert.Contains("Leave Room For Cream", jj.Special);
         }
     }
 }

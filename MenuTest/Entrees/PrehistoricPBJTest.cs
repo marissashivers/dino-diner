@@ -64,6 +64,25 @@ namespace MenuTest.Entrees
             Assert.Empty(pbj.Special);
         }
 
+        // hold peanut butter
+        [Fact]
+        public void HoldPeanutButterProvidesCorrectSpecial()
+        {
+            PrehistoricPBJ pbj = new PrehistoricPBJ();
+            pbj.HoldPeanutButter();
+            Assert.Contains("Hold Peanut Butter", pbj.Special);
+        }
+
+        // hold jelly
+        [Fact]
+        public void HoldJellyProvidesCorrectSpecial()
+        {
+            PrehistoricPBJ pbj = new PrehistoricPBJ();
+            pbj.HoldJelly();
+            Assert.Contains("Hold Jelly", pbj.Special);
+        }
+
+        //hold peanut butter and jelly
         [Fact]
         public void HoldPeanutButterAndJellyProvidesCorrectSpecial()
         {
