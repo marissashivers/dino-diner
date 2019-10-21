@@ -157,7 +157,7 @@ namespace MenuTest.Entrees
         {
             TRexKingBurger trex = new TRexKingBurger();
             trex.HoldOnion();
-            Assert.Contains("Hold Onion", trex.Special);
+            Assert.Contains("Hold Onions", trex.Special);
         }
 
         //hold pickle
@@ -213,7 +213,7 @@ namespace MenuTest.Entrees
             trex.HoldTomato();
             trex.HoldOnion();
             Assert.Contains("Hold Tomato", trex.Special);
-            Assert.Contains("Hold Onion", trex.Special);
+            Assert.Contains("Hold Onions", trex.Special);
         }
 
         [Fact]

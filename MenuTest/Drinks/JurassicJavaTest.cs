@@ -136,11 +136,20 @@ namespace MenuTest.Drinks
         // IOrderItem Interface Tests...
         // *********************************************
 
-        [Fact]
-        public void HasCorrectDescription()
+        [Theory]
+        [InlineData(Size.Small, false)]
+        [InlineData(Size.Medium, false)]
+        [InlineData(Size.Large, false)]
+        [InlineData(Size.Small, true)]
+        [InlineData(Size.Medium, true)]
+        [InlineData(Size.Large, true)]
+        public void HasCorrectDescription(Size size, bool decaf)
         {
             JurassicJava java = new JurassicJava();
-            Assert.Equal("Jurassic Java", java.Description);
+            java.Size = size;
+            java.Decaf = decaf;
+            if (decaf) Assert.Equal($"{size} Decaf Jurassic Java", java.Description);
+            else Assert.Equal($"{size} Jurassic Java", java.Description);
         }
 
         [Fact]

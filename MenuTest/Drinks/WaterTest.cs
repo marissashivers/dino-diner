@@ -93,11 +93,15 @@ namespace MenuTest.Drinks
         // IOrderItem Interface Tests...
         // *********************************************
 
-        [Fact]
-        public void HasCorrectDescription()
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void HasCorrectDescription(Size size)
         {
-            Water w = new Water();
-            Assert.Equal("Water", w.Description);
+            Water water = new Water();
+            water.Size = size;
+            Assert.Equal($"{size} Water", water.Description);
         }
 
         [Fact]

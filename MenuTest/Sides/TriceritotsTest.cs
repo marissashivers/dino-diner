@@ -88,11 +88,15 @@ namespace MenuTest.Sides
         // *********************************************
         // IOrderItem Interface Tests...
         // *********************************************
-        [Fact]
-        public void HasCorrectDescription()
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void HasCorrectDescription(Size size)
         {
             Triceritots tt = new Triceritots();
-            Assert.Equal("Triceritots", tt.Description);
+            tt.Size = size;
+            Assert.Equal($"{size} Triceritots", tt.Description);
         }
 
         [Fact]

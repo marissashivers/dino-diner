@@ -9,25 +9,6 @@ using System.Text;
 namespace DinoDiner.Menu
 {
     /// <summary>
-    /// Size enumeration variable for Size.Small, Size.Medium, and Size.Large
-    /// </summary>
-    //public enum Size
-   // {
-        /// <summary>
-        /// Size.Small
-        /// </summary>
-       // Small,
-        /// <summary>
-        /// Size.Medium
-        /// </summary>
-      //  Medium,
-        /// <summary>
-        /// Size.Large
-        /// </summary>
-     //   Large
-    //}
-
-    /// <summary>
     /// Abstract class for a drink.
     /// </summary>
     public abstract class Drink : IMenuItem, IOrderItem
@@ -92,7 +73,6 @@ namespace DinoDiner.Menu
         public void HoldIce()
         {
             this.Ice = false;
-            NotifyOfPropertyChanged("Special");
         }
     }
 

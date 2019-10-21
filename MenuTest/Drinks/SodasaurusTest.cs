@@ -146,11 +146,34 @@ namespace MenuTest.Drinks
         // IOrderItem Interface Tests...
         // *********************************************
 
-        [Fact]
-        public void HasCorrectDescription()
+        [Theory]
+        [InlineData(Size.Small, SodasaurusFlavor.Cherry)]
+        [InlineData(Size.Small, SodasaurusFlavor.Chocolate)]
+        [InlineData(Size.Small, SodasaurusFlavor.Cola)]
+        [InlineData(Size.Small, SodasaurusFlavor.Lime)]
+        [InlineData(Size.Small, SodasaurusFlavor.Orange)]
+        [InlineData(Size.Small, SodasaurusFlavor.RootBeer)]
+        [InlineData(Size.Small, SodasaurusFlavor.Vanilla)]
+        [InlineData(Size.Medium, SodasaurusFlavor.Cherry)]
+        [InlineData(Size.Medium, SodasaurusFlavor.Chocolate)]
+        [InlineData(Size.Medium, SodasaurusFlavor.Cola)]
+        [InlineData(Size.Medium, SodasaurusFlavor.Lime)]
+        [InlineData(Size.Medium, SodasaurusFlavor.Orange)]
+        [InlineData(Size.Medium, SodasaurusFlavor.RootBeer)]
+        [InlineData(Size.Medium, SodasaurusFlavor.Vanilla)]
+        [InlineData(Size.Large, SodasaurusFlavor.Cherry)]
+        [InlineData(Size.Large, SodasaurusFlavor.Chocolate)]
+        [InlineData(Size.Large, SodasaurusFlavor.Cola)]
+        [InlineData(Size.Large, SodasaurusFlavor.Lime)]
+        [InlineData(Size.Large, SodasaurusFlavor.Orange)]
+        [InlineData(Size.Large, SodasaurusFlavor.RootBeer)]
+        [InlineData(Size.Large, SodasaurusFlavor.Vanilla)]
+        public void HasCorrectDescription(Size size, SodasaurusFlavor flavor)
         {
             Sodasaurus soda = new Sodasaurus();
-            Assert.Equal("Sodasaurus", soda.Description);
+            soda.Size = size;
+            soda.Flavor = flavor;
+            Assert.Equal($"{size} {flavor} Sodasaurus", soda.Description);
         }
 
         [Fact]

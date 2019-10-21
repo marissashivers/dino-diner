@@ -87,11 +87,15 @@ namespace MenuTest.Sides
         // *********************************************
         // IOrderItem Interface Tests...
         // *********************************************
-        [Fact]
-        public void HasCorrectDescription()
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void HasCorrectDescription(Size size)
         {
             MeteorMacAndCheese mmc = new MeteorMacAndCheese();
-            Assert.Equal("Meteor Mac and Cheese", mmc.Description);
+            mmc.Size = size;
+            Assert.Equal($"{size} Meteor Mac and Cheese", mmc.Description);
         }
 
         [Fact]

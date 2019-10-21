@@ -109,15 +109,15 @@ namespace DinoDiner.Menu
         {
             if (this.Size == Size.Small)
             {
-                return "Small Friceritops";
+                return "Small Fryceritops";
             }
             if (this.Size == Size.Medium)
             {
-                return "Medium Friceritops";
+                return "Medium Fryceritops";
             }
             if (this.Size == Size.Large)
             {
-                return "Large Friceritops";
+                return "Large Fryceritops";
             }
             return base.ToString();
         }

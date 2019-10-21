@@ -88,11 +88,15 @@ namespace MenuTest.Sides
         // *********************************************
         // IOrderItem Interface Tests...
         // *********************************************
-        [Fact]
-        public void HasCorrectDescription()
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void HasCorrectDescription(Size size)
         {
             MezzorellaSticks ms = new MezzorellaSticks();
-            Assert.Equal("Mezzorella Sticks", ms.Description);
+            ms.Size = size;
+            Assert.Equal($"{size} Mezzorella Sticks", ms.Description);
         }
 
         [Fact]

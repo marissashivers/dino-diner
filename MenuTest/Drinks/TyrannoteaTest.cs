@@ -200,11 +200,20 @@ namespace MenuTest.Drinks
         // IOrderItem Interface Tests...
         // *********************************************
 
-        [Fact]
-        public void HasCorrectDescription()
+        [Theory]
+        [InlineData(Size.Small, false)]
+        [InlineData(Size.Medium, false)]
+        [InlineData(Size.Large, false)]
+        [InlineData(Size.Small, true)]
+        [InlineData(Size.Medium, true)]
+        [InlineData(Size.Large, true)]
+        public void HasCorrectDescription(Size size, bool sweet)
         {
-            Tyrannotea tt = new Tyrannotea();
-            Assert.Equal("Tyrannotea", tt.Description);
+            Tyrannotea tea = new Tyrannotea();
+            tea.Size = size;
+            tea.Sweet = sweet;
+            if (sweet) Assert.Equal($"{size} Sweet Tyrannotea", tea.Description);
+            else Assert.Equal($"{size} Tyrannotea", tea.Description);
         }
 
         [Fact]
@@ -234,6 +243,7 @@ namespace MenuTest.Drinks
         public void HoldIceAndAddLemonShouldProvideCorrectSpecial()
         {
             Tyrannotea tt = new Tyrannotea();
+            tt.HoldIce();
             tt.AddLemon();
             Assert.Contains("Hold Ice", tt.Special);
             Assert.Contains("Add Lemon", tt.Special);

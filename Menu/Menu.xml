@@ -71,17 +71,6 @@
             Abstract class for a drink.
             </summary>
         </member>
-        <member name="E:DinoDiner.Menu.Drink.PropertyChanged">
-            <summary>
-            Property changed event handler
-            </summary>
-        </member>
-        <member name="M:DinoDiner.Menu.Drink.NotifyOfPropertyChanged(System.String)">
-            <summary>
-            Notifies that a property changed
-            </summary>
-            <param name="propertyName">String property name</param>
-        </member>
         <member name="P:DinoDiner.Menu.Drink.Ice">
             <summary>
             Ice boolean
@@ -862,6 +851,41 @@
             Displays full menu comtents separated by \n
             </summary>
             <returns></returns>
+        </member>
+        <member name="T:DinoDiner.Menu.Order">
+            <summary>
+            Represents a new customer order
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Order.Items">
+            <summary>
+            Items in the order
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Order.SubtotalCost">
+            <summary>
+            Calculates total cost from prices of all order items
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Order.SalesTaxRate">
+            <summary>
+            Sales tax rate
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Order.SalesTaxCost">
+            <summary>
+            SalesTaxCost: product of SalesTaxRate and SubtotalCost
+            </summary>
+        </member>
+        <member name="P:DinoDiner.Menu.Order.TotalCost">
+            <summary>
+            Calculates the sum of SubtotalCost and SalesTaxCost
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Order.#ctor">
+            <summary>
+            Constructor for order
+            </summary>
         </member>
         <member name="T:DinoDiner.Menu.Fryceritops">
             <summary>
