@@ -1,4 +1,8 @@
-﻿using System;
+﻿/*
+ * File name: Order.cs
+ * Author: Marissa Shivers
+ */
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
