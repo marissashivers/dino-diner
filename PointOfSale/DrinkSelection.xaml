@@ -130,7 +130,7 @@
             </StackPanel>
         </Button>
 
-         <!--SPECIAL BUTTONS...--> 
+         <!--SPECIAL BUTTONS... /// isEnabled property--> 
         <Button
             x:Name="specialButton1"
             Grid.Row="1" Grid.Column="2"
@@ -145,7 +145,7 @@
             x:Name="specialButton2"
             Grid.Row="2" Grid.Column="2"
             Style="{StaticResource basicbutton}"
-            Content="">
+            Content="" Height="100" Margin="1.8,0,2,2.4" VerticalAlignment="Bottom">
         </Button>
 
         <Button

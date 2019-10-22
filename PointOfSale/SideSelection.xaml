@@ -58,7 +58,9 @@
         <!-- FRYCERITOPS-->
         <Button
             Grid.Row="1" Grid.Column="0"
-            Style="{StaticResource basicbutton}">
+            Style="{StaticResource basicbutton}"
+            Name="AddFryceritops" 
+            Click="OnAddFryceritops">
             <StackPanel>
                 <TextBlock>Fryceritops</TextBlock>
                 <Image Source="Assets/DinoDiner-08.png" Width="75"></Image>
@@ -130,12 +132,15 @@
         <!-- large -->
         <Button
             Grid.Row="3" Grid.Column="1"
-            Style="{StaticResource basicbutton}">
+            Style="{StaticResource basicbutton}"
+            Click="MakeLarge">
             <StackPanel>
                 <RadioButton GroupName="Size" Content="Large" />
                 <Image Source="Assets/xlarge.png" Width="100"/>
             </StackPanel>
         </Button>
+
+        <ContentControl Content="{Binding Path=Items}" Grid.Column="1" Grid.Row="4" />
 
     </Grid>
 </Page>

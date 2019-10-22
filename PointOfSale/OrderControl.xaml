@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="PointOfSale.OrderControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="200">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20" /> <!-- order number, fixed height-->
+            <RowDefinition /> <!-- contents of order, takes rest of available space -->
+            <RowDefinition Height="20" /> <!-- subtotal -->
+            <RowDefinition Height="30" /> <!-- total and submit order button -->
+        </Grid.RowDefinitions>
+        <TextBlock Text="Order" 
+                   TextAlignment="Right"
+                   FontWeight="Bold" />
+        <TextBlock Text="#" 
+                   Grid.Column="1"
+                   FontWeight="Bold" 
+                   Margin="5,0,0,0"
+                   />
+        <ListBox Grid.Row="1"
+                 Grid.ColumnSpan="2"
+                 ItemsSource="{Binding Path=Items}" 
+                 IsSynchronizedWithCurrentItem="True"
+                 >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Path=Description}" />
+                        <ListBox ItemsSource="{Binding Path=Special}"
+                                 BorderBrush="White"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <TextBlock Text="$"
+                   Grid.Row="2"
+                   Grid.Column="0"
+                   TextAlignment="Right"
+                   FontWeight="Bold" />
+        <TextBlock Text="{Binding Path=SubtotalCost,StringFormat=n2}"
+                   Grid.Row="2"
+                   Grid.Column="2"
+                   FontWeight="Bold" />
+        <Button Grid.Row="3" Grid.Column="0">Cancel</Button>
+        <Button Grid.Row="3" Grid.Column="1">Pay</Button>
+    </Grid>
+</UserControl>

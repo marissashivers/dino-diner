@@ -25,7 +25,7 @@ namespace PointOfSale
         /// <param name="e"></param>
         public void Click_Soda(object sender, RoutedEventArgs e)
         {
-
+            
             specialButton1.Content = "Choose flavor";
             specialButton1.Click += new RoutedEventHandler(Click_Choose_Flavor);
 
