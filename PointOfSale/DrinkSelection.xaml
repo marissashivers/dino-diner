@@ -61,7 +61,9 @@
 
         
         <!-- ***************DRINKS*****************-->
+        <!-- sodasaurus -->
         <Button
+            Name="Button_Soda"
             Grid.Row="1" Grid.Column="0"
             Style="{StaticResource basicbutton}"
             Click="Click_Soda">
@@ -71,7 +73,9 @@
             </StackPanel>
         </Button>
 
+        <!-- Tyrannotea-->
         <Button
+            Name="Button_Tyrannotea"
             Grid.Row="2" Grid.Column="0"
             Click="Click_Tea"
             Style="{StaticResource basicbutton}">
@@ -81,7 +85,9 @@
             </StackPanel>
         </Button>
 
+        <!-- JurassicJava-->
         <Button
+            Name="Button_Java"
             Grid.Row="3" Grid.Column="0"
             Click="Click_Coffee"
             Style="{StaticResource basicbutton}">
@@ -91,7 +97,9 @@
             </StackPanel>
         </Button>
 
+        <!-- Water-->
         <Button
+            Name="Button_Water"
             Grid.Row="4" Grid.Column="0"
             Click="Click_Water"
             Style="{StaticResource basicbutton}">
@@ -101,9 +109,12 @@
             </StackPanel>
         </Button>
 
+        <!-- ****************SIZE BUTTONS-->
 
         <!-- small -->
         <Button
+            Name="Button_Small"
+            Click="Click_Small"
             Grid.Row="1" Grid.Column="1"
             Style="{StaticResource basicbutton}">
             <StackPanel>
@@ -113,6 +124,8 @@
         </Button>
         <!-- medium -->
         <Button
+            Name="Button_Medium"
+            Click="Click_Medium"
             Grid.Row="2" Grid.Column="1"
             Style="{StaticResource basicbutton}">
             <StackPanel>
@@ -122,6 +135,8 @@
         </Button>
         <!-- large -->
         <Button
+            Name="Large"
+            Click="Click_Large"
             Grid.Row="3" Grid.Column="1"
             Style="{StaticResource basicbutton}">
             <StackPanel>
@@ -130,31 +145,23 @@
             </StackPanel>
         </Button>
 
-         <!--SPECIAL BUTTONS... /// isEnabled property--> 
-        <Button
-            x:Name="specialButton1"
-            Grid.Row="1" Grid.Column="2"
-            Style="{StaticResource basicbutton}"
-            VerticalContentAlignment="Center">
-            <StackPanel>
-                <TextBlock TextAlignment="Center">Sweet/Decaf/Flavor</TextBlock>
-            </StackPanel>
-        </Button>
+         <!--SPECIAL BUTTONS... /// isEnabled property-->
 
-        <Button
-            x:Name="specialButton2"
-            Grid.Row="2" Grid.Column="2"
-            Style="{StaticResource basicbutton}"
-            Content="" Height="100" Margin="1.8,0,2,2.4" VerticalAlignment="Bottom">
-        </Button>
+        <StackPanel x:Name="sp1"
+                    Grid.Row="1"
+                    Grid.Column="2">
+        </StackPanel>
 
-        <Button
-            x:Name="specialButton3"
-            Grid.Row="3" Grid.Column="2"
-            Style="{StaticResource basicbutton}"
-            Content="">
-        </Button>
-        
+        <StackPanel x:Name="sp2"
+                    Grid.Row="2"
+                    Grid.Column="2">
+        </StackPanel>
+
+        <StackPanel x:Name="sp3"
+                    Grid.Row="3"
+                    Grid.Column="2">
+        </StackPanel>
+
         <!-- Add to order -->
         <Button
             Grid.Column="2" Grid.Row="4"

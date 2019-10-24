@@ -857,6 +857,17 @@
             Represents a new customer order
             </summary>
         </member>
+        <member name="E:DinoDiner.Menu.Order.PropertyChanged">
+            <summary>
+            Property changed event handler
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Order.NotifyOfPropertyChanged(System.String)">
+            <summary>
+            Notifies that a property changed
+            </summary>
+            <param name="propertyName">String property name</param>
+        </member>
         <member name="P:DinoDiner.Menu.Order.Items">
             <summary>
             Items in the order
@@ -886,6 +897,14 @@
             <summary>
             Constructor for order
             </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Order.OnCollectionChanged(System.Object,System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
+            <summary>
+            Notifies when the collection, "Items" changes
+            which changes the subtotal cost, sales tax cost, and total cost.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
         </member>
         <member name="T:DinoDiner.Menu.Fryceritops">
             <summary>

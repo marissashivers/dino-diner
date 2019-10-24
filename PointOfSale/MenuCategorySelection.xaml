@@ -63,6 +63,7 @@
                 <Image Source="Assets/_entree.jpg" Height="150" VerticalAlignment="Bottom" />
             </StackPanel>
         </Button>
+        
         <!-- SIDES BUTTON -->
         <Button Grid.Row="2" Grid.Column="0"
                 x:Name="sidesButton"
@@ -73,6 +74,7 @@
                 <Image Source="Assets/_sides.png" Height="135" />
             </StackPanel>
         </Button>
+        
         <!-- DRINKS BUTTON -->
         <Button Grid.Row="2" Grid.Column="1"
                 x:Name="drinksButton"

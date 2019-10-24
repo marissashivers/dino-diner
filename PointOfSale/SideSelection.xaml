@@ -59,8 +59,8 @@
         <Button
             Grid.Row="1" Grid.Column="0"
             Style="{StaticResource basicbutton}"
-            Name="AddFryceritops" 
-            Click="OnAddFryceritops">
+            Name="Button_Fryceritops" 
+            Click="Add_Fryceritops">
             <StackPanel>
                 <TextBlock>Fryceritops</TextBlock>
                 <Image Source="Assets/DinoDiner-08.png" Width="75"></Image>
@@ -69,6 +69,8 @@
         <!-- METEOR MAC AND CHEESE -->
         <Button
             Grid.Row="2" Grid.Column="0"
+            Name="Button_MacCheese"
+            Click="Add_MacAndCheese"
             Style="{StaticResource basicbutton}">
             <StackPanel>
                 <TextBlock>Meteor Mac and Cheese</TextBlock>
@@ -78,6 +80,8 @@
         <!-- MEZZORELLA STICKS -->
         <Button
             Grid.Row="3" Grid.Column="0"
+            Name="Button_MozzSticks"
+            Click="Add_MozzSticks"
             Style="{StaticResource basicbutton}">
             <StackPanel>
                 <TextBlock>Mezzorella Sticks</TextBlock>
@@ -87,6 +91,8 @@
         <!-- TRICERITOTS -->
         <Button
             Grid.Row="4" Grid.Column="0"
+            Name="Button_Tots"
+            Click="Add_Tots"
             Style="{StaticResource basicbutton}">
             <StackPanel>
                 <TextBlock>Triceritots</TextBlock>
@@ -96,6 +102,7 @@
 
         <!-- ***********Add to order button-->
         <Button
+            Click="Click_BackToMainMenu"
             Grid.Column="2" Grid.Row="2"
             Grid.RowSpan="2"
             Style="{StaticResource basicbutton}"
@@ -104,7 +111,7 @@
             FontStyle="Italic">
             <StackPanel>
                 <TextBlock TextWrapping="Wrap">
-                    ADD TO ORDER
+                    BACK TO MAIN MENU
                 </TextBlock>
                 <Image Source="Assets/_shoppingcart.png" Height="150" VerticalAlignment="Bottom" />
             </StackPanel>
@@ -114,7 +121,9 @@
         <!-- small -->
         <Button
             Grid.Row="1" Grid.Column="1"
-            Style="{StaticResource basicbutton}">
+            Style="{StaticResource basicbutton}"
+            Name="Button_Small"
+            Click="MakeSmall">
             <StackPanel>
                 <RadioButton GroupName="Size" Content="Small" IsChecked="True"/>
                 <Image Source="Assets/xsmall.png" Width="100"/>
@@ -123,7 +132,9 @@
         <!-- medium -->
         <Button
             Grid.Row="2" Grid.Column="1"
-            Style="{StaticResource basicbutton}">
+            Style="{StaticResource basicbutton}"
+            Name="Button_Medium"
+            Click="MakeMedium">
             <StackPanel>
                 <RadioButton GroupName="Size" Content="Medium"/>
                 <Image Source="Assets/xmedium.png" Width="100"/>
@@ -133,6 +144,7 @@
         <Button
             Grid.Row="3" Grid.Column="1"
             Style="{StaticResource basicbutton}"
+            Name="Button_Large"
             Click="MakeLarge">
             <StackPanel>
                 <RadioButton GroupName="Size" Content="Large" />

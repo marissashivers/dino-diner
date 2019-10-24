@@ -15,42 +15,80 @@
             <RowDefinition Height="20" /> <!-- order number, fixed height-->
             <RowDefinition /> <!-- contents of order, takes rest of available space -->
             <RowDefinition Height="20" /> <!-- subtotal -->
+            <RowDefinition Height="20" /> <!-- sales tax cost -->
+            <RowDefinition Height="20" /> <!-- total cost-->
             <RowDefinition Height="30" /> <!-- total and submit order button -->
         </Grid.RowDefinitions>
+        
+        <!-- Order # heading text-->
         <TextBlock Text="Order" 
                    TextAlignment="Right"
                    FontWeight="Bold" />
         <TextBlock Text="#" 
                    Grid.Column="1"
                    FontWeight="Bold" 
-                   Margin="5,0,0,0"
-                   />
+                   Margin="5,0,0,0" />
+        
+        <!-- Actual list of items added to order -->
         <ListBox Grid.Row="1"
                  Grid.ColumnSpan="2"
+                 Name="OrderItems"
                  ItemsSource="{Binding Path=Items}" 
                  IsSynchronizedWithCurrentItem="True"
-                 >
+                 SelectedItem="OnSelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel>
-                        <TextBlock Text="{Binding Path=Description}" />
-                        <ListBox ItemsSource="{Binding Path=Special}"
+                    <Grid MinWidth="180">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="20"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <TextBlock Text="{Binding Path=Description}" />
+                            <Button Grid.Column="1" Click="OnRemoveOrderItem">X</Button>
+                            <ListBox ItemsSource="{Binding Path=Special}"
                                  BorderBrush="White"/>
-                    </StackPanel>
+                        </StackPanel>
+                    </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <TextBlock Text="$"
+        <!-- Subtotal display -->
+        <TextBlock Text="Subtotal: $"
                    Grid.Row="2"
                    Grid.Column="0"
                    TextAlignment="Right"
                    FontWeight="Bold" />
         <TextBlock Text="{Binding Path=SubtotalCost,StringFormat=n2}"
                    Grid.Row="2"
-                   Grid.Column="2"
+                   Grid.Column="1"
                    FontWeight="Bold" />
-        <Button Grid.Row="3" Grid.Column="0">Cancel</Button>
-        <Button Grid.Row="3" Grid.Column="1">Pay</Button>
+        <!-- sales tax display -->
+        <TextBlock Text="Sales Tax: $"
+                   Grid.Row="3"
+                   Grid.Column="0"
+                   TextAlignment="Right"
+                   FontWeight="Bold" />
+        <TextBlock Text="{Binding Path=SalesTaxCost, StringFormat=n2}"
+                   Grid.Row="3"
+                   Grid.Column="1"
+                   FontWeight="Bold"/>
+        <!-- total price display-->
+        <TextBlock Text="TOTAL: $"
+                   Grid.Row="4"
+                   Grid.Column="0"
+                   TextAlignment="Right"
+                   FontWeight="Bold" />
+        <TextBlock Text="{Binding Path=TotalCost, StringFormat=n2}"
+                   Grid.Row="4"
+                   Grid.Column="1"
+                   FontWeight="Bold"/>
+
+
+        <!-- cancel and pay buttons -->
+        <Button Grid.Row="5" Grid.Column="0">Cancel</Button>
+        <Button Grid.Row="5" Grid.Column="1">Pay</Button>
+        
     </Grid>
 </UserControl>

@@ -19,6 +19,7 @@ namespace PointOfSale
             Order order = DataContext as Order; //casting
             if (order != null)
             {
+                /*
                 // do whatever with order
                 order.Items.Add(new DinoNuggets());
                 order.Items.Add(new Sodasaurus());
@@ -29,10 +30,11 @@ namespace PointOfSale
                 sb.HoldBun();
                 sb.HoldMustard();
                 order.Items.Add(sb);
+                */
             }
         }
 
-        // private helper method
+        // private helper method, refeshes page?
         private void PassOnDataContext()
         {
             Page page = OrderUI.Content as Page;
