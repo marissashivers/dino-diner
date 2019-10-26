@@ -141,13 +141,14 @@
         <!-- Add to order -->
         <Button
             Grid.Column="2" Grid.Row="3"
+            Click="Click_BackToMainMenu"
             Style="{StaticResource basicbutton}"
             Background="beige"
             VerticalContentAlignment="Top"
             FontStyle="Italic">
             <StackPanel>
                 <TextBlock TextWrapping="Wrap">
-                    ADD TO ORDER
+                    BACK TO MAIN MENU
                 </TextBlock>
                 <Image Source="Assets/_shoppingcart.png" Height="75" VerticalAlignment="Bottom" />
             </StackPanel>

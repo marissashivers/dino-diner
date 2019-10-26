@@ -15,6 +15,9 @@ namespace PointOfSale
     /// </summary>
     public partial class FlavorSelection : Page
     {
+        /// <summary>
+        /// Constructor for Flavor Selection page
+        /// </summary>
         public FlavorSelection()
         {
             InitializeComponent();
@@ -110,7 +113,7 @@ namespace PointOfSale
             }
         }
 
-        public void Click_BackToMainMenu(object sender, RoutedEventArgs e)
+        private void Click_BackToMainMenu(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Uri("/DrinkSelection.xaml", UriKind.Relative));
         }

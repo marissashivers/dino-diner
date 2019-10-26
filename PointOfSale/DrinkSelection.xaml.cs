@@ -15,8 +15,10 @@ namespace PointOfSale
     /// </summary>
     public partial class DrinkSelection : Page
     {
-        public static SodasaurusFlavor selectedFlavor;
 
+        /// <summary>
+        /// Constructor for DrinkSelection page
+        /// </summary>
         public DrinkSelection()
         {
             InitializeComponent();
@@ -27,7 +29,7 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public void Click_Soda(object sender, RoutedEventArgs e)
+        private void Click_Soda(object sender, RoutedEventArgs e)
         {
             sp1.Children.Clear();
             sp2.Children.Clear();
@@ -63,7 +65,13 @@ namespace PointOfSale
 
         }
 
-        public void Click_Tea(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Button for adding tea
+        /// Creates sweetener, lemon, and remove ice button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Click_Tea(object sender, RoutedEventArgs e)
         {
             sp1.Children.Clear();
             sp2.Children.Clear();
@@ -112,7 +120,14 @@ namespace PointOfSale
 
         }
 
-        public void Click_Coffee(object sender, RoutedEventArgs e)
+
+        /// <summary>
+        /// Button for adding Jurassic Java
+        /// Includes adding decaf, cream, and ice buttons
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Click_Coffee(object sender, RoutedEventArgs e)
         {
             sp1.Children.Clear();
             sp2.Children.Clear();
@@ -162,7 +177,13 @@ namespace PointOfSale
 
         }
 
-        public void Click_Water(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Button for adding water
+        /// Creates remove ice and add lemon button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Click_Water(object sender, RoutedEventArgs e)
         {
             sp1.Children.Clear();
             sp2.Children.Clear();
@@ -200,7 +221,12 @@ namespace PointOfSale
         }
 
         // ***************** Sizes ***********************************************
-        public void Click_Small(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Change currently selected drink to small
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Click_Small(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order order)
             {
@@ -212,7 +238,12 @@ namespace PointOfSale
             }
         }
 
-        public void Click_Medium(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Change currently selected drink to medium
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Click_Medium(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order order)
             {
@@ -224,7 +255,12 @@ namespace PointOfSale
             }
         }
 
-        public void Click_Large(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Change currently selected drink to large
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Click_Large(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order order)
             {
@@ -238,21 +274,25 @@ namespace PointOfSale
 
 
         // **************** Special buttons ************************************************
-
-        public void Click_Choose_Flavor(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Choose flavor button for Sodasaurus. Navigates to flavor selection page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Click_Choose_Flavor(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order order)
             {
                 NavigationService.Navigate(new Uri("/FlavorSelection.xaml", UriKind.Relative));
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Sodasaurus soda)
-                {
-                    soda.Flavor = selectedFlavor;
-                }
             }
         }
 
-
-        public void Click_Sweetener(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Button for adding sweetener to Tyrannotea
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Click_Sweetener(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order order)
             {
@@ -264,7 +304,12 @@ namespace PointOfSale
             }
         }
 
-        public void Click_Lemon(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Button for adding lemon
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Click_Lemon(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order order)
             {
@@ -280,7 +325,12 @@ namespace PointOfSale
             }
         }
 
-        public void Click_Decaf(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Button for making JurassicJava decaf
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Click_Decaf(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order order)
             {
@@ -292,7 +342,12 @@ namespace PointOfSale
             }
         }
 
-        public void Click_Cream(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Button for adding cream to Jurassic Java
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Click_Cream(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order order)
             {
@@ -303,23 +358,44 @@ namespace PointOfSale
             }
         }
 
-        public void Click_RemoveIce(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Button for removing ice
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Click_RemoveIce(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is Order order)
+            {
+                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Drink drink)
+                {
+                    drink.HoldIce();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Button for adding ice
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Click_AddIce(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order order)
             {
                 if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is JurassicJava java)
                 {
-                    java.HoldIce();
+                    java.AddIce();
                 }
             }
         }
 
-        public void Click_AddIce(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Added ice");
-        }
-
-        public void Click_BackToMainMenu(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Button for navigating back to the main menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Click_BackToMainMenu(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Uri("/MenuCategorySelection.xaml", UriKind.Relative));
         }

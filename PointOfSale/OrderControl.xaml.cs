@@ -21,12 +21,18 @@ namespace PointOfSale
     /// </summary>
     public partial class OrderControl : UserControl
     {
+        /// <summary>
+        /// Constructor for order control
+        /// </summary>
         public OrderControl()
         {
             InitializeComponent();
             MountItemListener();
         }
 
+        /// <summary>
+        /// Navigation service to switch pages
+        /// </summary>
         public NavigationService NavigationService { get; set; }
 
         public void OnCollectionChanged(object sender, EventArgs e)
@@ -43,11 +49,6 @@ namespace PointOfSale
             }
         }
         */
-
-        public void OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            MountItemListener();
-        }
 
         private void MountItemListener()
         {

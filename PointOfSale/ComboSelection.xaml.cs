@@ -27,5 +27,10 @@ namespace PointOfSale
         {
             NavigationService.Navigate(new Uri("/CustomizeCombo.xaml", UriKind.Relative));
         }
+
+        public void Click_BackToMainMenu(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/MenuCategorySelection.xaml", UriKind.Relative));
+        }
     }
 }

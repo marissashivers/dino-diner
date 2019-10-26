@@ -11,10 +11,24 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Abstract class for a drink.
     /// </summary>
-    public abstract class Drink : IMenuItem, IOrderItem
+    public abstract class Drink : IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         // Private backing variable
         private bool _ice = true;
+
+        /// <summary>
+        /// Property Changed event handler
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Notify of property changed event
+        /// </summary>
+        /// <param name="propertyName"></param>
+        protected void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         /// <summary>
         /// Ice boolean
@@ -73,6 +87,7 @@ namespace DinoDiner.Menu
         public void HoldIce()
         {
             this.Ice = false;
+            NotifyOfPropertyChanged("Special");
         }
     }
 

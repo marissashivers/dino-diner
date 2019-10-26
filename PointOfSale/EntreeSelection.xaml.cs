@@ -14,12 +14,20 @@ namespace PointOfSale
     /// </summary>
     public partial class EntreeSelection : Page
     {
+        /// <summary>
+        /// Constructor for Entree Seletion page
+        /// </summary>
         public EntreeSelection()
         {
             InitializeComponent();
         }
 
-        public void Add_Brontowurst(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Button for adding Brontowurst
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Add_Brontowurst(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order order)
             {
@@ -32,6 +40,11 @@ namespace PointOfSale
             NavigationService.Navigate(new Uri("/MenuCategorySelection.xaml", UriKind.Relative));
         }
 
+        /// <summary>
+        /// Button for adding DinoNuggets
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Add_Dinonuggets(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order order)
@@ -45,6 +58,11 @@ namespace PointOfSale
             NavigationService.Navigate(new Uri("/MenuCategorySelection.xaml", UriKind.Relative));
         }
 
+        /// <summary>
+        /// Button for adding TRex King Burger
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Add_TRexKingBurger(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order order)
@@ -58,6 +76,11 @@ namespace PointOfSale
             NavigationService.Navigate(new Uri("/MenuCategorySelection.xaml", UriKind.Relative));
         }
 
+        /// <summary>
+        /// Button for adding Pterodactyl Wings
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Add_PterodactylWings(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order order)
@@ -71,6 +94,11 @@ namespace PointOfSale
             NavigationService.Navigate(new Uri("/MenuCategorySelection.xaml", UriKind.Relative));
         }
 
+        /// <summary>
+        /// Button for adding Steakosaurus
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Add_Steakosaurus(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order order)
@@ -84,6 +112,11 @@ namespace PointOfSale
             NavigationService.Navigate(new Uri("/MenuCategorySelection.xaml", UriKind.Relative));
         }
 
+        /// <summary>
+        /// Button for adding Velociwrap
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Add_VelociWrap(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order order)
@@ -97,6 +130,11 @@ namespace PointOfSale
             NavigationService.Navigate(new Uri("/MenuCategorySelection.xaml", UriKind.Relative));
         }
 
+        /// <summary>
+        /// Button for adding PBJ
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Add_PBJ(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order order)
@@ -107,6 +145,16 @@ namespace PointOfSale
             }
 
             // back to main page automatically
+            NavigationService.Navigate(new Uri("/MenuCategorySelection.xaml", UriKind.Relative));
+        }
+
+        /// <summary>
+        /// Button for back to main menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Click_BackToMainMenu(object sender, RoutedEventArgs e)
+        {
             NavigationService.Navigate(new Uri("/MenuCategorySelection.xaml", UriKind.Relative));
         }
     }

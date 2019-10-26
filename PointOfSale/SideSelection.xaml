@@ -113,7 +113,7 @@
                 <TextBlock TextWrapping="Wrap">
                     BACK TO MAIN MENU
                 </TextBlock>
-                <Image Source="Assets/_shoppingcart.png" Height="150" VerticalAlignment="Bottom" />
+                <Image Source="Assets/_shoppingcart.png" Height="100" VerticalAlignment="Bottom" />
             </StackPanel>
         </Button>
 

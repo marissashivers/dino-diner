@@ -15,18 +15,30 @@ namespace PointOfSale
     /// </summary>
     public partial class SideSelection : Page
     {
-
+        /// <summary>
+        /// Constructor for side selection page
+        /// </summary>
         public SideSelection()
         {
             InitializeComponent();
         }
 
-        public void Click_BackToMainMenu(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Back to main menu button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Click_BackToMainMenu(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Uri("/MenuCategorySelection.xaml", UriKind.Relative));
         }
 
-        public void Add_Fryceritops(object sender, RoutedEventArgs args)
+        /// <summary>
+        /// Add Fryceritops button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void Add_Fryceritops(object sender, RoutedEventArgs args)
         {
             if (DataContext is Order order)
             {
@@ -36,7 +48,12 @@ namespace PointOfSale
             }
         }
 
-        public void Add_MacAndCheese(object sender, RoutedEventArgs args)
+        /// <summary>
+        /// Add Mac and Cheese button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void Add_MacAndCheese(object sender, RoutedEventArgs args)
         {
             if (DataContext is Order order)
             {
@@ -45,8 +62,13 @@ namespace PointOfSale
                 CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
             }
         }
-
-        public void Add_MozzSticks(object sender, RoutedEventArgs args)
+        
+        /// <summary>
+        /// Add Mezorella sticks button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void Add_MozzSticks(object sender, RoutedEventArgs args)
         {
             if (DataContext is Order order)
             {
@@ -56,7 +78,12 @@ namespace PointOfSale
             }
         }
 
-        public void Add_Tots(object sender, RoutedEventArgs args)
+        /// <summary>
+        /// Add tator tots button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void Add_Tots(object sender, RoutedEventArgs args)
         {
             if (DataContext is Order order)
             {
@@ -66,7 +93,12 @@ namespace PointOfSale
             }
         }
 
-        public void MakeSmall(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Make current selected side small
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MakeSmall(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order order)
             {
@@ -78,7 +110,12 @@ namespace PointOfSale
             }
         }
 
-        public void MakeMedium(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Make current selected side medium
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MakeMedium(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order order)
             {
@@ -90,7 +127,12 @@ namespace PointOfSale
             }
         }
 
-        public void MakeLarge(object sender, RoutedEventArgs args)
+        /// <summary>
+        /// Make current selected side large
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MakeLarge(object sender, RoutedEventArgs args)
         {
             if (DataContext is Order order)
             {
@@ -102,7 +144,8 @@ namespace PointOfSale
             }
         }
 
-        public void OnCurrentChanged(object sender, DependencyPropertyChangedEventArgs args)
+        /*
+        private void OnCurrentChanged(object sender, DependencyPropertyChangedEventArgs args)
         {
             if (DataContext is Order order)
             {
@@ -116,9 +159,9 @@ namespace PointOfSale
                 {
                     Button_Fryceritops.IsEnabled = true;
                 }
-            }
-            
+            }           
         }
+        */
 
 
     }

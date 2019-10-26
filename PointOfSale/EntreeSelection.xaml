@@ -151,7 +151,8 @@
             Style="{StaticResource basicbutton}"
             Background="beige"
             VerticalContentAlignment="Top"
-            FontStyle="Italic">
+            FontStyle="Italic"
+            Click="Click_BackToMainMenu">
             <StackPanel>
                 <TextBlock TextWrapping="Wrap">
                     BACK TO MAIN MENU
