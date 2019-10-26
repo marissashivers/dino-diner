@@ -102,7 +102,6 @@ namespace PointOfSale
             }
         }
 
-
         public void OnCurrentChanged(object sender, DependencyPropertyChangedEventArgs args)
         {
             if (DataContext is Order order)

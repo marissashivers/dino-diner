@@ -15,6 +15,8 @@ namespace PointOfSale
     /// </summary>
     public partial class DrinkSelection : Page
     {
+        public static SodasaurusFlavor selectedFlavor;
+
         public DrinkSelection()
         {
             InitializeComponent();
@@ -51,6 +53,14 @@ namespace PointOfSale
             removeIce.FontSize = 20;
             removeIce.Click += Click_RemoveIce;
             sp2.Children.Add(removeIce);
+
+            if (DataContext is Order order)
+            {
+                Sodasaurus soda = new Sodasaurus();
+                order.Items.Add(soda);
+                CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
+            }
+
         }
 
         public void Click_Tea(object sender, RoutedEventArgs e)
@@ -189,7 +199,7 @@ namespace PointOfSale
             }
         }
 
-        // ****************************************************************
+        // ***************** Sizes ***********************************************
         public void Click_Small(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order order)
@@ -227,13 +237,20 @@ namespace PointOfSale
         }
 
 
-
-        // ****************************************************************
+        // **************** Special buttons ************************************************
 
         public void Click_Choose_Flavor(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/FlavorSelection.xaml", UriKind.Relative));
+            if (DataContext is Order order)
+            {
+                NavigationService.Navigate(new Uri("/FlavorSelection.xaml", UriKind.Relative));
+                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Sodasaurus soda)
+                {
+                    soda.Flavor = selectedFlavor;
+                }
+            }
         }
+
 
         public void Click_Sweetener(object sender, RoutedEventArgs e)
         {
@@ -279,7 +296,6 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                // only change size if the item is a side
                 if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is JurassicJava java)
                 {
                     java.LeaveRoomForCream();
@@ -291,7 +307,6 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                // only change size if the item is a side
                 if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is JurassicJava java)
                 {
                     java.HoldIce();
