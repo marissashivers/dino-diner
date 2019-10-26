@@ -39,7 +39,7 @@
             FontStyle="Oblique"
             Background="Goldenrod"
             HorizontalContentAlignment="Center"
-            FontSize="20">
+            FontSize="25">
         </Label>
 
         <!-- COMBOS BUTTON -->

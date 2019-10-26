@@ -154,7 +154,7 @@
             FontStyle="Italic">
             <StackPanel>
                 <TextBlock TextWrapping="Wrap">
-                    ADD TO ORDER
+                    BACK TO MAIN MENU
                 </TextBlock>
                 <Image Source="Assets/_shoppingcart.png" Height="75" VerticalAlignment="Bottom" />
             </StackPanel>

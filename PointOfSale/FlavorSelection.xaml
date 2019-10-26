@@ -121,11 +121,19 @@
 
         <Button
             Name="Button_BackToMainMenu"
+            Click="Click_BackToMainMenu"
             Grid.Column="2"
             Grid.Row="3"
             Style="{StaticResource basicbutton}"
-            Click="Click_BackToMainMenu"
-            Content="Back To Main Menu">
+            Background="beige"
+            VerticalContentAlignment="Top"
+            FontStyle="Italic">
+            <StackPanel>
+                <TextBlock TextWrapping="Wrap">
+                    BACK TO DRINK SELECTION
+                </TextBlock>
+                <Image Source="Assets/_shoppingcart.png" Height="70" VerticalAlignment="Bottom" />
+            </StackPanel>
         </Button>
 
     </Grid>

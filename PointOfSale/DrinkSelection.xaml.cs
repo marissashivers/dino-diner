@@ -318,5 +318,10 @@ namespace PointOfSale
         {
             MessageBox.Show("Added ice");
         }
+
+        public void Click_BackToMainMenu(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/MenuCategorySelection.xaml", UriKind.Relative));
+        }
     }
 }
