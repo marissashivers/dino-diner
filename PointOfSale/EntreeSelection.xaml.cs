@@ -32,7 +32,7 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 Brontowurst bw = new Brontowurst();
-                order.Items.Add(bw);
+                order.Add(bw);
                 CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
             }
 
@@ -50,7 +50,7 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 DinoNuggets dn = new DinoNuggets();
-                order.Items.Add(dn);
+                order.Add(dn);
                 CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
             }
 
@@ -68,7 +68,7 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 TRexKingBurger tkb = new TRexKingBurger();
-                order.Items.Add(tkb);
+                order.Add(tkb);
                 CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
             }
 
@@ -86,7 +86,7 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 PterodactylWings ptw = new PterodactylWings();
-                order.Items.Add(ptw);
+                order.Add(ptw);
                 CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
             }
 
@@ -104,7 +104,7 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 SteakosaurusBurger sb = new SteakosaurusBurger();
-                order.Items.Add(sb);
+                order.Add(sb);
                 CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
             }
 
@@ -122,7 +122,7 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 VelociWrap vw = new VelociWrap();
-                order.Items.Add(vw);
+                order.Add(vw);
                 CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
             }
 
@@ -140,7 +140,7 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 PrehistoricPBJ pbj = new PrehistoricPBJ();
-                order.Items.Add(pbj);
+                order.Add(pbj);
                 CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
             }
 

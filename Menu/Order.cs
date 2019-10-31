@@ -17,7 +17,8 @@ namespace DinoDiner.Menu
     public class Order : INotifyPropertyChanged
     {
         // private backing variable
-        private ObservableCollection<IOrderItem> _items;
+        //private ObservableCollection<IOrderItem> _items;
+        private List<IOrderItem> _items = new List<IOrderItem>();
 
         /// <summary>
         /// Property changed event handler
@@ -34,6 +35,41 @@ namespace DinoDiner.Menu
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+
+        public IOrderItem[] Items { get { return _items.ToArray(); } }
+
+        public void Add(IOrderItem item)
+        {
+            item.PropertyChanged += OnItemPropertyChanged;
+            _items.Add(item);
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SubtotalCost"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SalesTaxCost"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("TotalCost"));
+
+        }
+
+        public bool Remove(IOrderItem item)
+        {
+            bool removed = _items.Remove(item);
+            if (removed)
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SubtotalCost"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SalesTaxCost"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("TotalCost"));
+            }
+            return removed;
+        }
+
+        private void OnItemPropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            PropertyChanged?.Invoke(sender, new PropertyChangedEventArgs("SubtotalCost"));
+            PropertyChanged?.Invoke(sender, new PropertyChangedEventArgs("SalesTaxCost"));
+            PropertyChanged?.Invoke(sender, new PropertyChangedEventArgs("TotalCost"));
+        }
+
+        /*
         /// <summary>
         /// Items in the order
         /// </summary>
@@ -52,6 +88,7 @@ namespace DinoDiner.Menu
                 _items = value;
             }
         }
+        */
 
         /// <summary>
         /// Calculates total cost from prices of all order items

@@ -3,6 +3,7 @@
 */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace DinoDiner.Menu
@@ -10,7 +11,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Interface for an order item, for the Point of Sale.
     /// </summary>
-    public interface IOrderItem
+    public interface IOrderItem : INotifyPropertyChanged
     {
         /// <summary>
         /// Getter for price property

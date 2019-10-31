@@ -31,9 +31,9 @@ namespace MenuTest
             soda.Flavor = SodasaurusFlavor.Chocolate;
 
             Order firstOrder = new Order();
-            firstOrder.Items.Add(pbj);
-            firstOrder.Items.Add(fries);
-            firstOrder.Items.Add(soda);
+            firstOrder.Add(pbj);
+            firstOrder.Add(fries);
+            firstOrder.Add(soda);
 
             Assert.Equal<double>(10.47, firstOrder.SubtotalCost);
             Assert.Equal<double>(1.57, firstOrder.SalesTaxCost);
@@ -58,9 +58,9 @@ namespace MenuTest
             jj.Size = Size.Large;
 
             Order secondOrder = new Order();
-            secondOrder.Items.Add(dn);
-            secondOrder.Items.Add(ms);
-            secondOrder.Items.Add(jj);
+            secondOrder.Add(dn);
+            secondOrder.Add(ms);
+            secondOrder.Add(jj);
 
             Assert.Equal<double>(8.19, secondOrder.SubtotalCost);
             Assert.Equal<double>(1.23, secondOrder.SalesTaxCost);
@@ -74,7 +74,7 @@ namespace MenuTest
             ms.Price = -0.99;
 
             Order testOrder = new Order();
-            testOrder.Items.Add(ms);
+            testOrder.Add(ms);
 
             Assert.Equal<double>(0.00, testOrder.SubtotalCost);
         }
