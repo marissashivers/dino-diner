@@ -75,6 +75,7 @@ namespace DinoDiner.Menu
             bool removed = _items.Remove(item);
             if (removed)
             {
+                item.PropertyChanged += OnItemPropertyChanged;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SubtotalCost"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SalesTaxCost"));
@@ -86,11 +87,16 @@ namespace DinoDiner.Menu
         
         private void OnItemPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            PropertyChanged?.Invoke(sender, new PropertyChangedEventArgs("Special"));
-            PropertyChanged?.Invoke(sender, new PropertyChangedEventArgs("Items"));
-            PropertyChanged?.Invoke(sender, new PropertyChangedEventArgs("SubtotalCost"));
-            PropertyChanged?.Invoke(sender, new PropertyChangedEventArgs("SalesTaxCost"));
-            PropertyChanged?.Invoke(sender, new PropertyChangedEventArgs("TotalCost"));
+            NotifyOfPropertyChanged("SubtotalCost");
+            NotifyOfPropertyChanged("SalesTaxCost");
+            NotifyOfPropertyChanged("TotalCost");
+            NotifyOfPropertyChanged("Price");
+            NotifyOfPropertyChanged("Special");
+            NotifyOfPropertyChanged("Items");
+            NotifyOfPropertyChanged("Description");
+            NotifyOfPropertyChanged("Size");
+            NotifyOfPropertyChanged("Price");
+            NotifyOfPropertyChanged("Calories");
         }
 
 
@@ -183,11 +189,18 @@ namespace DinoDiner.Menu
         public Order()
         {
             this.SalesTaxRate = 0.15;
-            NotifyOfPropertyChanged("Items");
-            NotifyOfPropertyChanged("SalesTaxCost");
+            /*
             NotifyOfPropertyChanged("SubtotalCost");
-            NotifyOfPropertyChanged("TotalCosts");
-               
+            NotifyOfPropertyChanged("SalesTaxCost");
+            NotifyOfPropertyChanged("TotalCost");
+            NotifyOfPropertyChanged("Price");
+            NotifyOfPropertyChanged("Special");
+            NotifyOfPropertyChanged("Items");
+            NotifyOfPropertyChanged("Description");
+            NotifyOfPropertyChanged("Size");
+            NotifyOfPropertyChanged("Price");
+            */
+
             //this._items = new ObservableCollection<IOrderItem>();
 
             // event listener/handler for when Items property changes
