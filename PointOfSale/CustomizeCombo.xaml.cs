@@ -15,8 +15,15 @@ namespace PointOfSale
     /// </summary>
     public partial class CustomizeCombo : Page
     {
+        private CretaceousCombo _combo;
         public CustomizeCombo()
         {
+            InitializeComponent();
+        }
+
+        public CustomizeCombo(CretaceousCombo combo)
+        {
+            _combo = combo;
             InitializeComponent();
         }
 
@@ -27,7 +34,7 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void Click_DrinkSelection(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/ComboCustomize/ComboDrinkSelection.xaml", UriKind.Relative));
+            NavigationService.Navigate(new ComboDrinkSelection(_combo));
         }
 
         /// <summary>
@@ -37,49 +44,36 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void Click_SideSelection(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/ComboCustomize/ComboSideSelection.xaml", UriKind.Relative));
+            NavigationService.Navigate(new ComboSideSelection(_combo));
         }
 
         private void Click_CustomizeEntree(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order order)
             {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is CretaceousCombo combo)
+                if (_combo.Entree is Brontowurst)
                 {
-                    if (combo.Entree is Brontowurst)
-                    {
-                        NavigationService.Navigate(new Uri("EntreeCustomize/Brontowurst_Customize.xaml", UriKind.Relative));
-                    }
+                    NavigationService.Navigate(new Brontowurst_Customize(_combo.Entree as Brontowurst));
                 }
-
-
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Brontowurst)
+                if (_combo.Entree is DinoNuggets)
                 {
-                    NavigationService.Navigate(new Uri("EntreeCustomize/Brontowurst_Customize.xaml", UriKind.Relative));
+                    NavigationService.Navigate(new DinoNuggets_Customize(_combo.Entree as DinoNuggets));
                 }
-                else if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is DinoNuggets)
+                if (_combo.Entree is PrehistoricPBJ)
                 {
-                    NavigationService.Navigate(new Uri("EntreeCustomize/DinoNuggets_Customize.xaml", UriKind.Relative));
+                    NavigationService.Navigate(new PrehistoricPBJ_Customize(_combo.Entree as PrehistoricPBJ));
                 }
-                else if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is PrehistoricPBJ)
+                if (_combo.Entree is SteakosaurusBurger)
                 {
-                    NavigationService.Navigate(new Uri("EntreeCustomize/PrehistoricPBJ_Customize.xaml", UriKind.Relative));
+                    NavigationService.Navigate(new SteakosaurusBurger_Customize(_combo.Entree as SteakosaurusBurger));
                 }
-                else if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is PterodactylWings)
+                if (_combo.Entree is TRexKingBurger)
                 {
-                    NavigationService.Navigate(new Uri("EntreeCustomize/PterodactylWings_Customize.xaml", UriKind.Relative));
+                    NavigationService.Navigate(new TRexKingBurger_Customize(_combo.Entree as TRexKingBurger));
                 }
-                else if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is SteakosaurusBurger)
+                if (_combo.Entree is VelociWrap)
                 {
-                    NavigationService.Navigate(new Uri("EntreeCustomize/SteakosaurusBurger_Customize.xaml", UriKind.Relative));
-                }
-                else if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is TRexKingBurger)
-                {
-                    NavigationService.Navigate(new Uri("EntreeCustomize/TRexKingBurger_Customize.xaml", UriKind.Relative));
-                }
-                else if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is VelociWrap)
-                {
-                    NavigationService.Navigate(new Uri("EntreeCustomize/VelociWrap_Customize.xaml", UriKind.Relative));
+                    NavigationService.Navigate(new VelociWrap_Customize(_combo.Entree as VelociWrap));
                 }
             }
         }
@@ -88,10 +82,7 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is CretaceousCombo combo)
-                {
-                    combo.Size = DinoDiner.Menu.Size.Small;
-                }
+                _combo.Size = DinoDiner.Menu.Size.Small;
             }
         }
 
@@ -99,20 +90,14 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is CretaceousCombo combo)
-                {
-                    combo.Size = DinoDiner.Menu.Size.Medium;
-                }
+                _combo.Size = DinoDiner.Menu.Size.Medium;
             }
         }
         private void Click_MakeLarge(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order order)
             {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is CretaceousCombo combo)
-                {
-                    combo.Size = DinoDiner.Menu.Size.Large;
-                }
+                _combo.Size = DinoDiner.Menu.Size.Large;
             }
         }
         

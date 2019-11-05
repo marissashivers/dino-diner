@@ -15,11 +15,19 @@ namespace PointOfSale
     /// </summary>
     public partial class Brontowurst_Customize : Page
     {
+        private Brontowurst _brontowurst;
+
         /// <summary>
         /// Constructor for Flavor Selection page
         /// </summary>
         public Brontowurst_Customize()
         {
+            InitializeComponent();
+        }
+
+        public Brontowurst_Customize(Brontowurst bw)
+        {
+            _brontowurst = bw;
             InitializeComponent();
         }
 
@@ -29,11 +37,7 @@ namespace PointOfSale
             {
                 if (DataContext is Order order)
                 {
-                    if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Brontowurst brontowurst)
-                    {
-                        brontowurst.HoldBun();
-                        CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
-                    }
+                    _brontowurst.HoldBun();
                 }
             }
         }
@@ -44,11 +48,7 @@ namespace PointOfSale
             {
                 if (DataContext is Order order)
                 {
-                    if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Brontowurst brontowurst)
-                    {
-                        brontowurst.HoldOnion();
-                        CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
-                    }
+                    _brontowurst.HoldOnion();
                 }
             }
         }
@@ -59,26 +59,14 @@ namespace PointOfSale
             {
                 if (DataContext is Order order)
                 {
-                    if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Brontowurst brontowurst)
-                    {
-                        brontowurst.HoldPeppers();
-                        CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
-                    }
+                    _brontowurst.HoldPeppers();
                 }
             }
         }
 
         private void Click_BackToMainMenu(object sender, RoutedEventArgs e)
         {
-            if (this.NavigationService.CanGoBack)
-            {
-                this.NavigationService.GoBack();
-            }
-            else
-            {
-                MessageBox.Show("NO entries in back navigation history.");
-            }
-            //NavigationService.Navigate(new Uri("/EntreeSelection.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/EntreeSelection.xaml", UriKind.Relative));
         }
     }
 }

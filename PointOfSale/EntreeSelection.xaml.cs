@@ -14,11 +14,19 @@ namespace PointOfSale
     /// </summary>
     public partial class EntreeSelection : Page
     {
+        private Entree _entree;
+
         /// <summary>
         /// Constructor for Entree Seletion page
         /// </summary>
         public EntreeSelection()
         {
+            InitializeComponent();
+        }
+
+        public EntreeSelection(Entree entree)
+        {
+            _entree = entree;
             InitializeComponent();
         }
 
@@ -32,12 +40,13 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 Brontowurst bw = new Brontowurst();
-                order.Add(bw);
+                _entree = bw;
+                order.Add(_entree);
                 CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
             }
 
             // navigate to appropriate entree customization page
-            NavigationService.Navigate(new Uri("/EntreeCustomize/Brontowurst_Customize.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Brontowurst_Customize(_entree as Brontowurst));
         }
 
         /// <summary>
@@ -50,12 +59,12 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 DinoNuggets dn = new DinoNuggets();
-                order.Add(dn);
-                //CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
+                _entree = dn;
+                order.Add(_entree);
             }
             
             // navigate to appropriate entree customization page
-            NavigationService.Navigate(new Uri("/EntreeCustomize/DinoNuggets_Customize.xaml", UriKind.Relative));
+            NavigationService.Navigate(new DinoNuggets_Customize(_entree as DinoNuggets));
         }
 
         /// <summary>
@@ -68,12 +77,12 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 TRexKingBurger tkb = new TRexKingBurger();
-                order.Add(tkb);
-                CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
+                _entree = tkb;
+                order.Add(_entree);
             }
 
             // nagivate
-            NavigationService.Navigate(new Uri("EntreeCustomize/TRexKingBurger_Customize.xaml", UriKind.Relative));
+            NavigationService.Navigate(new TRexKingBurger_Customize(_entree as TRexKingBurger));
         }
 
         /// <summary>
@@ -104,12 +113,12 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 SteakosaurusBurger sb = new SteakosaurusBurger();
-                order.Add(sb);
-                CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
+                _entree = sb;
+                order.Add(_entree);
             }
 
             // navigate to appropriate entree customization page
-            NavigationService.Navigate(new Uri("/EntreeCustomize/SteakosaurusBurger_Customize.xaml", UriKind.Relative));
+            NavigationService.Navigate(new SteakosaurusBurger_Customize(_entree as SteakosaurusBurger));
         }
 
         /// <summary>
@@ -122,12 +131,12 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 VelociWrap vw = new VelociWrap();
-                order.Add(vw);
-                CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
+                _entree = vw;
+                order.Add(_entree);
             }
 
             // navigate
-            NavigationService.Navigate(new Uri("EntreeCustomize/VelociWrap_Customize.xaml", UriKind.Relative));
+            NavigationService.Navigate(new VelociWrap_Customize(_entree as VelociWrap));
         }
 
         /// <summary>
@@ -140,12 +149,12 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 PrehistoricPBJ pbj = new PrehistoricPBJ();
-                order.Add(pbj);
-                CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
+                _entree = pbj;
+                order.Add(_entree);
             }
 
             // back to main page automatically
-            NavigationService.Navigate(new Uri("EntreeCustomize/PrehistoricPBJ_Customize.xaml", UriKind.Relative));
+            NavigationService.Navigate(new PrehistoricPBJ_Customize(_entree as PrehistoricPBJ));
         }
 
         /// <summary>

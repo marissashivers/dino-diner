@@ -49,6 +49,7 @@
             Style="{StaticResource basicbutton}">
             <StackPanel>
                 <TextBlock TextAlignment="Center">Hold Bun</TextBlock>
+                <Image Source="EntreeAssets/hold_bun.png" Width="150" />
             </StackPanel>
         </Button>
 
@@ -59,6 +60,7 @@
             Style="{StaticResource basicbutton}">
             <StackPanel>
                 <TextBlock TextAlignment="Center">Hold Onions</TextBlock>
+                <Image Source="EntreeAssets/hold_onions.png" Width="75" />
             </StackPanel>
         </Button>
 
@@ -69,6 +71,7 @@
             Style="{StaticResource basicbutton}">
             <StackPanel>
                 <TextBlock TextAlignment="Center">Hold Ketchup</TextBlock>
+                <Image Source="EntreeAssets/hold_ketchup.png" Width="75" />
             </StackPanel>
         </Button>
 
@@ -79,6 +82,7 @@
             Style="{StaticResource basicbutton}">
             <StackPanel>
                 <TextBlock TextAlignment="Center">Hold Lettuce</TextBlock>
+                <Image Source="EntreeAssets/hold_lettuce.png" Width="100" />
             </StackPanel>
         </Button>
 
@@ -89,6 +93,7 @@
             Style="{StaticResource basicbutton}">
             <StackPanel>
                 <TextBlock TextAlignment="Center">Hold Pickle</TextBlock>
+                <Image Source="EntreeAssets/hold_pickle.png" Width="75" />
             </StackPanel>
         </Button>
 
@@ -99,6 +104,7 @@
             Style="{StaticResource basicbutton}">
             <StackPanel>
                 <TextBlock TextAlignment="Center">Hold Mayo</TextBlock>
+                <Image Source="EntreeAssets/hold_mayo.png" Width="75" />
             </StackPanel>
         </Button>
 
@@ -109,6 +115,7 @@
             Style="{StaticResource basicbutton}">
             <StackPanel>
                 <TextBlock TextAlignment="Center">Hold Mustard</TextBlock>
+                <Image Source="EntreeAssets/hold_mustard.png" Width="75" />
             </StackPanel>
         </Button>
 
@@ -119,6 +126,7 @@
             Style="{StaticResource basicbutton}">
             <StackPanel>
                 <TextBlock TextAlignment="Center">Hold Tomato</TextBlock>
+                <Image Source="EntreeAssets/hold_tomato.png" Width="120" />
             </StackPanel>
         </Button>
 
@@ -133,7 +141,7 @@
             FontStyle="Italic">
             <StackPanel>
                 <TextBlock TextWrapping="Wrap">
-                    BACK TO PREVIOUS PAGE
+                    BACK TO MAIN MENU
                 </TextBlock>
                 <Image Source="EntreeAssets/_shoppingcart.png" Height="70" VerticalAlignment="Bottom" />
             </StackPanel>

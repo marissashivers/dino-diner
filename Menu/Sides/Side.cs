@@ -30,10 +30,17 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Abstract base class for a "side".
     /// </summary>
-    public abstract class Side : IMenuItem, INotifyPropertyChanged
+    public abstract class Side : IMenuItem, INotifyPropertyChanged, IOrderItem
     {
+        /// <summary>
+        /// Event for property changed event handler
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <summary>
+        /// Notifies of the property changing
+        /// </summary>
+        /// <param name="propertyName"></param>
         protected void NotifyOfPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

@@ -15,11 +15,18 @@ namespace PointOfSale
     /// </summary>
     public partial class TRexKingBurger_Customize : Page
     {
+        private TRexKingBurger _burger;
         /// <summary>
         /// Constructor for Flavor Selection page
         /// </summary>
         public TRexKingBurger_Customize()
         {
+            InitializeComponent();
+        }
+
+        public TRexKingBurger_Customize(TRexKingBurger burger)
+        {
+            _burger = burger;
             InitializeComponent();
         }
 
@@ -29,11 +36,7 @@ namespace PointOfSale
             {
                 if (DataContext is Order order)
                 {
-                    if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is TRexKingBurger burger)
-                    {
-                        burger.HoldBun();
-                        CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
-                    }
+                    _burger.HoldBun();
                 }
             }
         }
@@ -44,11 +47,7 @@ namespace PointOfSale
             {
                 if (DataContext is Order order)
                 {
-                    if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is TRexKingBurger burger)
-                    {
-                        burger.HoldLettuce();
-                        CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
-                    }
+                    _burger.HoldLettuce();
                 }
             }
         }
@@ -59,11 +58,7 @@ namespace PointOfSale
             {
                 if (DataContext is Order order)
                 {
-                    if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is TRexKingBurger burger)
-                    {
-                        burger.HoldTomato();
-                        CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
-                    }
+                    _burger.HoldTomato();
                 }
             }
         }
@@ -74,11 +69,7 @@ namespace PointOfSale
             {
                 if (DataContext is Order order)
                 {
-                    if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is TRexKingBurger burger)
-                    {
-                        burger.HoldOnion();
-                        CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
-                    }
+                    _burger.HoldOnion();
                 }
             }
         }
@@ -89,11 +80,7 @@ namespace PointOfSale
             {
                 if (DataContext is Order order)
                 {
-                    if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is TRexKingBurger burger)
-                    {
-                        burger.HoldMayo();
-                        CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
-                    }
+                    _burger.HoldMayo();
                 }
             }
         }
@@ -104,11 +91,7 @@ namespace PointOfSale
             {
                 if (DataContext is Order order)
                 {
-                    if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is TRexKingBurger burger)
-                    {
-                        burger.HoldMustard();
-                        CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
-                    }
+                    _burger.HoldMustard();
                 }
             }
         }
@@ -119,11 +102,7 @@ namespace PointOfSale
             {
                 if (DataContext is Order order)
                 {
-                    if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is TRexKingBurger burger)
-                    {
-                        burger.HoldPickle();
-                        CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
-                    }
+                    _burger.HoldPickle();
                 }
             }
         }
@@ -134,26 +113,14 @@ namespace PointOfSale
             {
                 if (DataContext is Order order)
                 {
-                    if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is TRexKingBurger burger)
-                    {
-                        burger.HoldKetchup();
-                        CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
-                    }
+                    _burger.HoldKetchup();
                 }
             }
         }
 
         private void Click_BackToMainMenu(object sender, RoutedEventArgs e)
         {
-            if (this.NavigationService.CanGoBack)
-            {
-                this.NavigationService.GoBack();
-            }
-            else
-            {
-                MessageBox.Show("NO entries in back navigation history.");
-            }
-            //NavigationService.Navigate(new Uri("/EntreeSelection.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/EntreeSelection.xaml", UriKind.Relative));
         }
     }
 }

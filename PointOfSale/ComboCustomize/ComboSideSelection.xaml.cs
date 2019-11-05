@@ -15,11 +15,19 @@ namespace PointOfSale
     /// </summary>
     public partial class ComboSideSelection : Page
     {
+
+        private CretaceousCombo _combo;
         /// <summary>
         /// Constructor for side selection page
         /// </summary>
         public ComboSideSelection()
         {
+            InitializeComponent();
+        }
+
+        public ComboSideSelection(CretaceousCombo combo)
+        {
+            _combo = combo;
             InitializeComponent();
         }
 
@@ -49,10 +57,7 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is CretaceousCombo combo)
-                {
-                    combo.Side = new Fryceritops();
-                }
+                _combo.Side = new Fryceritops();
             }
         }
 
@@ -65,10 +70,7 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is CretaceousCombo combo)
-                {
-                    combo.Side = new MeteorMacAndCheese();
-                }
+                _combo.Side = new MeteorMacAndCheese();
             }
         }
         
@@ -81,10 +83,7 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is CretaceousCombo combo)
-                {
-                    combo.Side = new MezzorellaSticks();
-                }
+                _combo.Side = new MezzorellaSticks();
             }
         }
 
@@ -97,10 +96,7 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is CretaceousCombo combo)
-                {
-                    combo.Side = new Triceritots();
-                }
+                _combo.Side = new Triceritots();
             }
         }
 

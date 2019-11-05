@@ -28,32 +28,12 @@ namespace PointOfSale
         public OrderControl()
         {
             InitializeComponent();
-            //MountItemListener();
         }
-
 
         /// <summary>
         /// Navigation service to switch pages
         /// </summary>
         public NavigationService NavigationService { get; set; }
-
-        public void OnSelectionChanged(object sender, EventArgs e)
-        {
-            if(OrderItems.SelectedItem is Side)
-            {
-                NavigationService.Navigate(new Uri("/SideSelection.xaml", UriKind.Relative));
-            }
-        }
-
-            /*
-        private void MountItemListener()
-        {
-            if (DataContext is Order order)
-            {
-                order.Items.CollectionChanged += OnCollectionChanged;
-            }
-        }
-        */
 
         private void OnRemoveOrderItem(object sender, RoutedEventArgs e)
         {
@@ -61,6 +41,27 @@ namespace PointOfSale
                 if (sender is FrameworkElement element)
                     if (element.DataContext is IOrderItem item)
                         order.Remove(item);
+        }
+
+        public void OnSelectionChanged(object sender, RoutedEventArgs e)
+        {
+            if (OrderItems.SelectedItem is Side side)
+            {
+                NavigationService?.Navigate(new SideSelection(side));
+            }
+            else if (OrderItems.SelectedItem is Drink drink)
+            {
+                NavigationService?.Navigate(new DrinkSelection(drink));
+            }
+            else if (OrderItems.SelectedItem is Entree entree)
+            {
+                if (entree is Brontowurst bw) NavigationService.Navigate(new Brontowurst_Customize(bw));
+                else if (entree is DinoNuggets dn) NavigationService.Navigate(new DinoNuggets_Customize(dn));
+                else if (entree is PrehistoricPBJ pbj) NavigationService.Navigate(new PrehistoricPBJ_Customize(pbj));
+                else if (entree is SteakosaurusBurger burger) NavigationService.Navigate(new SteakosaurusBurger_Customize(burger));
+                else if (entree is TRexKingBurger tburger) NavigationService.Navigate(new TRexKingBurger_Customize(tburger));
+                else if (entree is VelociWrap vw) NavigationService.Navigate(new VelociWrap_Customize(vw));
+            }
         }
     }
 }

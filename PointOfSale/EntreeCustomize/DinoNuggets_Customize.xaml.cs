@@ -15,11 +15,18 @@ namespace PointOfSale
     /// </summary>
     public partial class DinoNuggets_Customize : Page
     {
+        private DinoNuggets _dinoNuggets;
         /// <summary>
         /// Constructor for Flavor Selection page
         /// </summary>
         public DinoNuggets_Customize()
         {
+            InitializeComponent();
+        }
+
+        public DinoNuggets_Customize(DinoNuggets nuggets)
+        {
+            _dinoNuggets = nuggets;
             InitializeComponent();
         }
 
@@ -29,11 +36,7 @@ namespace PointOfSale
             {
                 if (DataContext is Order order)
                 {
-                    if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is DinoNuggets dn)
-                    {
-                        dn.AddNugget();
-                        CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
-                    }
+                    _dinoNuggets.AddNugget();
                 }
             }
         }
@@ -42,7 +45,7 @@ namespace PointOfSale
         {
             if (this.NavigationService.CanGoBack)
             {
-                this.NavigationService.GoBack();
+                NavigationService.Navigate(new MenuCategorySelection());
             }
             else
             {

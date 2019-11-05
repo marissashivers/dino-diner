@@ -55,6 +55,7 @@ namespace DinoDiner.Menu
         /// <param name="item"></param>
         public void Add(IOrderItem item)
         {
+            // Adds this so Order can be notified whenever an item changes within the order
             item.PropertyChanged += OnItemPropertyChanged;
             _items.Add(item);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
@@ -85,6 +86,12 @@ namespace DinoDiner.Menu
         }
         
         
+        /// <summary>
+        /// Notifies whenever an item in the order changes so that the overall order
+        /// can update its items and subtotal/salestax/cost properties
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnItemPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             NotifyOfPropertyChanged("SubtotalCost");
@@ -94,6 +101,7 @@ namespace DinoDiner.Menu
         }
 
 
+        /*
         /// <summary>
         /// Notifies when the collection, "Items" changes
         /// which changes the subtotal cost, sales tax cost, and total cost.
@@ -107,6 +115,7 @@ namespace DinoDiner.Menu
             NotifyOfPropertyChanged("SalesTaxCost");
             NotifyOfPropertyChanged("TotalCost");
         }
+        */
 
         /*
         /// <summary>
@@ -183,26 +192,7 @@ namespace DinoDiner.Menu
         public Order()
         {
             this.SalesTaxRate = 0.15;
-            /*
-            NotifyOfPropertyChanged("SubtotalCost");
-            NotifyOfPropertyChanged("SalesTaxCost");
-            NotifyOfPropertyChanged("TotalCost");
-            NotifyOfPropertyChanged("Price");
-            NotifyOfPropertyChanged("Special");
-            NotifyOfPropertyChanged("Items");
-            NotifyOfPropertyChanged("Description");
-            NotifyOfPropertyChanged("Size");
-            NotifyOfPropertyChanged("Price");
-            */
-
-            //this._items = new ObservableCollection<IOrderItem>();
-
-            // event listener/handler for when Items property changes
-            //this._items.CollectionChanged += this.OnCollectionChanged;
-
-            //this.Items.ItemPropertyChanged += this.OnItemPropertyChanged;
         }
-
 
     }
 }

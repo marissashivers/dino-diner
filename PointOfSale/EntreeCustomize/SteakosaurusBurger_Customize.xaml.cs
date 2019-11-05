@@ -15,11 +15,19 @@ namespace PointOfSale
     /// </summary>
     public partial class SteakosaurusBurger_Customize : Page
     {
+        private SteakosaurusBurger _burger;
+        
         /// <summary>
         /// Constructor for Flavor Selection page
         /// </summary>
         public SteakosaurusBurger_Customize()
         {
+            InitializeComponent();
+        }
+
+        public SteakosaurusBurger_Customize(SteakosaurusBurger burger)
+        {
+            _burger = burger;
             InitializeComponent();
         }
 
@@ -29,11 +37,7 @@ namespace PointOfSale
             {
                 if (DataContext is Order order)
                 {
-                    if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is SteakosaurusBurger burger)
-                    {
-                        burger.HoldBun();
-                        CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
-                    }
+                    _burger.HoldBun();
                 }
             }
         }
@@ -44,11 +48,7 @@ namespace PointOfSale
             {
                 if (DataContext is Order order)
                 {
-                    if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is SteakosaurusBurger burger)
-                    {
-                        burger.HoldPickle();
-                        CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
-                    }
+                    _burger.HoldPickle();
                 }
             }
         }
@@ -59,11 +59,7 @@ namespace PointOfSale
             {
                 if (DataContext is Order order)
                 {
-                    if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is SteakosaurusBurger burger)
-                    {
-                        burger.HoldKetchup();
-                        CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
-                    }
+                    _burger.HoldKetchup();
                 }
             }
         }
@@ -74,27 +70,14 @@ namespace PointOfSale
             {
                 if (DataContext is Order order)
                 {
-                    if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is SteakosaurusBurger burger)
-                    {
-                        burger.HoldMustard();
-                        CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
-                    }
+                    _burger.HoldMustard();
                 }
             }
         }
 
-
         private void Click_BackToMainMenu(object sender, RoutedEventArgs e)
         {
-            if (this.NavigationService.CanGoBack)
-            {
-                this.NavigationService.GoBack();
-            }
-            else
-            {
-                MessageBox.Show("NO entries in back navigation history.");
-            }
-            //NavigationService.Navigate(new Uri("/EntreeSelection.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/EntreeSelection.xaml", UriKind.Relative));
         }
     }
 }

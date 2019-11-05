@@ -15,11 +15,18 @@ namespace PointOfSale
     /// </summary>
     public partial class VelociWrap_Customize : Page
     {
+        private VelociWrap _wrap;
         /// <summary>
         /// Constructor for Flavor Selection page
         /// </summary>
         public VelociWrap_Customize()
         {
+            InitializeComponent();
+        }
+
+        public VelociWrap_Customize(VelociWrap wrap)
+        {
+            _wrap = wrap;
             InitializeComponent();
         }
 
@@ -29,11 +36,7 @@ namespace PointOfSale
             {
                 if (DataContext is Order order)
                 {
-                    if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is VelociWrap wrap)
-                    {
-                        wrap.HoldLettuce();
-                        CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
-                    }
+                    _wrap.HoldLettuce();
                 }
             }
         }
@@ -44,11 +47,7 @@ namespace PointOfSale
             {
                 if (DataContext is Order order)
                 {
-                    if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is VelociWrap wrap)
-                    {
-                        wrap.HoldDressing();
-                        CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
-                    }
+                    _wrap.HoldDressing();
                 }
             }
         }
@@ -59,26 +58,14 @@ namespace PointOfSale
             {
                 if (DataContext is Order order)
                 {
-                    if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is VelociWrap wrap)
-                    {
-                        wrap.HoldCheese();
-                        CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
-                    }
+                    _wrap.HoldCheese();
                 }
             }
         }
 
         private void Click_BackToMainMenu(object sender, RoutedEventArgs e)
         {
-            if (this.NavigationService.CanGoBack)
-            {
-                this.NavigationService.GoBack();
-            }
-            else
-            {
-                MessageBox.Show("NO entries in back navigation history.");
-            }
-            //NavigationService.Navigate(new Uri("/EntreeSelection.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/EntreeSelection.xaml", UriKind.Relative));
         }
     }
 }

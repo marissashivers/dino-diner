@@ -22,18 +22,7 @@ namespace PointOfSale
             Order order = DataContext as Order; //casting
             if (order != null)
             {
-                /*
-                // do whatever with order
-                order.Add(new DinoNuggets());
-                order.Add(new Sodasaurus());
-                Triceritots tots = new Triceritots();
-                //tots.Size = DinoDiner.Menu.Size.Large;
-                order.Add(tots);
-                SteakosaurusBurger sb = new SteakosaurusBurger();
-                sb.HoldBun();
-                sb.HoldMustard();
-                order.Add(sb);
-                */
+                OrderControl.NavigationService = OrderUI.NavigationService;
             }
         }
 

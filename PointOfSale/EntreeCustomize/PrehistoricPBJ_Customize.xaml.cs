@@ -15,11 +15,19 @@ namespace PointOfSale
     /// </summary>
     public partial class PrehistoricPBJ_Customize : Page
     {
+        private PrehistoricPBJ _pbj;
+
         /// <summary>
         /// Constructor for Flavor Selection page
         /// </summary>
         public PrehistoricPBJ_Customize()
         {
+            InitializeComponent();
+        }
+        
+        public PrehistoricPBJ_Customize(PrehistoricPBJ pbj)
+        {
+            _pbj = pbj;
             InitializeComponent();
         }
 
@@ -29,11 +37,7 @@ namespace PointOfSale
             {
                 if (DataContext is Order order)
                 {
-                    if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is PrehistoricPBJ pbj)
-                    {
-                        pbj.HoldPeanutButter();
-                        CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
-                    }
+                    _pbj.HoldPeanutButter();
                 }
             }
         }
@@ -44,26 +48,14 @@ namespace PointOfSale
             {
                 if (DataContext is Order order)
                 {
-                    if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is PrehistoricPBJ pbj)
-                    {
-                        pbj.HoldJelly();
-                        CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
-                    }
+                    _pbj.HoldJelly();
                 }
             }
         }
 
         private void Click_BackToMainMenu(object sender, RoutedEventArgs e)
         {
-            if (this.NavigationService.CanGoBack)
-            {
-                this.NavigationService.GoBack();
-            }
-            else
-            {
-                MessageBox.Show("NO entries in back navigation history.");
-            }
-            //NavigationService.Navigate(new Uri("/EntreeSelection.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/EntreeSelection.xaml", UriKind.Relative));
         }
     }
 }

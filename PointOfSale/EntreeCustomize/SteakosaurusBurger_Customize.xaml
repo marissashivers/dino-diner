@@ -59,6 +59,7 @@
             Style="{StaticResource basicbutton}">
             <StackPanel>
                 <TextBlock TextAlignment="Center">Hold Ketchup</TextBlock>
+                <Image Source="EntreeAssets/hold_ketchup.png" Width="100" />
             </StackPanel>
         </Button>
 
@@ -69,6 +70,7 @@
             Style="{StaticResource basicbutton}">
             <StackPanel>
                 <TextBlock TextAlignment="Center">Hold Mustard</TextBlock>
+                <Image Source="EntreeAssets/hold_mustard.png" Width="100" />
             </StackPanel>
         </Button>
 
@@ -79,6 +81,7 @@
             Style="{StaticResource basicbutton}">
             <StackPanel>
                 <TextBlock TextAlignment="Center">Hold Pickle</TextBlock>
+                <Image Source="EntreeAssets/hold_pickle.png" Width="110" />
             </StackPanel>
         </Button>
 

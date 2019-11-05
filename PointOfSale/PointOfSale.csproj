@@ -516,5 +516,24 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="EntreeCustomize\EntreeAssets\hold_jelly.png" />
+    <Resource Include="EntreeCustomize\EntreeAssets\hold_peanutbutter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="EntreeCustomize\EntreeAssets\hold_ketchup.png" />
+    <Resource Include="EntreeCustomize\EntreeAssets\hold_mustard.png" />
+    <Resource Include="EntreeCustomize\EntreeAssets\hold_pickle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="EntreeCustomize\EntreeAssets\hold_lettuce.png" />
+    <Resource Include="EntreeCustomize\EntreeAssets\hold_mayo.png" />
+    <Resource Include="EntreeCustomize\EntreeAssets\hold_tomato.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="EntreeCustomize\EntreeAssets\hold_cheese.png" />
+    <Resource Include="EntreeCustomize\EntreeAssets\hold_dressing.png" />
+    <Resource Include="EntreeCustomize\EntreeAssets\hold_lettuce2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

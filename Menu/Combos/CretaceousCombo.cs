@@ -49,7 +49,7 @@ namespace DinoDiner.Menu
             {
                 _entree = value;
                 _entree.PropertyChanged += OnItemPropertyChanged;
-                NotifyOfPropertyChanged("Entree");
+                NotifyOfPropertyChanged("Price");
                 NotifyOfPropertyChanged("Description");
                 NotifyOfPropertyChanged("Special");
             }
@@ -70,6 +70,7 @@ namespace DinoDiner.Menu
                 _side = value;
                 _side.Size = this.Size;
                 _side.PropertyChanged += OnItemPropertyChanged;
+                NotifyOfPropertyChanged("Price");
                 NotifyOfPropertyChanged("Side");
                 NotifyOfPropertyChanged("Special");
             }
@@ -89,6 +90,7 @@ namespace DinoDiner.Menu
                 _drink = value;
                 _drink.Size = this.Size;
                 _drink.PropertyChanged += OnItemPropertyChanged;
+                NotifyOfPropertyChanged("Price");
                 NotifyOfPropertyChanged("Drink");
                 NotifyOfPropertyChanged("Special");
             }
@@ -134,9 +136,11 @@ namespace DinoDiner.Menu
                 NotifyOfPropertyChanged("Special");
                 NotifyOfPropertyChanged("Description");
                 NotifyOfPropertyChanged("Price");
+                /*
                 NotifyOfPropertyChanged("SubtotalCost");
                 NotifyOfPropertyChanged("SalesTaxCost");
                 NotifyOfPropertyChanged("TotalCost");
+                */
             }
         }
 

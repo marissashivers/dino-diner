@@ -16,6 +16,8 @@ namespace PointOfSale
     public partial class DrinkSelection : Page
     {
 
+        private Drink _drink;
+
         /// <summary>
         /// Constructor for DrinkSelection page
         /// </summary>
@@ -24,12 +26,313 @@ namespace PointOfSale
             InitializeComponent();
         }
 
+        public DrinkSelection(Drink drink)
+        {
+            _drink = drink;
+            InitializeComponent();
+
+            if (_drink is Water) SetWaterButtons();
+            else if (_drink is Sodasaurus) SetSodaButtons();
+            else if (_drink is JurassicJava) SetJavaButtons();
+            else if (_drink is Tyrannotea) SetTeaButtons();
+        }
+
         /// <summary>
         /// Clicking on soda will add the "choose flavor" button
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Click_Soda(object sender, RoutedEventArgs e)
+        {
+            SetSodaButtons();
+
+            if (DataContext is Order order)
+            {
+                Sodasaurus soda = new Sodasaurus();
+                _drink = soda;
+                order.Add(_drink);
+            }
+
+        }
+
+        /// <summary>
+        /// Button for adding tea
+        /// Creates sweetener, lemon, and remove ice button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Click_Tea(object sender, RoutedEventArgs e)
+        {
+            SetTeaButtons();
+
+            // ADD TEA TO THE CURRENT ORDER LIST
+            if (DataContext is Order order)
+            {
+                Tyrannotea tea = new Tyrannotea();
+                _drink = tea;
+                order.Add(_drink);
+            }
+
+        }
+
+
+        /// <summary>
+        /// Button for adding Jurassic Java
+        /// Includes adding decaf, cream, and ice buttons
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Click_Coffee(object sender, RoutedEventArgs e)
+        {
+            SetJavaButtons();
+
+            if (DataContext is Order order)
+            {
+                JurassicJava java = new JurassicJava();
+                _drink = java;
+                order.Add(_drink);
+            }
+
+        }
+
+        /// <summary>
+        /// Button for adding water
+        /// Creates remove ice and add lemon button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Click_Water(object sender, RoutedEventArgs e)
+        {
+            SetWaterButtons();
+
+            // ADD TO ORDER
+            if (DataContext is Order order)
+            {
+                Water w = new Water();
+                _drink = w;
+                order.Add(_drink);
+            }
+        }
+
+        // ***************** Sizes ***********************************************
+        /// <summary>
+        /// Change currently selected drink to small
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Click_Small(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is Order)
+            {
+                /*
+                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Drink drink)
+                {
+                    drink.Size = DinoDiner.Menu.Size.Small;
+                }
+                */
+                if (_drink != null) _drink.Size = DinoDiner.Menu.Size.Small;
+            }
+        }
+
+        /// <summary>
+        /// Change currently selected drink to medium
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Click_Medium(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is Order)
+            {
+                /*
+                // only change size if the item is a side
+                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Drink drink)
+                {
+                    drink.Size = DinoDiner.Menu.Size.Medium;
+                }
+                */
+                if (_drink != null) _drink.Size = DinoDiner.Menu.Size.Medium;
+            }
+        }
+
+        /// <summary>
+        /// Change currently selected drink to large
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Click_Large(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is Order)
+            {
+                /*
+                // only change size if the item is a side
+                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Drink drink)
+                {
+                    drink.Size = DinoDiner.Menu.Size.Large;
+                }
+                */
+                if (_drink != null) _drink.Size = DinoDiner.Menu.Size.Large;
+            }
+        }
+
+
+        // **************** Special buttons ************************************************
+        /// <summary>
+        /// Choose flavor button for Sodasaurus. Navigates to flavor selection page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Click_Choose_Flavor(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is Order)
+            {
+                NavigationService.Navigate(new FlavorSelection(_drink as Sodasaurus));
+            }
+        }
+
+        /// <summary>
+        /// Button for adding sweetener to Tyrannotea
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Click_Sweetener(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is Order)
+            {
+                if (_drink is Tyrannotea tea)
+                {
+                    tea.AddSweetener();
+                }
+                /*
+                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Tyrannotea tea)
+                {
+                    tea.AddSweetener();
+                }
+                */
+            }
+        }
+
+        /// <summary>
+        /// Button for adding lemon
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Click_Lemon(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is Order order)
+            {
+                /*
+                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Tyrannotea tea)
+                {
+                    tea.AddLemon();
+                }
+                else if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Water w)
+                {
+                    w.AddLemon();
+                }
+                */
+                if (_drink is Tyrannotea tea)
+                {
+                    tea.AddLemon();
+                }
+                else if (_drink is Water water)
+                {
+                    water.AddLemon();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Button for making JurassicJava decaf
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Click_Decaf(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is Order order)
+            {
+                // only change size if the item is a side
+                if (_drink is JurassicJava java)
+                {
+                    java.Decaf = true;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Button for adding cream to Jurassic Java
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Click_Cream(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is Order order)
+            {
+                if (_drink is JurassicJava java)
+                {
+                    java.LeaveRoomForCream();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Button for removing ice
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Click_RemoveIce(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is Order order)
+            {
+                /*
+                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Drink drink)
+                {
+                    drink.HoldIce();
+                }
+                */
+                _drink.HoldIce();
+            }
+        }
+
+        /// <summary>
+        /// Button for adding ice
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Click_AddIce(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is Order order)
+            {
+                /*
+                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is JurassicJava java)
+                {
+                    java.AddIce();
+                }
+                */
+                if (_drink is JurassicJava java)
+                {
+                    java.AddIce();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Button for navigating back to the main menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Click_BackToMainMenu(object sender, RoutedEventArgs e)
+        {
+            if (this.NavigationService.CanGoBack)
+            {
+                NavigationService.Navigate(new Uri("/MenuCategorySelection.xaml", UriKind.Relative));
+            }
+            else
+            {
+                MessageBox.Show("NO entries in back navigation history.");
+            }
+        }
+
+        private void SetSodaButtons()
         {
             sp1.Children.Clear();
             sp2.Children.Clear();
@@ -55,22 +358,9 @@ namespace PointOfSale
             removeIce.FontSize = 20;
             removeIce.Click += Click_RemoveIce;
             sp2.Children.Add(removeIce);
-
-            if (DataContext is Order order)
-            {
-                Sodasaurus soda = new Sodasaurus();
-                order.Add(soda);
-            }
-
         }
 
-        /// <summary>
-        /// Button for adding tea
-        /// Creates sweetener, lemon, and remove ice button
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Click_Tea(object sender, RoutedEventArgs e)
+        private void SetTeaButtons()
         {
             sp1.Children.Clear();
             sp2.Children.Clear();
@@ -108,24 +398,9 @@ namespace PointOfSale
             removeIce.FontSize = 20;
             removeIce.Click += Click_RemoveIce;
             sp3.Children.Add(removeIce);
-
-            // ADD TEA TO THE CURRENT ORDER LIST
-            if (DataContext is Order order)
-            {
-                Tyrannotea tea = new Tyrannotea();
-                order.Add(tea);
-            }
-
         }
 
-
-        /// <summary>
-        /// Button for adding Jurassic Java
-        /// Includes adding decaf, cream, and ice buttons
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Click_Coffee(object sender, RoutedEventArgs e)
+        private void SetJavaButtons()
         {
             sp1.Children.Clear();
             sp2.Children.Clear();
@@ -163,24 +438,9 @@ namespace PointOfSale
             addIce.FontSize = 20;
             addIce.Click += Click_AddIce;
             sp3.Children.Add(addIce);
-
-
-            // ADD JAVA TO CURRENT ORDER
-            if (DataContext is Order order)
-            {
-                JurassicJava java = new JurassicJava();
-                order.Add(java);
-            }
-
         }
 
-        /// <summary>
-        /// Button for adding water
-        /// Creates remove ice and add lemon button
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Click_Water(object sender, RoutedEventArgs e)
+        private void SetWaterButtons()
         {
             sp1.Children.Clear();
             sp2.Children.Clear();
@@ -207,200 +467,6 @@ namespace PointOfSale
             addLemon.FontSize = 20;
             addLemon.Click += Click_Lemon;
             sp2.Children.Add(addLemon);
-
-            // ADD TO ORDER
-            if (DataContext is Order order)
-            {
-                Water w = new Water();
-                order.Add(w);
-            }
-        }
-
-        // ***************** Sizes ***********************************************
-        /// <summary>
-        /// Change currently selected drink to small
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Click_Small(object sender, RoutedEventArgs e)
-        {
-            if (DataContext is Order order)
-            {
-                // only change size if the item is a side
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Drink drink)
-                {
-                    drink.Size = DinoDiner.Menu.Size.Small;
-                }
-            }
-        }
-
-        /// <summary>
-        /// Change currently selected drink to medium
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Click_Medium(object sender, RoutedEventArgs e)
-        {
-            if (DataContext is Order order)
-            {
-                // only change size if the item is a side
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Drink drink)
-                {
-                    drink.Size = DinoDiner.Menu.Size.Medium;
-                }
-            }
-        }
-
-        /// <summary>
-        /// Change currently selected drink to large
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Click_Large(object sender, RoutedEventArgs e)
-        {
-            if (DataContext is Order order)
-            {
-                // only change size if the item is a side
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Drink drink)
-                {
-                    drink.Size = DinoDiner.Menu.Size.Large;
-                }
-            }
-        }
-
-
-        // **************** Special buttons ************************************************
-        /// <summary>
-        /// Choose flavor button for Sodasaurus. Navigates to flavor selection page
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Click_Choose_Flavor(object sender, RoutedEventArgs e)
-        {
-            if (DataContext is Order)
-            {
-                NavigationService.Navigate(new Uri("/FlavorSelection.xaml", UriKind.Relative));
-            }
-        }
-
-        /// <summary>
-        /// Button for adding sweetener to Tyrannotea
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Click_Sweetener(object sender, RoutedEventArgs e)
-        {
-            if (DataContext is Order order)
-            {
-                // only change size if the item is a side
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Tyrannotea tea)
-                {
-                    tea.AddSweetener();
-                }
-            }
-        }
-
-        /// <summary>
-        /// Button for adding lemon
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Click_Lemon(object sender, RoutedEventArgs e)
-        {
-            if (DataContext is Order order)
-            {
-                // only change size if the item is a side
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Tyrannotea tea)
-                {
-                    tea.AddLemon();
-                }
-                else if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Water w)
-                {
-                    w.AddLemon();
-                }
-            }
-        }
-
-        /// <summary>
-        /// Button for making JurassicJava decaf
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Click_Decaf(object sender, RoutedEventArgs e)
-        {
-            if (DataContext is Order order)
-            {
-                // only change size if the item is a side
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is JurassicJava java)
-                {
-                    java.Decaf = true;
-                }
-            }
-        }
-
-        /// <summary>
-        /// Button for adding cream to Jurassic Java
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Click_Cream(object sender, RoutedEventArgs e)
-        {
-            if (DataContext is Order order)
-            {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is JurassicJava java)
-                {
-                    java.LeaveRoomForCream();
-                }
-            }
-        }
-
-        /// <summary>
-        /// Button for removing ice
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Click_RemoveIce(object sender, RoutedEventArgs e)
-        {
-            if (DataContext is Order order)
-            {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Drink drink)
-                {
-                    drink.HoldIce();
-                }
-            }
-        }
-
-        /// <summary>
-        /// Button for adding ice
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Click_AddIce(object sender, RoutedEventArgs e)
-        {
-            if (DataContext is Order order)
-            {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is JurassicJava java)
-                {
-                    java.AddIce();
-                }
-            }
-        }
-
-        /// <summary>
-        /// Button for navigating back to the main menu
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Click_BackToMainMenu(object sender, RoutedEventArgs e)
-        {
-            if (this.NavigationService.CanGoBack)
-            {
-                this.NavigationService.GoBack();
-            }
-            else
-            {
-                MessageBox.Show("NO entries in back navigation history.");
-            }
         }
     }
 }

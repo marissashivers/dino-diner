@@ -15,6 +15,8 @@ namespace PointOfSale
     /// </summary>
     public partial class ComboSelection : Page
     {
+        private CretaceousCombo _combo;
+
         public ComboSelection()
         {
             InitializeComponent();
@@ -32,9 +34,9 @@ namespace PointOfSale
                 if (DataContext is Order order)
                 {
                     CretaceousCombo combo = new CretaceousCombo(new Brontowurst());
-                    order.Add(combo);
-                    CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
-                    NavigationService.Navigate(new Uri("/CustomizeCombo.xaml", UriKind.Relative));
+                    _combo = combo;
+                    order.Add(_combo);
+                    NavigationService.Navigate(new CustomizeCombo(_combo));
                 }
             }
             else if (sender.Equals(Button_DinoNuggetsCombo))
@@ -42,9 +44,9 @@ namespace PointOfSale
                 if (DataContext is Order order)
                 {
                     CretaceousCombo combo = new CretaceousCombo(new DinoNuggets());
-                    order.Add(combo);
-                    CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
-                    NavigationService.Navigate(new Uri("/CustomizeCombo.xaml", UriKind.Relative));
+                    _combo = combo;
+                    order.Add(_combo);
+                    NavigationService.Navigate(new CustomizeCombo(_combo));
                 }
             }
             else if (sender.Equals(Button_PrehistoricPBJ_Combo))
@@ -52,9 +54,9 @@ namespace PointOfSale
                 if (DataContext is Order order)
                 {
                     CretaceousCombo combo = new CretaceousCombo(new PrehistoricPBJ());
-                    order.Add(combo);
-                    CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
-                    NavigationService.Navigate(new Uri("/CustomizeCombo.xaml", UriKind.Relative));
+                    _combo = combo;
+                    order.Add(_combo);
+                    NavigationService.Navigate(new CustomizeCombo(_combo));
                 }
             }
             else if (sender.Equals(Button_PterodactylWingsCombo))
@@ -62,9 +64,9 @@ namespace PointOfSale
                 if (DataContext is Order order)
                 {
                     CretaceousCombo combo = new CretaceousCombo(new PterodactylWings());
-                    order.Add(combo);
-                    CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
-                    NavigationService.Navigate(new Uri("/CustomizeCombo.xaml", UriKind.Relative));
+                    _combo = combo;
+                    order.Add(_combo);
+                    NavigationService.Navigate(new CustomizeCombo(_combo));
                 }
             }
             else if (sender.Equals(Button_SteakosaurusBurgerCombo))
@@ -72,9 +74,9 @@ namespace PointOfSale
                 if (DataContext is Order order)
                 {
                     CretaceousCombo combo = new CretaceousCombo(new SteakosaurusBurger());
-                    order.Add(combo);
-                    CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
-                    NavigationService.Navigate(new Uri("/CustomizeCombo.xaml", UriKind.Relative));
+                    _combo = combo;
+                    order.Add(_combo);
+                    NavigationService.Navigate(new CustomizeCombo(_combo));
                 }
             }
             else if (sender.Equals(Button_VelociWrapCombo))
@@ -82,14 +84,11 @@ namespace PointOfSale
                 if (DataContext is Order order)
                 {
                     CretaceousCombo combo = new CretaceousCombo(new VelociWrap());
-                    order.Add(combo);
-                    CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
-                    NavigationService.Navigate(new Uri("/CustomizeCombo.xaml", UriKind.Relative));
+                    _combo = combo;
+                    order.Add(_combo);
+                    NavigationService.Navigate(new CustomizeCombo(_combo));
                 }
             }
-
-            // Navigate to Customize Combo Button
-            NavigationService.Navigate(new Uri("/CustomizeCombo.xaml", UriKind.Relative));
         }
 
         public void Click_BackToMainMenu(object sender, RoutedEventArgs e)

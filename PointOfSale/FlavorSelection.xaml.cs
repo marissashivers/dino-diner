@@ -15,6 +15,8 @@ namespace PointOfSale
     /// </summary>
     public partial class FlavorSelection : Page
     {
+        private Sodasaurus _soda;
+
         /// <summary>
         /// Constructor for Flavor Selection page
         /// </summary>
@@ -23,93 +25,41 @@ namespace PointOfSale
             InitializeComponent();
         }
 
-        private DinoDiner.Menu.SodasaurusFlavor selectedFlavor;
+        public FlavorSelection(Sodasaurus soda)
+        {
+            _soda = soda;
+            InitializeComponent();
+        }
 
         private void Click_FlavorSelection(object sender, RoutedEventArgs e)
         {
             if (sender.Equals(Button_Cherry))
             {
-                selectedFlavor = SodasaurusFlavor.Cherry;
-                if (DataContext is Order order)
-                {
-                    if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Sodasaurus soda)
-                    {
-                        soda.Flavor = selectedFlavor;
-                        CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
-                    }
-                }
+                _soda.Flavor = SodasaurusFlavor.Cherry;
             }
             if (sender.Equals(Button_Chocolate))
             {
-                selectedFlavor = SodasaurusFlavor.Chocolate;
-                if (DataContext is Order order)
-                {
-                    if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Sodasaurus soda)
-                    {
-                        soda.Flavor = selectedFlavor;
-                        CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
-                    }
-                }
+                _soda.Flavor = SodasaurusFlavor.Chocolate;
             }
             if (sender.Equals(Button_RootBeer))
             {
-                selectedFlavor = SodasaurusFlavor.RootBeer;
-                if (DataContext is Order order)
-                {
-                    if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Sodasaurus soda)
-                    {
-                        soda.Flavor = selectedFlavor;
-                        CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
-                    }
-                }
+                _soda.Flavor = SodasaurusFlavor.RootBeer;
             }
             if (sender.Equals(Button_Lime))
             {
-                selectedFlavor = SodasaurusFlavor.Lime;
-                if (DataContext is Order order)
-                {
-                    if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Sodasaurus soda)
-                    {
-                        soda.Flavor = selectedFlavor;
-                        CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
-                    }
-                }
+                _soda.Flavor = SodasaurusFlavor.Lime;
             }
             if (sender.Equals(Button_Orange))
             {
-                selectedFlavor = SodasaurusFlavor.Orange;
-                if (DataContext is Order order)
-                {
-                    if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Sodasaurus soda)
-                    {
-                        soda.Flavor = selectedFlavor;
-                        CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
-                    }
-                }
+                _soda.Flavor = SodasaurusFlavor.Orange;
             }
             if (sender.Equals(Button_Vanilla))
             {
-                selectedFlavor = SodasaurusFlavor.Vanilla;
-                if (DataContext is Order order)
-                {
-                    if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Sodasaurus soda)
-                    {
-                        soda.Flavor = selectedFlavor;
-                        CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
-                    }
-                }
+                _soda.Flavor = SodasaurusFlavor.Orange;
             }
             if (sender.Equals(Button_Cola))
             {
-                selectedFlavor = SodasaurusFlavor.Cola;
-                if (DataContext is Order order)
-                {
-                    if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Sodasaurus soda)
-                    {
-                        soda.Flavor = selectedFlavor;
-                        CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
-                    }
-                }
+                _soda.Flavor = SodasaurusFlavor.Cola;
             }
         }
 

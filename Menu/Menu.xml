@@ -138,17 +138,6 @@
             JurrassicJava = Coffee
             </summary>
         </member>
-        <member name="E:DinoDiner.Menu.JurassicJava.PropertyChanged">
-            <summary>
-            Property changed event handler
-            </summary>
-        </member>
-        <member name="M:DinoDiner.Menu.JurassicJava.NotifyOfPropertyChanged(System.String)">
-            <summary>
-            Notifies that a property changed
-            </summary>
-            <param name="propertyName">String property name</param>
-        </member>
         <member name="P:DinoDiner.Menu.JurassicJava.RoomForCream">
             <summary>
             Room for cream bool property
@@ -200,17 +189,6 @@
             OLD-FASHION SODA
             A drink that contains carbonated water, a sweetener, and a natural or artificial flavoring.
             </summary>
-        </member>
-        <member name="E:DinoDiner.Menu.Sodasaurus.PropertyChanged">
-            <summary>
-            Property changed event handler
-            </summary>
-        </member>
-        <member name="M:DinoDiner.Menu.Sodasaurus.NotifyOfPropertyChanged(System.String)">
-            <summary>
-            Notifies that a property changed
-            </summary>
-            <param name="propertyName">String property name</param>
         </member>
         <member name="P:DinoDiner.Menu.Sodasaurus.Size">
             <summary>
@@ -288,17 +266,6 @@
             Iced tea
             </summary>
         </member>
-        <member name="E:DinoDiner.Menu.Tyrannotea.PropertyChanged">
-            <summary>
-            Property changed event handler
-            </summary>
-        </member>
-        <member name="M:DinoDiner.Menu.Tyrannotea.NotifyOfPropertyChanged(System.String)">
-            <summary>
-            Notifies that a property changed
-            </summary>
-            <param name="propertyName">String property name</param>
-        </member>
         <member name="P:DinoDiner.Menu.Tyrannotea.Lemon">
             <summary>
             Bool for lemon property
@@ -354,17 +321,6 @@
             <summary>
             Hydration is important
             </summary>
-        </member>
-        <member name="E:DinoDiner.Menu.Water.PropertyChanged">
-            <summary>
-            Property changed event handler
-            </summary>
-        </member>
-        <member name="M:DinoDiner.Menu.Water.NotifyOfPropertyChanged(System.String)">
-            <summary>
-            Notifies that a property changed
-            </summary>
-            <param name="propertyName">String property name</param>
         </member>
         <member name="P:DinoDiner.Menu.Water.Lemon">
             <summary>
@@ -921,10 +877,10 @@
             <param name="item"></param>
             <returns></returns>
         </member>
-        <member name="M:DinoDiner.Menu.Order.OnCollectionChanged(System.Object,System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
+        <member name="M:DinoDiner.Menu.Order.OnItemPropertyChanged(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
             <summary>
-            Notifies when the collection, "Items" changes
-            which changes the subtotal cost, sales tax cost, and total cost.
+            Notifies whenever an item in the order changes so that the overall order
+            can update its items and subtotal/salestax/cost properties
             </summary>
             <param name="sender"></param>
             <param name="e"></param>
@@ -1071,6 +1027,17 @@
             <summary>
             Abstract base class for a "side".
             </summary>
+        </member>
+        <member name="E:DinoDiner.Menu.Side.PropertyChanged">
+            <summary>
+            Event for property changed event handler
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Side.NotifyOfPropertyChanged(System.String)">
+            <summary>
+            Notifies of the property changing
+            </summary>
+            <param name="propertyName"></param>
         </member>
         <member name="P:DinoDiner.Menu.Side.Price">
             <summary>

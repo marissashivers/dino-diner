@@ -15,11 +15,19 @@ namespace PointOfSale
     /// </summary>
     public partial class SideSelection : Page
     {
+        private Side _side;
+
         /// <summary>
         /// Constructor for side selection page
         /// </summary>
         public SideSelection()
         {
+            InitializeComponent();
+        }
+
+        public SideSelection(Side side)
+        {
+            _side = side;
             InitializeComponent();
         }
 
@@ -50,8 +58,8 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 Fryceritops ft = new Fryceritops();
-                order.Add(ft);
-                CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
+                _side = ft;
+                order.Add(_side);
             }
         }
 
@@ -65,8 +73,8 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 MeteorMacAndCheese mmc = new MeteorMacAndCheese();
-                order.Add(mmc);
-                CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
+                _side = mmc;
+                order.Add(_side);
             }
         }
         
@@ -80,8 +88,8 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 MezzorellaSticks ms = new MezzorellaSticks();
-                order.Add(ms);
-                CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
+                _side = ms;
+                order.Add(_side);
             }
         }
 
@@ -95,8 +103,8 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 Triceritots tots = new Triceritots();
-                order.Add(tots);
-                CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
+                _side = tots;
+                order.Add(_side);
             }
         }
 
@@ -109,11 +117,13 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                // only change size if the item is a side
+                /*
                 if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Side side)
                 {
                     side.Size = DinoDiner.Menu.Size.Small;
                 }
+                */
+                if (_side != null) _side.Size = DinoDiner.Menu.Size.Small;
             }
         }
 
@@ -126,11 +136,14 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
+                /*
                 // only change size if the item is a side
                 if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Side side)
                 {
                     side.Size = DinoDiner.Menu.Size.Medium;
                 }
+                */
+                if (_side != null) _side.Size = DinoDiner.Menu.Size.Medium;
             }
         }
 
@@ -143,11 +156,14 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
+                /*
                 // only change size if the item is a side
                 if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Side side)
                 {
                     side.Size = DinoDiner.Menu.Size.Large;
                 }
+                */
+                if (_side != null) _side.Size = DinoDiner.Menu.Size.Large;
             }
         }
 

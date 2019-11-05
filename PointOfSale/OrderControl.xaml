@@ -33,9 +33,9 @@
         <ListBox Grid.Row="1"
                  Grid.ColumnSpan="2"
                  Name="OrderItems"
-                 ItemsSource="{Binding Path=Items}" 
+                 ItemsSource="{Binding Path=Items, UpdateSourceTrigger=PropertyChanged}" 
                  IsSynchronizedWithCurrentItem="False"  
-                 SelectedItem="OnSelectionChanged">
+                 SelectionChanged="OnSelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
@@ -45,7 +45,8 @@
                                 <ColumnDefinition Width="160"/>
                                 <ColumnDefinition Width="20"/>
                             </Grid.ColumnDefinitions>
-                            <TextBlock Text="{Binding Path=Description}" />
+                            <TextBlock Text="{Binding Path=Description}" 
+                                       FontWeight="Bold"/>
                             <Button Grid.Column="1" Click="OnRemoveOrderItem"
                                         Background="Red"
                                         FontWeight="ExtraBlack">X</Button>

@@ -47,6 +47,7 @@
             Style="{StaticResource basicbutton}">
             <StackPanel>
                 <TextBlock TextAlignment="Center">Hold Peanut Butter</TextBlock>
+                <Image Source="EntreeAssets/hold_peanutbutter.png" Width="100" />
             </StackPanel>
         </Button>
 
@@ -57,6 +58,7 @@
             Style="{StaticResource basicbutton}">
             <StackPanel>
                 <TextBlock TextAlignment="Center">Hold Jelly</TextBlock>
+                <Image Source="EntreeAssets/hold_jelly.png" Width="100" />
             </StackPanel>
         </Button>
 
