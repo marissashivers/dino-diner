@@ -46,6 +46,7 @@
 
         <!-- BRONTOWURST -->
         <Button 
+            Name="Button_BrontowurstCombo"
             Grid.Column="0" Grid.Row="1"
             Style="{StaticResource basicbutton}"
             Click="Click_CustomizeCombo">
@@ -60,12 +61,13 @@
 
         <!-- PTERODACTYL WINGS -->
         <Button 
+            Name="Button_PterodactylWingsCombo"
             Grid.Column="0" Grid.Row="2"
             Style="{StaticResource basicbutton}"
             Click="Click_CustomizeCombo">
             <StackPanel>
                 <TextBlock TextWrapping="Wrap">
-                    Pterodactyl Wings Cobmo
+                    Pterodactyl Wings Combo
                 </TextBlock>
                 <Image Source="Assets/DinoDiner-04.png" Height="75" VerticalAlignment="Bottom" />
             </StackPanel>
@@ -74,6 +76,7 @@
 
         <!-- VELOCI-WRAP -->
         <Button
+            Name="Button_VelociWrapCombo"
             Grid.Column="0" Grid.Row="3"
             Style="{StaticResource basicbutton}"
             Click="Click_CustomizeCombo">
@@ -88,6 +91,7 @@
 
         <!-- DINO-NUGGETS -->
         <Button
+            Name="Button_DinoNuggetsCombo"
             Grid.Column="1" Grid.Row="1"
             Style="{StaticResource basicbutton}"
             Click="Click_CustomizeCombo">
@@ -101,6 +105,7 @@
 
         <!-- STEAKOSAURUS BURGER -->
         <Button
+            Name="Button_SteakosaurusBurgerCombo"
             Grid.Column="1" Grid.Row="2"
             Style="{StaticResource basicbutton}"
             Click="Click_CustomizeCombo">
@@ -114,6 +119,7 @@
 
         <!-- PREHISTORIC PB&J-->
         <Button
+            Name="Button_PrehistoricPBJ_Combo"
             Grid.Column="1" Grid.Row="3"
             Style="{StaticResource basicbutton}"
             Click="Click_CustomizeCombo">
@@ -127,6 +133,7 @@
 
         <!-- T-REX KING BURGER -->
         <Button
+            Name="TRexKingBurger_Combo"
             Grid.Column="2" Grid.Row="1"
             Style="{StaticResource basicbutton}"
             Click="Click_CustomizeCombo">

@@ -3,6 +3,7 @@
 */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace DinoDiner.Menu
@@ -12,6 +13,22 @@ namespace DinoDiner.Menu
     /// </summary>
     public abstract class Entree : IMenuItem, IOrderItem
     {
+
+        /// <summary>
+        /// Property changed event handler
+        /// </summary>
+        public virtual event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Notifies that a property changed
+        /// </summary>
+        /// <param name="propertyName">String property name</param>
+
+        protected virtual void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         /// <summary>
         /// Gets and sets the price
         /// </summary>

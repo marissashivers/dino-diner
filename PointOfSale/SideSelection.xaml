@@ -111,7 +111,7 @@
             FontStyle="Italic">
             <StackPanel>
                 <TextBlock TextWrapping="Wrap">
-                    BACK TO MAIN MENU
+                    BACK TO PREVIOUS PAGE
                 </TextBlock>
                 <Image Source="Assets/_shoppingcart.png" Height="100" VerticalAlignment="Bottom" />
             </StackPanel>

@@ -19,13 +19,13 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Property Changed event handler
         /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
+        public virtual event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// Notify of property changed event
         /// </summary>
         /// <param name="propertyName"></param>
-        protected void NotifyOfPropertyChanged(string propertyName)
+        protected virtual void NotifyOfPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
@@ -42,6 +42,7 @@ namespace DinoDiner.Menu
             set
             {
                 _ice = value;
+                NotifyOfPropertyChanged("Special");
             }
         }
 
@@ -86,7 +87,7 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldIce()
         {
-            this.Ice = false;
+            _ice = false;
             NotifyOfPropertyChanged("Special");
         }
     }

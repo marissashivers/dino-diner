@@ -281,7 +281,7 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void Click_Choose_Flavor(object sender, RoutedEventArgs e)
         {
-            if (DataContext is Order order)
+            if (DataContext is Order)
             {
                 NavigationService.Navigate(new Uri("/FlavorSelection.xaml", UriKind.Relative));
             }
@@ -397,7 +397,14 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void Click_BackToMainMenu(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/MenuCategorySelection.xaml", UriKind.Relative));
+            if (this.NavigationService.CanGoBack)
+            {
+                this.NavigationService.GoBack();
+            }
+            else
+            {
+                MessageBox.Show("NO entries in back navigation history.");
+            }
         }
     }
 }

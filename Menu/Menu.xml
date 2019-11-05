@@ -9,6 +9,17 @@
             A class representing a combo meal
             </summary>
         </member>
+        <member name="E:DinoDiner.Menu.CretaceousCombo.PropertyChanged">
+            <summary>
+            Property changed event handler
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.CretaceousCombo.NotifyOfPropertyChanged(System.String)">
+            <summary>
+            Notifies that a property changed
+            </summary>
+            <param name="propertyName">String property name</param>
+        </member>
         <member name="P:DinoDiner.Menu.CretaceousCombo.Entree">
             <summary>
             Gets and sets the entree
@@ -70,6 +81,17 @@
             <summary>
             Abstract class for a drink.
             </summary>
+        </member>
+        <member name="E:DinoDiner.Menu.Drink.PropertyChanged">
+            <summary>
+            Property Changed event handler
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Drink.NotifyOfPropertyChanged(System.String)">
+            <summary>
+            Notify of property changed event
+            </summary>
+            <param name="propertyName"></param>
         </member>
         <member name="P:DinoDiner.Menu.Drink.Ice">
             <summary>
@@ -479,6 +501,17 @@
             Abstract base class for an "entree"
             </summary>
         </member>
+        <member name="E:DinoDiner.Menu.Entree.PropertyChanged">
+            <summary>
+            Property changed event handler
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Entree.NotifyOfPropertyChanged(System.String)">
+            <summary>
+            Notifies that a property changed
+            </summary>
+            <param name="propertyName">String property name</param>
+        </member>
         <member name="P:DinoDiner.Menu.Entree.Price">
             <summary>
             Gets and sets the price
@@ -870,8 +903,31 @@
         </member>
         <member name="P:DinoDiner.Menu.Order.Items">
             <summary>
-            Items in the order
+            Read only property for Items array
             </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Order.Add(DinoDiner.Menu.IOrderItem)">
+            <summary>
+            Adds an IOrderItem to the _items array
+            and notifies of properties changing
+            </summary>
+            <param name="item"></param>
+        </member>
+        <member name="M:DinoDiner.Menu.Order.Remove(DinoDiner.Menu.IOrderItem)">
+            <summary>
+            Removes an IOrderItem from _items
+            and notifies of properties changing
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DinoDiner.Menu.Order.OnCollectionChanged(System.Object,System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
+            <summary>
+            Notifies when the collection, "Items" changes
+            which changes the subtotal cost, sales tax cost, and total cost.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
         </member>
         <member name="P:DinoDiner.Menu.Order.SubtotalCost">
             <summary>
@@ -897,14 +953,6 @@
             <summary>
             Constructor for order
             </summary>
-        </member>
-        <member name="M:DinoDiner.Menu.Order.OnCollectionChanged(System.Object,System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
-            <summary>
-            Notifies when the collection, "Items" changes
-            which changes the subtotal cost, sales tax cost, and total cost.
-            </summary>
-            <param name="sender"></param>
-            <param name="e"></param>
         </member>
         <member name="T:DinoDiner.Menu.Fryceritops">
             <summary>

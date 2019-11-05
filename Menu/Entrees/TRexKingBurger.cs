@@ -26,14 +26,14 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Property changed event handler
         /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
+        public override event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// Notifies that a property changed
         /// </summary>
         /// <param name="propertyName">String property name</param>
 
-        protected void NotifyOfPropertyChanged(string propertyName)
+        protected override void NotifyOfPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
@@ -45,10 +45,12 @@ namespace DinoDiner.Menu
         {
             get
             {
-                List<string> ingredients = new List<string>();
-                ingredients.Add("Steakburger Pattie");
-                ingredients.Add("Steakburger Pattie");
-                ingredients.Add("Steakburger Pattie");
+                List<string> ingredients = new List<string>
+                {
+                    "Steakburger Pattie",
+                    "Steakburger Pattie",
+                    "Steakburger Pattie"
+                };
                 if (_wholeWheatBun) ingredients.Add("Whole Wheat Bun");
                 if (_lettuce) ingredients.Add("Lettuce");
                 if (_tomato) ingredients.Add("Tomato");

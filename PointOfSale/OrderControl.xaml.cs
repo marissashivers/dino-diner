@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,29 +28,24 @@ namespace PointOfSale
         public OrderControl()
         {
             InitializeComponent();
-            MountItemListener();
+            //MountItemListener();
         }
+
 
         /// <summary>
         /// Navigation service to switch pages
         /// </summary>
         public NavigationService NavigationService { get; set; }
 
-        public void OnCollectionChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        /*
         public void OnSelectionChanged(object sender, EventArgs e)
         {
-            if(OrderItems.SelectedItem is Side side)
+            if(OrderItems.SelectedItem is Side)
             {
-                NavigationService?.Navigate(new SideSelection(side));
+                NavigationService.Navigate(new Uri("/SideSelection.xaml", UriKind.Relative));
             }
         }
-        */
 
+            /*
         private void MountItemListener()
         {
             if (DataContext is Order order)
@@ -57,6 +53,7 @@ namespace PointOfSale
                 order.Items.CollectionChanged += OnCollectionChanged;
             }
         }
+        */
 
         private void OnRemoveOrderItem(object sender, RoutedEventArgs e)
         {

@@ -17,7 +17,7 @@ namespace DinoDiner.Menu
     public class Order : INotifyPropertyChanged
     {
         // private backing variable
-        //private ObservableCollection<IOrderItem> _items;
+        //private ObservableCollection<IOrderItem> _items = new ObservableCollection<IOrderItem>();
         private List<IOrderItem> _items = new List<IOrderItem>();
 
         /// <summary>
@@ -35,9 +35,24 @@ namespace DinoDiner.Menu
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        
+        /// <summary>
+        /// Read only property for Items array
+        /// </summary>
+        public IOrderItem[] Items
+        {
+            get
+            {
+                return _items.ToArray();
+            }
+        }
+        
 
-        public IOrderItem[] Items { get { return _items.ToArray(); } }
-
+        /// <summary>
+        /// Adds an IOrderItem to the _items array
+        /// and notifies of properties changing
+        /// </summary>
+        /// <param name="item"></param>
         public void Add(IOrderItem item)
         {
             item.PropertyChanged += OnItemPropertyChanged;
@@ -49,6 +64,12 @@ namespace DinoDiner.Menu
 
         }
 
+        /// <summary>
+        /// Removes an IOrderItem from _items
+        /// and notifies of properties changing
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
         public bool Remove(IOrderItem item)
         {
             bool removed = _items.Remove(item);
@@ -61,12 +82,30 @@ namespace DinoDiner.Menu
             }
             return removed;
         }
-
+        
+        
         private void OnItemPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
+            PropertyChanged?.Invoke(sender, new PropertyChangedEventArgs("Special"));
+            PropertyChanged?.Invoke(sender, new PropertyChangedEventArgs("Items"));
             PropertyChanged?.Invoke(sender, new PropertyChangedEventArgs("SubtotalCost"));
             PropertyChanged?.Invoke(sender, new PropertyChangedEventArgs("SalesTaxCost"));
             PropertyChanged?.Invoke(sender, new PropertyChangedEventArgs("TotalCost"));
+        }
+
+
+        /// <summary>
+        /// Notifies when the collection, "Items" changes
+        /// which changes the subtotal cost, sales tax cost, and total cost.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void OnCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            NotifyOfPropertyChanged("Items");
+            NotifyOfPropertyChanged("SubtotalCost");
+            NotifyOfPropertyChanged("SalesTaxCost");
+            NotifyOfPropertyChanged("TotalCost");
         }
 
         /*
@@ -83,12 +122,14 @@ namespace DinoDiner.Menu
                 }
                 return _items;
             }
-            set
+            private set
             {
                 _items = value;
+                _items.CollectionChanged += this.OnCollectionChanged;
             }
         }
         */
+        
 
         /// <summary>
         /// Calculates total cost from prices of all order items
@@ -142,23 +183,19 @@ namespace DinoDiner.Menu
         public Order()
         {
             this.SalesTaxRate = 0.15;
-            this.Items = new ObservableCollection<IOrderItem>();
+            NotifyOfPropertyChanged("Items");
+            NotifyOfPropertyChanged("SalesTaxCost");
+            NotifyOfPropertyChanged("SubtotalCost");
+            NotifyOfPropertyChanged("TotalCosts");
+               
+            //this._items = new ObservableCollection<IOrderItem>();
 
             // event listener/handler for when Items property changes
-            this.Items.CollectionChanged += this.OnCollectionChanged;
+            //this._items.CollectionChanged += this.OnCollectionChanged;
+
+            //this.Items.ItemPropertyChanged += this.OnItemPropertyChanged;
         }
 
-        /// <summary>
-        /// Notifies when the collection, "Items" changes
-        /// which changes the subtotal cost, sales tax cost, and total cost.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        public void OnCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
-        {
-            NotifyOfPropertyChanged("SubtotalCost");
-            NotifyOfPropertyChanged("SalesTaxCost");
-            NotifyOfPropertyChanged("TotalCost");
-        }
+
     }
 }

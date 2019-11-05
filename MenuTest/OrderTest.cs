@@ -30,14 +30,14 @@ namespace MenuTest
             soda.Size = Size.Large;
             soda.Flavor = SodasaurusFlavor.Chocolate;
 
-            Order firstOrder = new Order();
-            firstOrder.Add(pbj);
-            firstOrder.Add(fries);
-            firstOrder.Add(soda);
+            Order first = new Order();
+            first.Add(pbj);
+            first.Add(fries);
+            first.Add(soda);
 
-            Assert.Equal<double>(10.47, firstOrder.SubtotalCost);
-            Assert.Equal<double>(1.57, firstOrder.SalesTaxCost);
-            Assert.Equal<double>(12.04, firstOrder.TotalCost);
+            Assert.Equal<double>(10.47, first.SubtotalCost);
+            Assert.Equal<double>(1.57, first.SalesTaxCost);
+            Assert.Equal<double>(12.04, first.TotalCost);
         }
 
         // TEST #2 FOR ORDERING STUFF
@@ -57,14 +57,14 @@ namespace MenuTest
             JurassicJava jj = new JurassicJava();
             jj.Size = Size.Large;
 
-            Order secondOrder = new Order();
-            secondOrder.Add(dn);
-            secondOrder.Add(ms);
-            secondOrder.Add(jj);
+            Order second = new Order();
+            second.Add(dn);
+            second.Add(ms);
+            second.Add(jj);
 
-            Assert.Equal<double>(8.19, secondOrder.SubtotalCost);
-            Assert.Equal<double>(1.23, secondOrder.SalesTaxCost);
-            Assert.Equal<double>(9.42, secondOrder.TotalCost);
+            Assert.Equal<double>(8.19, second.SubtotalCost);
+            Assert.Equal<double>(1.23, second.SalesTaxCost);
+            Assert.Equal<double>(9.42, second.TotalCost);
         }
 
         [Fact]

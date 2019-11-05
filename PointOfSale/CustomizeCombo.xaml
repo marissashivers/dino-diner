@@ -56,42 +56,28 @@
         <!-- choose side-->
         <Button
             Grid.Column="0" Grid.Row="1"
-            Content="Tap to Choose side..."
+            Grid.RowSpan="2"
+            Content="Tap to change side..."
             Click="Click_SideSelection"
             Style="{StaticResource basicbutton}"
-            VerticalContentAlignment="Center">
-        </Button>
-
-        <Button
-            Grid.Column="0" Grid.Row="2"
-            Content="Current selection: none"
-            Style="{StaticResource basicbutton}"
-            Background="White"
-            FontSize="15"
             VerticalContentAlignment="Center">
         </Button>
 
         <!-- choose drink -->
         <Button
             Grid.Column="0" Grid.Row="3"
-            Content="Tap tp Choose drink..."
+            Grid.RowSpan="2"
+            Content="Tap to Choose drink..."
             Click="Click_DrinkSelection"
             Style="{StaticResource basicbutton}"
-            VerticalContentAlignment="Center">
-        </Button>
-
-        <Button
-            Grid.Column="0" Grid.Row="4"
-            Content="Current selection: none"
-            Style="{StaticResource basicbutton}"
-            Background="White"
-            FontSize="15"
             VerticalContentAlignment="Center">
         </Button>
 
         <!-- ***************SIZE SELECTION BUTTONS -->
         <!-- small -->
         <Button
+            Name="Button_Small"
+            Click="Click_MakeSmall"
             Grid.Row="1" Grid.Column="1"
             Style="{StaticResource basicbutton}">
             <StackPanel>
@@ -101,6 +87,8 @@
         </Button>
         <!-- medium -->
         <Button
+            Name="Button_Medium"
+            Click="Click_MakeMedium"
             Grid.Row="2" Grid.Column="1"
             Style="{StaticResource basicbutton}">
             <StackPanel>
@@ -110,6 +98,8 @@
         </Button>
         <!-- large -->
         <Button
+            Name="Button_Large"
+            Click="Click_MakeLarge"
             Grid.Row="3" Grid.Column="1"
             Style="{StaticResource basicbutton}">
             <StackPanel>
@@ -118,8 +108,37 @@
             </StackPanel>
         </Button>
 
-        <!-- ***********Add to order button-->
         <Button
+            Name="Button_CustomizeEntree"
+            Click="Click_CustomizeEntree"
+            Grid.Row="4" Grid.Column="1"
+            Style="{StaticResource basicbutton}">
+            <StackPanel>
+                <TextBlock TextWrapping="Wrap">
+                    Click here to Customize Entree
+                </TextBlock>
+            </StackPanel>
+        </Button>
+
+        <Button
+            Name="Button_BackToMainMenu"
+            Click="Click_Back"
+            Grid.Row="2"
+            Grid.Column="2"
+            Style="{StaticResource basicbutton}"
+            Background="beige"
+            FontStyle="Italic">
+            <StackPanel>
+                <TextBlock TextWrapping="Wrap">
+                    Back to main page
+                </TextBlock>
+            </StackPanel>
+        </Button>
+
+            <!-- ***********back a page button-->
+        <Button
+            Name="Button_Back"
+            Click="Click_Back"
             Grid.Column="2" Grid.Row="3"
             Grid.RowSpan="2"
             Style="{StaticResource basicbutton}"
@@ -128,7 +147,7 @@
             FontStyle="Italic">
             <StackPanel>
                 <TextBlock TextWrapping="Wrap">
-                    ADD TO ORDER
+                    GO BACK 1 PAGE
                 </TextBlock>
                 <Image Source="Assets/_shoppingcart.png" Height="130" VerticalAlignment="Bottom" />
             </StackPanel>

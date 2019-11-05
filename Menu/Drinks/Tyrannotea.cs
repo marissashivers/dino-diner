@@ -25,14 +25,14 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Property changed event handler
         /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
+        public override event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// Notifies that a property changed
         /// </summary>
         /// <param name="propertyName">String property name</param>
 
-        protected void NotifyOfPropertyChanged(string propertyName)
+        protected override void NotifyOfPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
@@ -49,6 +49,7 @@ namespace DinoDiner.Menu
             set
             {
                 _lemon = value;
+                NotifyOfPropertyChanged("Special");
             }
         }
 
@@ -99,6 +100,10 @@ namespace DinoDiner.Menu
                 NotifyOfPropertyChanged("Size");
                 NotifyOfPropertyChanged("Calories");
                 NotifyOfPropertyChanged("Description");
+                NotifyOfPropertyChanged("Special");
+                NotifyOfPropertyChanged("SubtotalCost");
+                NotifyOfPropertyChanged("SalesTaxCost");
+                NotifyOfPropertyChanged("TotalCost");
             } // end set
         }
 
@@ -133,9 +138,11 @@ namespace DinoDiner.Menu
         {
             get
             {
-                List<string> ingredients = new List<string>();
-                ingredients.Add("Water");
-                ingredients.Add("Tea");
+                List<string> ingredients = new List<string>
+                {
+                    "Water",
+                    "Tea"
+                };
                 if (_lemon) ingredients.Add("Lemon");
                 if (_sweet) ingredients.Add("Cane Sugar");
                 return ingredients;
@@ -157,7 +164,7 @@ namespace DinoDiner.Menu
         public void AddSweetener()
         {
             _sweet = true;
-            this.Calories = this.Calories * 2;
+            this.Calories *= 2;
             NotifyOfPropertyChanged("Description");
             NotifyOfPropertyChanged("Calories");
         }
@@ -170,7 +177,7 @@ namespace DinoDiner.Menu
             if (_sweet)
             {
                 _sweet = false;
-                this.Calories = this.Calories / 2;
+                this.Calories /= 2;
                 NotifyOfPropertyChanged("Description");
                 NotifyOfPropertyChanged("Calories");
             }

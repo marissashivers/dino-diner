@@ -53,9 +53,34 @@
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ComboCustomize\ComboSideSelection.xaml.cs">
+      <DependentUpon>ComboSideSelection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ComboCustomize\ComboDrinkSelection.xaml.cs">
+      <DependentUpon>ComboDrinkSelection.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DrinkSelection.xaml.cs">
       <DependentUpon>DrinkSelection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EntreeCustomize\DinoNuggets_Customize.xaml.cs">
+      <DependentUpon>DinoNuggets_Customize.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EntreeCustomize\Brontowurst_Customize.xaml.cs">
+      <DependentUpon>Brontowurst_Customize.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EntreeCustomize\PrehistoricPBJ_Customize.xaml.cs">
+      <DependentUpon>PrehistoricPBJ_Customize.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EntreeCustomize\VelociWrap_Customize.xaml.cs">
+      <DependentUpon>VelociWrap_Customize.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EntreeCustomize\TRexKingBurger_Customize.xaml.cs">
+      <DependentUpon>TRexKingBurger_Customize.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EntreeCustomize\SteakosaurusBurger_Customize.xaml.cs">
+      <DependentUpon>SteakosaurusBurger_Customize.xaml</DependentUpon>
     </Compile>
     <Compile Include="FlavorSelection.xaml.cs">
       <DependentUpon>FlavorSelection.xaml</DependentUpon>
@@ -66,6 +91,14 @@
     <Compile Include="SideSelection.xaml.cs">
       <DependentUpon>SideSelection.xaml</DependentUpon>
     </Compile>
+    <Page Include="ComboCustomize\ComboSideSelection.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ComboCustomize\ComboDrinkSelection.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="ComboSelection.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -78,9 +111,33 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="EntreeCustomize\DinoNuggets_Customize.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="EntreeCustomize\PrehistoricPBJ_Customize.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="EntreeCustomize\VelociWrap_Customize.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="EntreeCustomize\TRexKingBurger_Customize.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="EntreeCustomize\SteakosaurusBurger_Customize.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="EntreeSelection.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EntreeCustomize\Brontowurst_Customize.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="FlavorSelection.xaml">
       <SubType>Designer</SubType>
@@ -141,6 +198,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Milestones\1-create-order-pages.workbook" />
+    <None Include="Milestones\2-user-interaction-part-I.workbook" />
+    <None Include="Milestones\3-user-interaction-part-II.workbook" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -274,6 +334,187 @@
       <Project>{2f5f801d-c838-4c96-a2be-a40c4dffb719}</Project>
       <Name>Menu</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="EntreeCustomize\EntreeAssets\hold_peppers.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="EntreeCustomize\EntreeAssets\_shoppingcart.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="EntreeCustomize\EntreeAssets\hold_bun.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="EntreeCustomize\EntreeAssets\hold_onions.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="EntreeCustomize\EntreeAssets\add_nugget.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ComboCustomize\Assets\_combo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ComboCustomize\Assets\_drinks.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ComboCustomize\Assets\_entree.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ComboCustomize\Assets\_shoppingcart.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ComboCustomize\Assets\_sides.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ComboCustomize\Assets\DinoDiner-01.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ComboCustomize\Assets\DinoDiner-02.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ComboCustomize\Assets\DinoDiner-03.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ComboCustomize\Assets\DinoDiner-04.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ComboCustomize\Assets\DinoDiner-05.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ComboCustomize\Assets\DinoDiner-06.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ComboCustomize\Assets\DinoDiner-07.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ComboCustomize\Assets\DinoDiner-08.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ComboCustomize\Assets\DinoDiner-09.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ComboCustomize\Assets\DinoDiner-10.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ComboCustomize\Assets\DinoDiner-11.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ComboCustomize\Assets\DinoDiner-12.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ComboCustomize\Assets\DinoDiner-13.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ComboCustomize\Assets\DinoDiner-14.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ComboCustomize\Assets\DinoDiner-15.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ComboCustomize\Assets\flavor_cherry.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ComboCustomize\Assets\flavor_chocolate.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ComboCustomize\Assets\flavor_cola.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ComboCustomize\Assets\flavor_lime.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ComboCustomize\Assets\flavor_orange.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ComboCustomize\Assets\flavor_rootbeer.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ComboCustomize\Assets\flavor_vanilla.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ComboCustomize\Assets\ice.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ComboCustomize\Assets\lemon.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ComboCustomize\Assets\mozz.JPG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ComboCustomize\Assets\tots.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ComboCustomize\Assets\xlarge.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ComboCustomize\Assets\xmedium.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ComboCustomize\Assets\xsmall.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -65,6 +65,9 @@ namespace DinoDiner.Menu
                 NotifyOfPropertyChanged("Size");
                 NotifyOfPropertyChanged("Calories");
                 NotifyOfPropertyChanged("Description");
+                NotifyOfPropertyChanged("SubtotalCost");
+                NotifyOfPropertyChanged("SalesTaxCost");
+                NotifyOfPropertyChanged("TotalCost");
             }
         }
 
@@ -75,10 +78,12 @@ namespace DinoDiner.Menu
         {
             get
             {
-                List<string> ingredients = new List<string>();
-                ingredients.Add("Macaroni Noodles");
-                ingredients.Add("Cheese Product");
-                ingredients.Add("Pork Sausage");
+                List<string> ingredients = new List<string>
+                {
+                    "Macaroni Noodles",
+                    "Cheese Product",
+                    "Pork Sausage"
+                };
                 return ingredients;
             }
         }

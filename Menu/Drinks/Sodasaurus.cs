@@ -20,14 +20,14 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Property changed event handler
         /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
+        public override event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// Notifies that a property changed
         /// </summary>
         /// <param name="propertyName">String property name</param>
 
-        protected void NotifyOfPropertyChanged(string propertyName)
+        protected override void NotifyOfPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
@@ -66,6 +66,9 @@ namespace DinoDiner.Menu
                 NotifyOfPropertyChanged("Calories");
                 NotifyOfPropertyChanged("Size");
                 NotifyOfPropertyChanged("Description");
+                NotifyOfPropertyChanged("SubtotalCost");
+                NotifyOfPropertyChanged("SalesTaxCost");
+                NotifyOfPropertyChanged("TotalCost");
             } // end set
         }
 
@@ -93,10 +96,12 @@ namespace DinoDiner.Menu
         {
             get
             {
-                List<string> ingredients = new List<string>();
-                ingredients.Add("Water");
-                ingredients.Add("Natural Flavors");
-                ingredients.Add("Cane Sugar");
+                List<string> ingredients = new List<string>
+                {
+                    "Water",
+                    "Natural Flavors",
+                    "Cane Sugar"
+                };
                 return ingredients;
             }
         }

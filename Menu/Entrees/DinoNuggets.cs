@@ -19,14 +19,14 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Property changed event handler
         /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
+        public override event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// Notifies that a property changed
         /// </summary>
         /// <param name="propertyName">String property name</param>
 
-        protected void NotifyOfPropertyChanged(string propertyName)
+        protected override void NotifyOfPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
@@ -82,11 +82,14 @@ namespace DinoDiner.Menu
         public void AddNugget()
         {
             _numNuggets++;
-            base.Price += 0.25;
-            base.Calories += 59;
+            Price += 0.25;
+            Calories += 59;
             NotifyOfPropertyChanged("Price");
             NotifyOfPropertyChanged("Calories"); // not in IOrderItem, but should still put
             NotifyOfPropertyChanged("Special");
+            NotifyOfPropertyChanged("SubtotalCost");
+            NotifyOfPropertyChanged("SalesTaxCost");
+            NotifyOfPropertyChanged("TotalCost");
         }
 
         /// <summary>

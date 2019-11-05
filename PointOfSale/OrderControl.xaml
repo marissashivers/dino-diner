@@ -38,18 +38,26 @@
                  SelectedItem="OnSelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Grid MinWidth="180">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="20"/>
-                        </Grid.ColumnDefinitions>
-                        <StackPanel>
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                        <Grid MinWidth="180">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="160"/>
+                                <ColumnDefinition Width="20"/>
+                            </Grid.ColumnDefinitions>
                             <TextBlock Text="{Binding Path=Description}" />
-                            <Button Grid.Column="1" Click="OnRemoveOrderItem">X</Button>
-                            <ListBox ItemsSource="{Binding Path=Special}"
-                                 BorderBrush="White"/>
+                            <Button Grid.Column="1" Click="OnRemoveOrderItem"
+                                        Background="Red"
+                                        FontWeight="ExtraBlack">X</Button>
+                        </Grid>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Vertical">
+                            <ListBox Height="auto" 
+                                     ItemsSource="{Binding Path=Special}"
+                                        BorderBrush="White"/>
                         </StackPanel>
-                    </Grid>
+                    </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>

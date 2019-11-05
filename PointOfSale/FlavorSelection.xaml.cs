@@ -115,7 +115,16 @@ namespace PointOfSale
 
         private void Click_BackToMainMenu(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/DrinkSelection.xaml", UriKind.Relative));
+            if (this.NavigationService.CanGoBack)
+            {
+                this.NavigationService.GoBack();
+            }
+            else
+            {
+                MessageBox.Show("NO entries in back navigation history.");
+            }
+            //NavigationService.Navigate(new Uri("/EntreeSelection.xaml", UriKind.Relative));
         }
     }
 }
+

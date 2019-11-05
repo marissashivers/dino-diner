@@ -3,6 +3,7 @@
 */
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Text;
 
@@ -62,6 +63,9 @@ namespace DinoDiner.Menu
                 NotifyOfPropertyChanged("Price");
                 NotifyOfPropertyChanged("Calories");
                 NotifyOfPropertyChanged("Description");
+                NotifyOfPropertyChanged("SubtotalCost");
+                NotifyOfPropertyChanged("SalesTaxCost");
+                NotifyOfPropertyChanged("TotalCost");
             }
         }
 
@@ -72,10 +76,12 @@ namespace DinoDiner.Menu
         {
             get
             {
-                List<string> ingredients = new List<string>();
-                ingredients.Add("Potato");
-                ingredients.Add("Salt");
-                ingredients.Add("Vegetable Oil");
+                List<string> ingredients = new List<string>
+                {
+                    "Potato",
+                    "Salt",
+                    "Vegetable Oil"
+                };
                 return ingredients;
             }
         }

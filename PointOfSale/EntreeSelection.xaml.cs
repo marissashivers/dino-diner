@@ -36,8 +36,8 @@ namespace PointOfSale
                 CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
             }
 
-            // back to main page automatically
-            NavigationService.Navigate(new Uri("/MenuCategorySelection.xaml", UriKind.Relative));
+            // navigate to appropriate entree customization page
+            NavigationService.Navigate(new Uri("/EntreeCustomize/Brontowurst_Customize.xaml", UriKind.Relative));
         }
 
         /// <summary>
@@ -53,9 +53,9 @@ namespace PointOfSale
                 order.Add(dn);
                 CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
             }
-
-            // back to main page automatically
-            NavigationService.Navigate(new Uri("/MenuCategorySelection.xaml", UriKind.Relative));
+            
+            // navigate to appropriate entree customization page
+            NavigationService.Navigate(new Uri("/EntreeCustomize/DinoNuggets_Customize.xaml", UriKind.Relative));
         }
 
         /// <summary>
@@ -72,8 +72,8 @@ namespace PointOfSale
                 CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
             }
 
-            // back to main page automatically
-            NavigationService.Navigate(new Uri("/MenuCategorySelection.xaml", UriKind.Relative));
+            // nagivate
+            NavigationService.Navigate(new Uri("EntreeCustomize/TRexKingBurger_Customize.xaml", UriKind.Relative));
         }
 
         /// <summary>
@@ -108,8 +108,8 @@ namespace PointOfSale
                 CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
             }
 
-            // back to main page automatically
-            NavigationService.Navigate(new Uri("/MenuCategorySelection.xaml", UriKind.Relative));
+            // navigate to appropriate entree customization page
+            NavigationService.Navigate(new Uri("/EntreeCustomize/SteakosaurusBurger_Customize.xaml", UriKind.Relative));
         }
 
         /// <summary>
@@ -126,8 +126,8 @@ namespace PointOfSale
                 CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
             }
 
-            // back to main page automatically
-            NavigationService.Navigate(new Uri("/MenuCategorySelection.xaml", UriKind.Relative));
+            // navigate
+            NavigationService.Navigate(new Uri("EntreeCustomize/VelociWrap_Customize.xaml", UriKind.Relative));
         }
 
         /// <summary>
@@ -145,7 +145,7 @@ namespace PointOfSale
             }
 
             // back to main page automatically
-            NavigationService.Navigate(new Uri("/MenuCategorySelection.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("EntreeCustomize/PrehistoricPBJ_Customize.xaml", UriKind.Relative));
         }
 
         /// <summary>
