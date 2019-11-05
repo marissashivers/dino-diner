@@ -3,6 +3,7 @@
 */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace DinoDiner.Menu
@@ -29,8 +30,15 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Abstract base class for a "side".
     /// </summary>
-    public abstract class Side : IMenuItem
+    public abstract class Side : IMenuItem, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         /// <summary>
         /// Gets and sets the price
         /// </summary>

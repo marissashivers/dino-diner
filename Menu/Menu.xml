@@ -959,17 +959,6 @@
             Fryceritops class - French Fries
             </summary>
         </member>
-        <member name="E:DinoDiner.Menu.Fryceritops.PropertyChanged">
-            <summary>
-            Property changed event handler
-            </summary>
-        </member>
-        <member name="M:DinoDiner.Menu.Fryceritops.NotifyOfPropertyChanged(System.String)">
-            <summary>
-            Notifies that a property changed
-            </summary>
-            <param name="propertyName">String property name</param>
-        </member>
         <member name="P:DinoDiner.Menu.Fryceritops.Size">
             <summary>
             Gets and sets size, and sets price/calories according to size
@@ -1001,17 +990,6 @@
             Macaroni and Cheese with Sausages
             </summary>
         </member>
-        <member name="E:DinoDiner.Menu.MeteorMacAndCheese.PropertyChanged">
-            <summary>
-            Property changed event handler
-            </summary>
-        </member>
-        <member name="M:DinoDiner.Menu.MeteorMacAndCheese.NotifyOfPropertyChanged(System.String)">
-            <summary>
-            Notifies that a property changed
-            </summary>
-            <param name="propertyName">String property name</param>
-        </member>
         <member name="P:DinoDiner.Menu.MeteorMacAndCheese.Size">
             <summary>
             Gets and sets size, and sets price/calories according to size
@@ -1042,17 +1020,6 @@
             <summary>
             Fried Breaded Mozzarella Sticks
             </summary>
-        </member>
-        <member name="E:DinoDiner.Menu.MezzorellaSticks.PropertyChanged">
-            <summary>
-            Property changed event handler
-            </summary>
-        </member>
-        <member name="M:DinoDiner.Menu.MezzorellaSticks.NotifyOfPropertyChanged(System.String)">
-            <summary>
-            Notifies that a property changed
-            </summary>
-            <param name="propertyName">String property name</param>
         </member>
         <member name="P:DinoDiner.Menu.MezzorellaSticks.Size">
             <summary>
@@ -1139,17 +1106,6 @@
             <summary>
             Tater Tots
             </summary>
-        </member>
-        <member name="E:DinoDiner.Menu.Triceritots.PropertyChanged">
-            <summary>
-            Property changed event handler
-            </summary>
-        </member>
-        <member name="M:DinoDiner.Menu.Triceritots.NotifyOfPropertyChanged(System.String)">
-            <summary>
-            Notifies that a property changed
-            </summary>
-            <param name="propertyName">String property name</param>
         </member>
         <member name="P:DinoDiner.Menu.Triceritots.Size">
             <summary>

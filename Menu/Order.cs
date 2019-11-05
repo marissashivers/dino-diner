@@ -75,7 +75,7 @@ namespace DinoDiner.Menu
             bool removed = _items.Remove(item);
             if (removed)
             {
-                item.PropertyChanged += OnItemPropertyChanged;
+                item.PropertyChanged -= OnItemPropertyChanged;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SubtotalCost"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SalesTaxCost"));
@@ -90,13 +90,7 @@ namespace DinoDiner.Menu
             NotifyOfPropertyChanged("SubtotalCost");
             NotifyOfPropertyChanged("SalesTaxCost");
             NotifyOfPropertyChanged("TotalCost");
-            NotifyOfPropertyChanged("Price");
-            NotifyOfPropertyChanged("Special");
             NotifyOfPropertyChanged("Items");
-            NotifyOfPropertyChanged("Description");
-            NotifyOfPropertyChanged("Size");
-            NotifyOfPropertyChanged("Price");
-            NotifyOfPropertyChanged("Calories");
         }
 
 

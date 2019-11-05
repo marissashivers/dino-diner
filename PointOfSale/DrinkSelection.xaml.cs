@@ -60,7 +60,6 @@ namespace PointOfSale
             {
                 Sodasaurus soda = new Sodasaurus();
                 order.Add(soda);
-                CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
             }
 
         }
@@ -115,7 +114,6 @@ namespace PointOfSale
             {
                 Tyrannotea tea = new Tyrannotea();
                 order.Add(tea);
-                CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
             }
 
         }
@@ -172,7 +170,6 @@ namespace PointOfSale
             {
                 JurassicJava java = new JurassicJava();
                 order.Add(java);
-                CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
             }
 
         }
@@ -216,7 +213,6 @@ namespace PointOfSale
             {
                 Water w = new Water();
                 order.Add(w);
-                CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
             }
         }
 

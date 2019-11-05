@@ -19,13 +19,13 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Property Changed event handler
         /// </summary>
-        public virtual event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// Notify of property changed event
         /// </summary>
         /// <param name="propertyName"></param>
-        protected virtual void NotifyOfPropertyChanged(string propertyName)
+        protected void NotifyOfPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }

@@ -16,21 +16,6 @@ namespace DinoDiner.Menu
         // Private backing variable
         private Size _size;
 
-        /// <summary>
-        /// Property changed event handler
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        /// <summary>
-        /// Notifies that a property changed
-        /// </summary>
-        /// <param name="propertyName">String property name</param>
-
-        protected void NotifyOfPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
         //MeteorMacAndCheese m = new MeteorMacAndCheese();
         //m.Size = Size.Small;
 

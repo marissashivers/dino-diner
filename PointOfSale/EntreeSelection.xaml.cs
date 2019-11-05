@@ -51,7 +51,7 @@ namespace PointOfSale
             {
                 DinoNuggets dn = new DinoNuggets();
                 order.Add(dn);
-                CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
+                //CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
             }
             
             // navigate to appropriate entree customization page

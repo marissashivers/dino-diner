@@ -17,21 +17,6 @@ namespace DinoDiner.Menu
         // Private backing variable for size
         private Size _size;
 
-        /// <summary>
-        /// Property changed event handler
-        /// </summary>
-        public override event PropertyChangedEventHandler PropertyChanged;
-
-        /// <summary>
-        /// Notifies that a property changed
-        /// </summary>
-        /// <param name="propertyName">String property name</param>
-
-        protected override void NotifyOfPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
         // Private backing variable for flavor
         private SodasaurusFlavor _flavor;
 

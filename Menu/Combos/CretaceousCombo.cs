@@ -48,6 +48,7 @@ namespace DinoDiner.Menu
             set
             {
                 _entree = value;
+                _entree.PropertyChanged += OnItemPropertyChanged;
                 NotifyOfPropertyChanged("Entree");
                 NotifyOfPropertyChanged("Description");
                 NotifyOfPropertyChanged("Special");
@@ -68,6 +69,7 @@ namespace DinoDiner.Menu
             {
                 _side = value;
                 _side.Size = this.Size;
+                _side.PropertyChanged += OnItemPropertyChanged;
                 NotifyOfPropertyChanged("Side");
                 NotifyOfPropertyChanged("Special");
             }
@@ -86,6 +88,7 @@ namespace DinoDiner.Menu
             {
                 _drink = value;
                 _drink.Size = this.Size;
+                _drink.PropertyChanged += OnItemPropertyChanged;
                 NotifyOfPropertyChanged("Drink");
                 NotifyOfPropertyChanged("Special");
             }
@@ -197,6 +200,13 @@ namespace DinoDiner.Menu
         public override string ToString()
         {
             return this.Entree.ToString() + " Combo";
+        }
+
+        private void OnItemPropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            NotifyOfPropertyChanged("Special");
+            NotifyOfPropertyChanged("Price");
+            NotifyOfPropertyChanged("Description");
         }
     }
 }
