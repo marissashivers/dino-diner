@@ -34,7 +34,7 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void Click_DrinkSelection(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new ComboDrinkSelection(_combo));
+            NavigationService.Navigate(new DrinkSelection(_combo));
         }
 
         /// <summary>
@@ -44,7 +44,7 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void Click_SideSelection(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new ComboSideSelection(_combo));
+            NavigationService.Navigate(new SideSelection(_combo));
         }
 
         private void Click_CustomizeEntree(object sender, RoutedEventArgs e)

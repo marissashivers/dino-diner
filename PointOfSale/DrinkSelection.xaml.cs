@@ -16,25 +16,47 @@ namespace PointOfSale
     public partial class DrinkSelection : Page
     {
 
-        private Drink _drink;
+        private Drink _drink = null;
+        private CretaceousCombo _combo = null;
+
+        private bool isDrink = false;
+        private bool isCombo = false;
 
         /// <summary>
         /// Constructor for DrinkSelection page
         /// </summary>
         public DrinkSelection()
         {
+            isDrink = true;
             InitializeComponent();
         }
 
         public DrinkSelection(Drink drink)
         {
             _drink = drink;
+            isDrink = true;
             InitializeComponent();
 
             if (_drink is Water) SetWaterButtons();
             else if (_drink is Sodasaurus) SetSodaButtons();
             else if (_drink is JurassicJava) SetJavaButtons();
             else if (_drink is Tyrannotea) SetTeaButtons();
+        }
+
+        public DrinkSelection(CretaceousCombo combo)
+        {
+            _combo = combo;
+            isCombo = true;
+            InitializeComponent();
+
+            if (_combo.Drink is Water) SetWaterButtons();
+            else if (_combo.Drink is Sodasaurus) SetSodaButtons();
+            else if (_combo.Drink is JurassicJava) SetJavaButtons();
+            else if (_combo.Drink is Tyrannotea) SetTeaButtons();
+
+            Button_Small.IsEnabled = false;
+            Button_Medium.IsEnabled = false;
+            Button_Large.IsEnabled = false;
         }
 
         /// <summary>
@@ -48,9 +70,17 @@ namespace PointOfSale
 
             if (DataContext is Order order)
             {
-                Sodasaurus soda = new Sodasaurus();
-                _drink = soda;
-                order.Add(_drink);
+                if (isDrink)
+                {
+                    Sodasaurus soda = new Sodasaurus();
+                    _drink = soda;
+                    order.Add(_drink);
+                }
+                else if (isCombo)
+                {
+                    _combo.Drink = new Sodasaurus();
+                }
+
             }
 
         }
@@ -68,9 +98,17 @@ namespace PointOfSale
             // ADD TEA TO THE CURRENT ORDER LIST
             if (DataContext is Order order)
             {
-                Tyrannotea tea = new Tyrannotea();
-                _drink = tea;
-                order.Add(_drink);
+                if (isDrink)
+                {
+                    Tyrannotea tea = new Tyrannotea();
+                    _drink = tea;
+                    order.Add(_drink);
+                }
+                else if (isCombo)
+                {
+                    _combo.Drink = new Tyrannotea();
+                }
+
             }
 
         }
@@ -88,9 +126,16 @@ namespace PointOfSale
 
             if (DataContext is Order order)
             {
-                JurassicJava java = new JurassicJava();
-                _drink = java;
-                order.Add(_drink);
+                if (isDrink)
+                {
+                    JurassicJava java = new JurassicJava();
+                    _drink = java;
+                    order.Add(_drink);
+                }
+                else if (isCombo)
+                {
+                    _combo.Drink = new JurassicJava();
+                }
             }
 
         }
@@ -108,9 +153,16 @@ namespace PointOfSale
             // ADD TO ORDER
             if (DataContext is Order order)
             {
-                Water w = new Water();
-                _drink = w;
-                order.Add(_drink);
+                if (isDrink)
+                {
+                    Water w = new Water();
+                    _drink = w;
+                    order.Add(_drink);
+                }
+                else if (isCombo)
+                {
+                    _combo.Drink = new Water();
+                }
             }
         }
 
@@ -124,13 +176,10 @@ namespace PointOfSale
         {
             if (DataContext is Order)
             {
-                /*
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Drink drink)
+                if (isDrink)
                 {
-                    drink.Size = DinoDiner.Menu.Size.Small;
+                    if (_drink != null) _drink.Size = DinoDiner.Menu.Size.Small;
                 }
-                */
-                if (_drink != null) _drink.Size = DinoDiner.Menu.Size.Small;
             }
         }
 
@@ -143,13 +192,6 @@ namespace PointOfSale
         {
             if (DataContext is Order)
             {
-                /*
-                // only change size if the item is a side
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Drink drink)
-                {
-                    drink.Size = DinoDiner.Menu.Size.Medium;
-                }
-                */
                 if (_drink != null) _drink.Size = DinoDiner.Menu.Size.Medium;
             }
         }
@@ -163,13 +205,6 @@ namespace PointOfSale
         {
             if (DataContext is Order)
             {
-                /*
-                // only change size if the item is a side
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Drink drink)
-                {
-                    drink.Size = DinoDiner.Menu.Size.Large;
-                }
-                */
                 if (_drink != null) _drink.Size = DinoDiner.Menu.Size.Large;
             }
         }
@@ -185,7 +220,14 @@ namespace PointOfSale
         {
             if (DataContext is Order)
             {
-                NavigationService.Navigate(new FlavorSelection(_drink as Sodasaurus));
+                if (isDrink)
+                {
+                    NavigationService.Navigate(new FlavorSelection(_drink as Sodasaurus));
+                }
+                else if (isCombo)
+                {
+                    NavigationService.Navigate(new FlavorSelection(_combo));
+                }
             }
         }
 
@@ -194,21 +236,71 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Click_Sweetener(object sender, RoutedEventArgs e)
+        private void Click_Add_Sweetener(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order)
             {
-                if (_drink is Tyrannotea tea)
+                if (isDrink)
                 {
-                    tea.AddSweetener();
+                    if (_drink is Tyrannotea tea)
+                    {
+                        tea.AddSweetener();
+                    }
                 }
-                /*
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Tyrannotea tea)
+                else if (isCombo)
                 {
-                    tea.AddSweetener();
+                    if (_combo.Drink is Tyrannotea tea)
+                    {
+                        tea.AddSweetener();
+                    }
                 }
-                */
             }
+            // Remove "add sweetener" button and add "remove sweetener" button
+            // Remove "remove sweetener" button and add "add sweetener" button
+            sp1.Children.Clear();
+            // Add sweetener button
+            Button removeSweetener = new Button();
+            removeSweetener.SetValue(Grid.RowProperty, 1);
+            removeSweetener.SetValue(Grid.ColumnProperty, 2);
+            removeSweetener.Height = 88;
+
+            removeSweetener.Content = "Remove sweetener";
+            removeSweetener.FontSize = 20;
+            removeSweetener.Click += Click_Remove_Sweetener;
+            sp1.Children.Add(removeSweetener);
+        }
+
+        private void Click_Remove_Sweetener(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is Order)
+            {
+                if (isDrink)
+                {
+                    if (_drink is Tyrannotea tea)
+                    {
+                        tea.RemoveSweetener();
+                    }
+                }
+                else if (isCombo)
+                {
+                    if (_combo.Drink is Tyrannotea tea)
+                    {
+                        tea.RemoveSweetener();
+                    }
+                }
+            }
+            // Remove "remove sweetener" button and add "add sweetener" button
+            sp1.Children.Clear();
+            // Add sweetener button
+            Button addSweetener = new Button();
+            addSweetener.SetValue(Grid.RowProperty, 1);
+            addSweetener.SetValue(Grid.ColumnProperty, 2);
+            addSweetener.Height = 88;
+
+            addSweetener.Content = "Add sweetener";
+            addSweetener.FontSize = 20;
+            addSweetener.Click += Click_Add_Sweetener;
+            sp1.Children.Add(addSweetener);
         }
 
         /// <summary>
@@ -220,25 +312,83 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                /*
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Tyrannotea tea)
+                if (isDrink)
                 {
-                    tea.AddLemon();
+                    if (_drink is Tyrannotea tea)
+                    {
+                        tea.AddLemon();
+                    }
+                    else if (_drink is Water water)
+                    {
+                        water.AddLemon();
+                    }
                 }
-                else if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Water w)
+                else if (isCombo)
                 {
-                    w.AddLemon();
-                }
-                */
-                if (_drink is Tyrannotea tea)
-                {
-                    tea.AddLemon();
-                }
-                else if (_drink is Water water)
-                {
-                    water.AddLemon();
+                    if (_combo.Drink is Tyrannotea tea)
+                    {
+                        tea.AddLemon();
+                    }
+                    else if (_combo.Drink is Water w)
+                    {
+                        w.AddLemon();
+                    }
                 }
             }
+            // Remove "add lemon" button and add "remove lemon" button
+            sp2.Children.Clear();
+            // Add "remove lemon" button
+            Button removeLemon = new Button();
+            removeLemon.SetValue(Grid.RowProperty, 1);
+            removeLemon.SetValue(Grid.ColumnProperty, 2);
+            removeLemon.Height = 88;
+
+            removeLemon.Content = "Remove lemon";
+            removeLemon.FontSize = 20;
+            removeLemon.Click += Click_Remove_Lemon;
+            sp2.Children.Add(removeLemon);
+        }
+
+        private void Click_Remove_Lemon(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is Order order)
+            {
+                if (isDrink)
+                {
+                    if (_drink is Tyrannotea tea)
+                    {
+                        tea.RemoveLemon();
+                    }
+                    else if (_drink is Water water)
+                    {
+                        water.RemoveLemon();
+                    }
+                }
+                else if (isCombo)
+                {
+                    if (_combo.Drink is Tyrannotea tea)
+                    {
+                        tea.RemoveLemon();
+                    }
+                    else if (_combo.Drink is Water w)
+                    {
+                        w.RemoveLemon();
+                    }
+                }
+            }
+
+            // Remove "remove lemon" button and add "add lemon" button
+            sp2.Children.Clear();
+            // Add lemon button
+            Button addLemon = new Button();
+            addLemon.SetValue(Grid.RowProperty, 1);
+            addLemon.SetValue(Grid.ColumnProperty, 2);
+            addLemon.Height = 88;
+
+            addLemon.Content = "Add lemon";
+            addLemon.FontSize = 20;
+            addLemon.Click += Click_Lemon;
+            sp2.Children.Add(addLemon);
         }
 
         /// <summary>
@@ -250,12 +400,65 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                // only change size if the item is a side
-                if (_drink is JurassicJava java)
+                if (isDrink)
                 {
-                    java.Decaf = true;
+                    if (_drink is JurassicJava java)
+                    {
+                        java.Decaf = true;
+                    }
+                }
+                else if (isCombo)
+                {
+                    if (_combo.Drink is JurassicJava java)
+                    {
+                        java.Decaf = true;
+                    }
                 }
             }
+
+            sp1.Children.Clear();
+            Button makeNonDecaf = new Button();
+            makeNonDecaf.SetValue(Grid.RowProperty, 1);
+            makeNonDecaf.SetValue(Grid.ColumnProperty, 2);
+            makeNonDecaf.Height = 88;
+
+            makeNonDecaf.Content = "Make regular";
+            makeNonDecaf.FontSize = 20;
+            makeNonDecaf.Click += Click_NonDecaf;
+            sp1.Children.Add(makeNonDecaf);
+        }
+
+        private void Click_NonDecaf(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is Order order)
+            {
+                if (isDrink)
+                {
+                    if (_drink is JurassicJava java)
+                    {
+                        java.Decaf = false;
+                    }
+                }
+                else if (isCombo)
+                {
+                    if (_combo.Drink is JurassicJava java)
+                    {
+                        java.Decaf = false;
+                    }
+                }
+            }
+
+            sp1.Children.Clear();
+            // Make decaf button
+            Button makeDecaf = new Button();
+            makeDecaf.SetValue(Grid.RowProperty, 1);
+            makeDecaf.SetValue(Grid.ColumnProperty, 2);
+            makeDecaf.Height = 88;
+
+            makeDecaf.Content = "Make decaf";
+            makeDecaf.FontSize = 20;
+            makeDecaf.Click += Click_Decaf;
+            sp1.Children.Add(makeDecaf);
         }
 
         /// <summary>
@@ -263,15 +466,70 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Click_Cream(object sender, RoutedEventArgs e)
+        private void Click_Add_Cream(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order order)
             {
-                if (_drink is JurassicJava java)
+                if (isDrink)
                 {
-                    java.LeaveRoomForCream();
+                    if (_drink is JurassicJava java)
+                    {
+                        java.LeaveRoomForCream();
+                    }
+                }
+                else if (isCombo)
+                {
+                    if (_combo.Drink is JurassicJava java)
+                    {
+                        java.LeaveRoomForCream();
+                    }
                 }
             }
+
+            sp2.Children.Clear();
+            // Remove cream button
+            Button removeCream = new Button();
+            removeCream.SetValue(Grid.RowProperty, 1);
+            removeCream.SetValue(Grid.ColumnProperty, 2);
+            removeCream.Height = 88;
+
+            removeCream.Content = "Remove cream";
+            removeCream.FontSize = 20;
+            removeCream.Click += Click_Remove_Cream;
+            sp2.Children.Add(removeCream);
+        }
+
+        private void Click_Remove_Cream(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is Order order)
+            {
+                if (isDrink)
+                {
+                    if (_drink is JurassicJava java)
+                    {
+                        java.RemoveCream();
+                    }
+                }
+                else if (isCombo)
+                {
+                    if (_combo.Drink is JurassicJava java)
+                    {
+                        java.RemoveCream();
+                    }
+                }
+            }
+
+            sp2.Children.Clear();
+            // Add cream button
+            Button addCream = new Button();
+            addCream.SetValue(Grid.RowProperty, 1);
+            addCream.SetValue(Grid.ColumnProperty, 2);
+            addCream.Height = 88;
+
+            addCream.Content = "Add cream";
+            addCream.FontSize = 20;
+            addCream.Click += Click_Add_Cream;
+            sp2.Children.Add(addCream);
         }
 
         /// <summary>
@@ -283,14 +541,27 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                /*
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is Drink drink)
+                if (isDrink)
                 {
-                    drink.HoldIce();
+                    _drink.HoldIce();
                 }
-                */
-                _drink.HoldIce();
+                else if (isCombo)
+                {
+                    _combo.Drink.HoldIce();
+                }
             }
+
+            sp3.Children.Clear();
+            // Add ice button
+            Button addIce = new Button();
+            addIce.SetValue(Grid.RowProperty, 1);
+            addIce.SetValue(Grid.ColumnProperty, 2);
+            addIce.Height = 88;
+
+            addIce.Content = "Add Ice";
+            addIce.FontSize = 20;
+            addIce.Click += Click_AddIce;
+            sp3.Children.Add(addIce);
         }
 
         /// <summary>
@@ -302,17 +573,27 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                /*
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is JurassicJava java)
+                if (isDrink)
                 {
-                    java.AddIce();
+                   _drink.AddIce();
                 }
-                */
-                if (_drink is JurassicJava java)
+                else if (isCombo)
                 {
-                    java.AddIce();
+                    _combo.Drink.AddIce();
                 }
             }
+
+            sp3.Children.Clear();
+            // Remove "add ice" button and add "remove ice" button
+            Button removeIce = new Button();
+            removeIce.SetValue(Grid.RowProperty, 1);
+            removeIce.SetValue(Grid.ColumnProperty, 2);
+            removeIce.Height = 88;
+
+            removeIce.Content = "Remove Ice";
+            removeIce.FontSize = 20;
+            removeIce.Click += Click_RemoveIce;
+            sp3.Children.Add(removeIce);
         }
 
         /// <summary>
@@ -322,13 +603,27 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void Click_BackToMainMenu(object sender, RoutedEventArgs e)
         {
-            if (this.NavigationService.CanGoBack)
+            if (isDrink)
             {
-                NavigationService.Navigate(new Uri("/MenuCategorySelection.xaml", UriKind.Relative));
+                if (this.NavigationService.CanGoBack)
+                {
+                    NavigationService.Navigate(new Uri("/MenuCategorySelection.xaml", UriKind.Relative));
+                }
+                else
+                {
+                    MessageBox.Show("NO entries in back navigation history.");
+                }
             }
-            else
+            else if (isCombo)
             {
-                MessageBox.Show("NO entries in back navigation history.");
+                if (this.NavigationService.CanGoBack)
+                {
+                    this.NavigationService.GoBack();
+                }
+                else
+                {
+                    MessageBox.Show("NO entries in back navigation history.");
+                }
             }
         }
 
@@ -357,7 +652,7 @@ namespace PointOfSale
             removeIce.Content = "Remove Ice";
             removeIce.FontSize = 20;
             removeIce.Click += Click_RemoveIce;
-            sp2.Children.Add(removeIce);
+            sp3.Children.Add(removeIce);
         }
 
         private void SetTeaButtons()
@@ -374,7 +669,7 @@ namespace PointOfSale
 
             addSweetener.Content = "Add sweetener";
             addSweetener.FontSize = 20;
-            addSweetener.Click += Click_Sweetener;
+            addSweetener.Click += Click_Add_Sweetener;
             sp1.Children.Add(addSweetener);
 
             // Add lemon button
@@ -425,7 +720,7 @@ namespace PointOfSale
 
             addCream.Content = "Add cream";
             addCream.FontSize = 20;
-            addCream.Click += Click_Cream;
+            addCream.Click += Click_Add_Cream;
             sp2.Children.Add(addCream);
 
             // Add ice button
@@ -455,7 +750,7 @@ namespace PointOfSale
             removeIce.Content = "Remove Ice";
             removeIce.FontSize = 20;
             removeIce.Click += Click_RemoveIce;
-            sp1.Children.Add(removeIce);
+            sp3.Children.Add(removeIce);
 
             // Add lemon button
             Button addLemon = new Button();

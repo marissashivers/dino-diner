@@ -110,6 +110,15 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
+        /// Removes a lemon
+        /// </summary>
+        public void RemoveLemon()
+        {
+            this._lemon = false;
+            NotifyOfPropertyChanged("Special");
+        }
+
+        /// <summary>
         /// ToString for water
         /// </summary>
         /// <returns>Sttring with size</returns>

@@ -135,7 +135,7 @@
         </Button>
         <!-- large -->
         <Button
-            Name="Large"
+            Name="Button_Large"
             Click="Click_Large"
             Grid.Row="3" Grid.Column="1"
             Style="{StaticResource basicbutton}">

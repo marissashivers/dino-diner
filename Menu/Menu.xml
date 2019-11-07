@@ -133,6 +133,11 @@
             Holds the ice
             </summary>
         </member>
+        <member name="M:DinoDiner.Menu.Drink.AddIce">
+            <summary>
+            adds ice back in, or adds it to begin with
+            </summary>
+        </member>
         <member name="T:DinoDiner.Menu.JurassicJava">
             <summary>
             JurrassicJava = Coffee
@@ -173,9 +178,9 @@
             Leaves room for cream.
             </summary>
         </member>
-        <member name="M:DinoDiner.Menu.JurassicJava.AddIce">
+        <member name="M:DinoDiner.Menu.JurassicJava.RemoveCream">
             <summary>
-            Adds ice.
+            remove cream
             </summary>
         </member>
         <member name="M:DinoDiner.Menu.JurassicJava.ToString">
@@ -301,6 +306,11 @@
             Adds the lemon
             </summary>
         </member>
+        <member name="M:DinoDiner.Menu.Tyrannotea.RemoveLemon">
+            <summary>
+            Removes a lemon
+            </summary>
+        </member>
         <member name="M:DinoDiner.Menu.Tyrannotea.AddSweetener">
             <summary>
             Makes the tea sweet (adds cane sugar) and doubles calories
@@ -350,6 +360,11 @@
         <member name="M:DinoDiner.Menu.Water.AddLemon">
             <summary>
             Adds a lemon
+            </summary>
+        </member>
+        <member name="M:DinoDiner.Menu.Water.RemoveLemon">
+            <summary>
+            Removes a lemon
             </summary>
         </member>
         <member name="M:DinoDiner.Menu.Water.ToString">

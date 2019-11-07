@@ -139,7 +139,16 @@ namespace DinoDiner.Menu
         /// </summary>
         public void AddLemon()
         {
-            _lemon = true;
+            this._lemon = true;
+            NotifyOfPropertyChanged("Special");
+        }
+
+        /// <summary>
+        /// Removes a lemon
+        /// </summary>
+        public void RemoveLemon()
+        {
+            this._lemon = false;
             NotifyOfPropertyChanged("Special");
         }
 

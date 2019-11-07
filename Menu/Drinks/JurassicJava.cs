@@ -144,11 +144,11 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
-        /// Adds ice.
+        /// remove cream
         /// </summary>
-        public void AddIce()
+        public void RemoveCream()
         {
-            base.Ice = true;
+            this._roomForCream = false;
             NotifyOfPropertyChanged("Special");
         }
 

@@ -126,7 +126,7 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Click_Sweetener(object sender, RoutedEventArgs e)
+        private void Click_Add_Sweetener(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order order)
             {
@@ -298,7 +298,7 @@ namespace PointOfSale
 
             addSweetener.Content = "Add sweetener";
             addSweetener.FontSize = 20;
-            addSweetener.Click += Click_Sweetener;
+            addSweetener.Click += Click_Add_Sweetener;
             sp1.Children.Add(addSweetener);
 
             // Add lemon button

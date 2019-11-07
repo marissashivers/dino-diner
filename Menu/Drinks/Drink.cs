@@ -90,6 +90,15 @@ namespace DinoDiner.Menu
             _ice = false;
             NotifyOfPropertyChanged("Special");
         }
+
+        /// <summary>
+        /// adds ice back in, or adds it to begin with
+        /// </summary>
+        public void AddIce()
+        {
+            _ice = true;
+            NotifyOfPropertyChanged("Special");
+        }
     }
 
 

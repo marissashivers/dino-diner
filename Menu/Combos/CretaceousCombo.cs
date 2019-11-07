@@ -136,11 +136,6 @@ namespace DinoDiner.Menu
                 NotifyOfPropertyChanged("Special");
                 NotifyOfPropertyChanged("Description");
                 NotifyOfPropertyChanged("Price");
-                /*
-                NotifyOfPropertyChanged("SubtotalCost");
-                NotifyOfPropertyChanged("SalesTaxCost");
-                NotifyOfPropertyChanged("TotalCost");
-                */
             }
         }
 
