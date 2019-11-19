@@ -12,7 +12,19 @@ body {
     padding-right: 15px;
 }
 
-.ingredients {
-    margin-left: 50px;
+.ingredients p {
+    margin-left: 70px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding: 0px;
+}
+
+.menu-item {
+    border: 1px solid black;
+    margin: 5px;
+}
+
+h2 {
+    font-family: 'Comic Sans MS';
 }
 

@@ -15,16 +15,18 @@
 <h2>Combos</h2>
 @foreach (DinoDiner.Menu.CretaceousCombo combo in Model.Menu.AvailableCombos)
 {
-    <p>Name: @combo</p>
-    <p>Price: @combo.Price</p>
-    <p>Calories: @combo.Calories</p>
-    <p>Ingredients:</p>
-    @foreach (String item in combo.Ingredients)
-    {
-        <div class="ingredients">
-            <p>@item</p>
-        </div>
-    }
+    <div class="menu-item">
+        <p>Name: @combo</p>
+        <p>Price: @combo.Price</p>
+        <p>Calories: @combo.Calories</p>
+        <p>Ingredients:</p>
+        @foreach (String item in combo.Ingredients)
+        {
+            <div class="ingredients">
+                <p>@item</p>
+            </div>
+        }
+    </div>
 }
 
 <h2>Entrees</h2>
@@ -48,29 +50,33 @@
 <h2>Sides</h2>
 @foreach (DinoDiner.Menu.Side side in Model.Menu.AvailableSides)
 {
-    <p>Name: @side.Description</p>
-    <p>Price: @side.Price</p>
-    <p>Calories: @side.Calories</p>
-    <p>Ingredients:</p>
-    @foreach (String item in side.Ingredients)
-    {
-        <div class="ingredients">
-            <p>@item</p>
-        </div>
-    }
+    <div class="menu-item">
+        <p>Name: @side.Description</p>
+        <p>Price: @side.Price</p>
+        <p>Calories: @side.Calories</p>
+        <p>Ingredients:</p>
+        @foreach (String item in side.Ingredients)
+        {
+            <div class="ingredients">
+                <p>@item</p>
+            </div>
+        }
+     </div>
 }
 
 <h2>Drinks</h2>
 @foreach (DinoDiner.Menu.Drink drink in Model.Menu.AvailableDrinks)
 {
-    <p>Name: @drink.Description</p>
-    <p>Price: @drink.Price</p>
-    <p>Calories: @drink.Calories</p>
-    <p>Ingredients:</p>
-    @foreach (String item in drink.Ingredients)
-    {
-        <div class="ingredients">
-            <p>@item</p>
-        </div>
-    }
+    <div class="menu-item">
+        <p>Name: @drink.Description</p>
+        <p>Price: @drink.Price</p>
+        <p>Calories: @drink.Calories</p>
+        <p>Ingredients:</p>
+        @foreach (String item in drink.Ingredients)
+        {
+            <div class="ingredients">
+                <p>@item</p>
+            </div>
+        }
+    </div>
 }
