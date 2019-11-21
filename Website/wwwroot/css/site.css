@@ -3,13 +3,34 @@ for details on configuring this project to bundle and minify static web assets. 
 body {
     padding-top: 50px;
     padding-bottom: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-/* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
+
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 150px;
+    padding-right: 150px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 50px;
+    text-shadow: 2px 2px #808080;
+}
+
+h2 {
+}
+
+p {
+    font-weight: 100;
+}
+
+a {
+    text-decoration: none;
+}
+
+.nav-link {
+    font-size: 20px;
 }
 
 .ingredients p {
@@ -23,8 +44,3 @@ body {
     border: 1px solid black;
     margin: 5px;
 }
-
-h2 {
-    font-family: 'Comic Sans MS';
-}
-
