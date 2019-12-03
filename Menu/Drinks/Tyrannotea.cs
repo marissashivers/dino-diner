@@ -200,5 +200,10 @@ namespace DinoDiner.Menu
             sb.Append("Tyrannotea");
             return sb.ToString();
         }
+
+        public override string GetBasicName()
+        {
+            return "Tyrannotea";
+        }
     }
 }

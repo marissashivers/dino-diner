@@ -850,10 +850,39 @@
             List of all available combos
             </summary>
         </member>
+        <member name="P:DinoDiner.Menu.Menu.AvailableIngredients">
+            <summary>
+            A HashSet representing all available ingredients (hashet so no duplicates)
+            </summary>
+        </member>
         <member name="M:DinoDiner.Menu.Menu.ToString">
             <summary>
             Displays full menu comtents separated by \n
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DinoDiner.Menu.Menu.FilterByMinPrice(System.Collections.Generic.List{DinoDiner.Menu.IMenuItem},System.Single)">
+            <summary>
+            Filters by min price specified by user
+            </summary>
+            <param name="items"></param>
+            <param name="min"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DinoDiner.Menu.Menu.FilterByMaxPrice(System.Collections.Generic.List{DinoDiner.Menu.IMenuItem},System.Single)">
+            <summary>
+            Filtesr by max price specified by user
+            </summary>
+            <param name="items"></param>
+            <param name="max"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DinoDiner.Menu.Menu.FilterByExcludedIngredients(System.Collections.Generic.List{DinoDiner.Menu.IMenuItem},System.Collections.Generic.List{System.String})">
+            <summary>
+            Filters by excluded ingredients specified by user
+            </summary>
+            <param name="items"></param>
+            <param name="excludedIngredients"></param>
             <returns></returns>
         </member>
         <member name="T:DinoDiner.Menu.Order">

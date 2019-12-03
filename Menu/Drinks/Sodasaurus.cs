@@ -140,5 +140,10 @@ namespace DinoDiner.Menu
             return sb.ToString();
         }
 
+        public override string GetBasicName()
+        {
+            return "Sodasaurus";
+        }
+
     }
 }

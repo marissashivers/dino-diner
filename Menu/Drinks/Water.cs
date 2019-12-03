@@ -138,5 +138,10 @@ namespace DinoDiner.Menu
             }
             return base.ToString();
         }
+
+        public override string GetBasicName()
+        {
+            return "Water";
+        }
     }
 }

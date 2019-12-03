@@ -99,6 +99,8 @@ namespace DinoDiner.Menu
             _ice = true;
             NotifyOfPropertyChanged("Special");
         }
+
+        public abstract string GetBasicName();
     }
 
 

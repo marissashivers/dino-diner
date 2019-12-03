@@ -1,15 +1,51 @@
 /* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification 
 for details on configuring this project to bundle and minify static web assets. */
+
+* {
+    box-sizing: border-box;
+}
+
 body {
     padding-top: 50px;
     padding-bottom: 20px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-
 .body-content {
-    padding-left: 150px;
-    padding-right: 150px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.column {
+    float: left;
+    padding: 10px;
+}
+
+.left {
+    width: 60%;
+}
+
+.right {
+    width: 40%;
+    background-color: grey;
+    font-size: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+input {
+    font-size: 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
 }
 
 h1 {
@@ -18,29 +54,11 @@ h1 {
     text-shadow: 2px 2px #808080;
 }
 
-h2 {
-}
-
-p {
-    font-weight: 100;
-}
-
-a {
-    text-decoration: none;
+.menu-category-header {
+    color: blueviolet;
+    text-align: center;
 }
 
 .nav-link {
     font-size: 20px;
-}
-
-.ingredients p {
-    margin-left: 70px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    padding: 0px;
-}
-
-.menu-item {
-    border: 1px solid black;
-    margin: 5px;
 }

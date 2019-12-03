@@ -79,5 +79,6 @@ namespace DinoDiner.Menu
         /// </summary>
         public abstract string[] Special { get; }
 
+        public abstract string GetBasicName();
     }
 }

@@ -201,6 +201,11 @@ namespace DinoDiner.Menu
             return this.Entree.ToString() + " Combo";
         }
 
+        public string GetBasicName()
+        {
+            return this.ToString();
+        }
+
         private void OnItemPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             NotifyOfPropertyChanged("Special");
