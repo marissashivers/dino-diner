@@ -139,7 +139,10 @@ namespace DinoDiner.Menu
             sb.Append("Sodasaurus");
             return sb.ToString();
         }
-
+        /// <summary>
+        /// get basic name (no size or anything)
+        /// </summary>
+        /// <returns></returns>
         public override string GetBasicName()
         {
             return "Sodasaurus";

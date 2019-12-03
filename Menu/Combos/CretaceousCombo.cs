@@ -201,6 +201,10 @@ namespace DinoDiner.Menu
             return this.Entree.ToString() + " Combo";
         }
 
+        /// <summary>
+        /// get basic name (no size or anything)
+        /// </summary>
+        /// <returns></returns>
         public string GetBasicName()
         {
             return this.ToString();

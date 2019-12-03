@@ -100,6 +100,10 @@ namespace DinoDiner.Menu
             NotifyOfPropertyChanged("Special");
         }
 
+        /// <summary>
+        /// get basic name (no size or anything)
+        /// </summary>
+        /// <returns></returns>
         public abstract string GetBasicName();
     }
 

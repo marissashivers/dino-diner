@@ -57,6 +57,10 @@ namespace DinoDiner.Menu
         /// </summary>
         public abstract string[] Special { get; }
 
+        /// <summary>
+        /// get basic name (no size or anything)
+        /// </summary>
+        /// <returns></returns>
         public string GetBasicName()
         {
             return this.ToString();

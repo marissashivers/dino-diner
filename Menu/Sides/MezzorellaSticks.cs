@@ -112,7 +112,10 @@ namespace DinoDiner.Menu
             }
             return base.ToString();
         }
-
+        /// <summary>
+        /// get basic name (no size or anything)
+        /// </summary>
+        /// <returns></returns>
         public override string GetBasicName()
         {
             return "Mezzorella Sticks";

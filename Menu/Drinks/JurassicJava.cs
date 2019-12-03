@@ -177,7 +177,10 @@ namespace DinoDiner.Menu
             sb.Append("Jurassic Java");
             return sb.ToString();
         }
-
+        /// <summary>
+        /// get basic name (no size or anything)
+        /// </summary>
+        /// <returns></returns>
         public override string GetBasicName()
         {
             return "Jurassic Java";
