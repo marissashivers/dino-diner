@@ -226,6 +226,7 @@ namespace DinoDiner.Menu
             return results;
         }
 
+        /*
         /// <summary>
         /// Filter by specific menu category that user chooses e.g. entree, side, combo, drink
         /// </summary>
@@ -258,6 +259,7 @@ namespace DinoDiner.Menu
 
             return results;
         }
+        */
 
         /// <summary>
         /// Filters by min price specified by user
